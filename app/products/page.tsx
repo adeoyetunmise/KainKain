@@ -1,6 +1,6 @@
 import Image from "next/image";
-import React from "react";
 import productData from "@/public/data/productData.json";
+import Link from "next/link";
 
 const productPage = () => {
   return (
@@ -21,9 +21,11 @@ const productPage = () => {
               <div className="badge badge-secondary">NEW</div>
             </h2>
             <p>From {product.price} NGN</p>
-            <div className="card-actions">
-              <button className="btn btn-soft btn-warning">Buy Now</button>
-            </div>
+            <Link key={product.slug} href={`/products/${product.slug}`}>
+              <div className="card-actions">
+                <button className="btn btn-soft btn-warning">Buy Now</button>
+              </div>
+            </Link>
           </div>
         </div>
       ))}

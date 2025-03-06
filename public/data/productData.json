@@ -2,31 +2,37 @@
   {
     "title": "Akoko",
     "img": "/Akoko.jpg",
-    "price": "400,000"
+    "price": "400,000",
+    "slug": "akoko"
   },
   {
     "title": "Echoes Of Freedom",
     "img": "/EchoesOfFreedomi.jpg",
-    "price": "500,000"
+    "price": "500,000",
+    "slug": "echoes-of-freedom"
   },
   {
     "title": "KelegbeMegbe",
     "img": "/KelegbeMegbe.jpg",
-    "price": "200,000"
+    "price": "200,000",
+    "slug": "kelegbe-megbe"
   },
   {
     "title": "Oori",
     "img": "/Oori.jpg",
-    "price": "150,000"
+    "price": "150,000",
+    "slug": "oori"
   },
   {
     "title": "Prism",
     "img": "/Prism.jpg",
-    "price": "250,000"
+    "price": "250,000",
+    "slug": "prism"
   },
   {
     "title": "Time Passes In Sound",
     "img": "/TimePassesInSound.jpg",
-    "price": "350,000"
+    "price": "350,000",
+    "slug": "time-passes-in-sound"
   }
 ]
