@@ -1,5 +1,7 @@
+"use client"
 import Image from "next/image";
 import productData from '@/public/data/productData.json';
+import { useCartStore } from "@/store/cartStore";
 
 interface ProductPageProps {
   params: {
@@ -9,6 +11,7 @@ interface ProductPageProps {
 
 const ProductDetails = ({ params }: ProductPageProps) => {
   const product = productData.find((p) => p.slug === params.slug);
+  const addToCart = useCartStore((state) => state.addToCart);
 
   if (!product) {
     return (
@@ -52,7 +55,7 @@ const ProductDetails = ({ params }: ProductPageProps) => {
           </div>
           <p className="text-2xl">{product.price}</p>
           <div>
-            <button className="btn btn-warning">Buy Now</button>
+            <button className="btn btn-warning" onClick={() => addToCart(product)}>Buy Now</button>
           </div>
           <h3 className="text-3xl">Limited stock</h3>
           <p>
