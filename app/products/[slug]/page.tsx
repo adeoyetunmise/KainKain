@@ -1,24 +1,36 @@
-"use client"
+"use client";
+
+import { useParams } from "next/navigation";
 import Image from "next/image";
-import productData from '@/public/data/productData.json';
+import productData from "@/public/data/productData.json";
 import { useCartStore } from "@/store/cartStore";
+import { useEffect, useState } from "react";
 
-interface ProductPageProps {
-  params: {
+const ProductDetails = () => {
+  const params = useParams(); // Correct way to get dynamic route params
+  interface Product {
     slug: string;
-  };
-}
+    img: string;
+    title: string;
+    price: number;
+  }
 
-const ProductDetails = ({ params }: ProductPageProps) => {
-  const product = productData.find((p) => p.slug === params.slug);
+  const [product, setProduct] = useState<Product | null>(null);
   const addToCart = useCartStore((state) => state.addToCart);
+
+  useEffect(() => {
+    if (params?.slug) {
+      const foundProduct = productData.find((p) => p.slug === params.slug);
+      setProduct(foundProduct || null);
+    }
+  }, [params]);
 
   if (!product) {
     return (
       <h1 className="text-center text-2xl font-bold mt-10">
         Product Not Found
       </h1>
-    )
+    );
   }
 
   return (
@@ -53,9 +65,17 @@ const ProductDetails = ({ params }: ProductPageProps) => {
             </div>
             <span className="text-gray-400">4 (1435)</span>
           </div>
+
           <p className="text-2xl">{product.price}</p>
           <div>
-            <button className="btn btn-warning" onClick={() => addToCart(product)}>Buy Now</button>
+            <button
+              className="btn btn-warning"
+              onClick={() =>
+                addToCart({ ...product, price: product.price.toString() })
+              }
+            >
+              Buy Now
+            </button>
           </div>
           <h3 className="text-3xl">Limited stock</h3>
           <p>
