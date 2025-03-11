@@ -38,7 +38,7 @@ const ProductCards = () => {
         {products.map((product) => (
           <div
             key={product.id}
-            className="bg-white text-black w-full max-w-sm shadow-lg p-4 rounded-lg mx-auto"
+            className="bg-white border text-black w-full max-w-sm shadow-lg p-4 rounded-lg mx-auto"
           >
             <figure className="overflow-hidden rounded-lg">
               <img
@@ -52,7 +52,7 @@ const ProductCards = () => {
               <p className="text-gray-600">{product.description}</p>
               <p className="font-bold text-lg text-gray-800 mt-2">PRICE: {product.price}</p>
               <div className="mt-4">
-                <button className="btn btn-primary w-full sm:w-auto px-6 py-2">
+                <button className="btn btn-soft btn-warning w-full sm:w-auto px-6 py-2">
                   Buy Now
                 </button>
               </div>
@@ -63,7 +63,7 @@ const ProductCards = () => {
 
       {/* View All Button */}
       <Link href="/products">
-        <button className="btn btn-outline btn-primary  lg:h-16 text-lg px-8 py-3  sm:w-auto">
+        <button className=" btn-outline btn  btn-default  lg:h-16 text-lg px-8 py-3  sm:w-auto">
           View All
         </button>
       </Link>

@@ -23,60 +23,65 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative  h-screen w-full overflow-hidden">
+    <div className="relative h-screen w-full overflow-hidden bg-black">
       <div className="relative h-full w-full">
         <AnimatePresence mode="wait">
-          <motion.div
-            key={slides[currentIndex].id}
-            initial={{ x: "100%", opacity: 0 }}
-            animate={{ x: "0%", opacity: 1 }}
-            exit={{ x: "-100%", opacity: 0 }}
-            transition={{ duration: 1, ease: "easeInOut" }}
-            className="absolute h-full w-full"
-          >
-            <Image
-              src={slides[currentIndex].src}
-              layout="fill"
-              objectFit="cover"
-              alt={slides[currentIndex].title}
-              className="transition-all duration-700"
-            />
-          </motion.div>
+          {slides.map((slide, index) =>
+            index === currentIndex ? (
+              <motion.div
+                key={slide.id}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1.5, ease: "easeInOut" }}
+                className="absolute inset-0 flex flex-col items-center justify-center text-center"
+              >
+                {/* Background Image */}
+                <Image
+                  src={slide.src}
+                  fill
+                  style={{ objectFit: "cover" }}
+                  alt={slide.title}
+                  priority
+                  className="transition-opacity duration-1000"
+                />
+
+                {/* Text and Button (Inside same animated div) */}
+                <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 px-4">
+                  <motion.h1
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 1 }}
+                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-lg"
+                  >
+                    {slide.title}
+                  </motion.h1>
+
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 1 }}
+                    className="mt-4"
+                  >
+                    <Link href="/shop">
+                      <button className="btn border border-white bg-transparent px-6 sm:px-8 py-3 sm:py-4 text-lg sm:text-xl font-semibold text-white transition-all duration-300 hover:bg-white hover:text-black">
+                        Shop This Print
+                      </button>
+                    </Link>
+                  </motion.div>
+                </div>
+              </motion.div>
+            ) : null
+          )}
         </AnimatePresence>
       </div>
 
-      <div className="absolute  left-0 right-0 top-1/2 flex flex-col items-center -translate-y-1/2 text-center px-4">
-        <AnimatePresence mode="wait">
-          <motion.h1
-            key={slides[currentIndex].title}
-            initial={{ x: "-50%", opacity: 0 }}
-            animate={{ x: "0%", opacity: 1 }}
-            exit={{ x: "-50%", opacity: 0 }}
-            transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-            className="text-2xl  sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-lg"
-          >
-            {slides[currentIndex].title}
-          </motion.h1>
-        </AnimatePresence>
-
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 20, opacity: 0 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="relative mt-4"
-        >
-          <Link href="/shop">
-            <button className="btn border  border-white bg-transparent px-6 sm:px-8 py-3 sm:py-4 text-lg sm:text-xl font-semibold text-white transition-all duration-300 hover:bg-white hover:text-black">
-              Shop This Print
-            </button>
-          </Link>
-        </motion.div>
-      </div>
-
+      {/* Navigation Buttons */}
       <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
         <button
-          className="btn btn-circle w-6 h-6  bg-white text-gray-700 p-2 sm:p-4"
+          className="btn btn-circle w-6 h-6 bg-white text-gray-700 p-2 sm:p-4"
           onClick={() =>
             setCurrentIndex((prevIndex) =>
               prevIndex === 0 ? slides.length - 1 : prevIndex - 1
@@ -86,7 +91,7 @@ const Hero = () => {
           ❮
         </button>
         <button
-          className="btn btn-circle  w-6 h-6  bg-white text-gray-700 p-2 sm:p-4"
+          className="btn btn-circle w-6 h-6 bg-white text-gray-700 p-2 sm:p-4"
           onClick={() =>
             setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length)
           }

@@ -20,7 +20,7 @@ const Marquee: React.FC = () => {
         animate={{ x: "-100%" }}
         transition={{
           repeat: Infinity,
-          duration: 8,
+          duration: 20,
           ease: "linear",
         }}
       >

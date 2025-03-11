@@ -6,7 +6,7 @@ const productPage = () => {
   return (
     <section className="grid grid-cols-1 lg:grid-cols-3 gap-8 mx-10 md:mx-20 mt-10 place-items-center">
       {productData.map((product, index) => (
-        <div key={index} className="card bg-base-100 w-96 shadow-none">
+        <div key={index} className="card shadow-lg  w-96  rounded-lg mx-auto  ">
           <figure>
             <Image
               src={product.img}
