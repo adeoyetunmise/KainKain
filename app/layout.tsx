@@ -1,6 +1,13 @@
-
+import Footer from "@/components/Footer";
+import { Merriweather } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
+
+
+const merriweather = Merriweather({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 
 
@@ -11,10 +18,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body  className={merriweather.className}>
         <NavBar />
-
+        
         {children}
+        <Footer />
       </body>
     </html>
   );

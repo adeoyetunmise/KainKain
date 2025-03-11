@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Akoko",
+    "img": "/Akoko.jpg",
+    "price": 400000,
+    "slug": "akoko"
+  },
+  {
+    "title": "Echoes Of Freedom",
+    "img": "/EchoesOfFreedomi.jpg",
+    "price": 500000,
+    "slug": "echoes-of-freedom"
+  },
+  {
+    "title": "KelegbeMegbe",
+    "img": "/KelegbeMegbe.jpg",
+    "price": 200000,
+    "slug": "kelegbe-megbe"
+  },
+  {
+    "title": "Oori",
+    "img": "/Oori.jpg",
+    "price": 150000,
+    "slug": "oori"
+  },
+  {
+    "title": "Prism",
+    "img": "/Prism.jpg",
+    "price": 250000,
+    "slug": "prism"
+  },
+  {
+    "title": "Time Passes In Sound",
+    "img": "/TimePassesInSound.jpg",
+    "price": 350000,
+    "slug": "time-passes-in-sound"
+  }
+]
