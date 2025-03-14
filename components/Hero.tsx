@@ -6,7 +6,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 const slides = [
-  { id: 1, src: "/TimePassesInSoundii.jpg", title: "Time Passes In Sound" },
+  { id: 1, src: "/TimePassesInSoundii.jpg", title: "Time Passes In Sounds" },
   { id: 2, src: "/Oori.jpg", title: "Oori" },
   { id: 3, src: "/BirdsOfAFeatheri.jpg", title: "Birds Of a Feather" },
   { id: 4, src: "/Restless.jpg", title: "Restless" },
@@ -65,7 +65,7 @@ const Hero = () => {
                     transition={{ duration: 1 }}
                     className="mt-4"
                   >
-                    <Link href="/shop">
+                    <Link href={`/products/${slide.title.toLowerCase().replace(/\s+/g, "-")}`}>
                       <button className="btn border border-white bg-transparent px-6 sm:px-8 py-3 sm:py-4 text-lg sm:text-xl font-semibold text-white transition-all duration-300 hover:bg-white hover:text-black">
                         Shop This Print
                       </button>

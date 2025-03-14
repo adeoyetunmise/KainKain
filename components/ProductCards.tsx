@@ -5,10 +5,11 @@ import Link from "next/link";
 const products = [
   {
     id: 1,
-    title: "Aladire, 2024,",
+    title: "Aladire",
     img: "/TJPG2393.jpg",
     description: "Dyed Kainkain, on canvas with resin, acrylic white paint. 36 x 48 inches,",
     price: "N4,000,000",
+    slug:"aladire"
   },
   {
     id: 2,
@@ -16,20 +17,23 @@ const products = [
     img: "/EgbonAdugbo.jpg",
     description: "Acrylic print, Edition 1/5, 24 x 36 inches.",
     price: "N1,000,000",
+    slug:"egbon-adugbo"
   },
   {
     id: 3,
-    title: "Lifegiver, 2024",
+    title: "Lifegiver",
     img: "/TJPG2301.jpg",
     description: "Kainkain on canvas with resin oil and acrylic paint, 36 x 48 inches.",
     price: "N3,000,000",
+    slug:"life-giver"
+
   },
 ];
 
 const ProductCards = () => {
   return (
     <div className="flex flex-col items-center space-y-6 px-4 py-10">
-      <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center">
+      <h1 className="text-2xl sm:text-4xl lg:text-4xl font-bold text-center">
         Limited Edition Prints
       </h1>
 
@@ -48,13 +52,16 @@ const ProductCards = () => {
               />
             </figure>
             <div className="text-center py-4">
-              <h2 className="text-xl font-semibold">{product.title}</h2>
-              <p className="text-gray-600">{product.description}</p>
-              <p className="font-bold text-lg text-gray-800 mt-2">PRICE: {product.price}</p>
+              <h2 className="text-sm lg:text-lg font-semibold">{product.title}</h2>
+              <p className="text-gray-600 lg:text-xs text-xs">{product.description}</p>
+              <p className="font-bold lg:text-lg text-sm text-gray-800 mt-2">PRICE: {product.price}</p>
               <div className="mt-4">
+              <Link href={`/products/${product.slug}`}>
                 <button className="btn btn-soft btn-warning w-full sm:w-auto px-6 py-2">
                   Buy Now
                 </button>
+                </Link>
+
               </div>
             </div>
           </div>

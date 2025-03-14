@@ -8,7 +8,7 @@ import productsData from "@/app/data/products.json"; // Import JSON file
 export default function ProductList() {
   return (
     <div className="container mx-auto p-6">
-      <h1 className="text-4xl font-bold text-center mb-6">Photography By Tosin Josh</h1>
+      <h1 className="text-2xl lg:text-4xl font-bold text-center mb-6">Photography By Tosin Josh</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {productsData.map((product) => (
           <ProductCard key={product.id} product={product} />
