@@ -5,12 +5,24 @@ import Image from "next/image";
 import { useState } from "react";
 import productsData from "@/app/data/products.json"; // Import JSON file
 
+// Define the Product type
+type Product = {
+  id: number;
+  title: string;
+  image: string;
+  hoverImage?: string;
+  price: string;
+  slug: string;
+};
+
 export default function ProductList() {
   return (
     <div className="container mx-auto p-6">
-      <h1 className="text-4xl font-bold text-center mb-6">Photography By Tosin Josh</h1>
+      <h1 className="text-2xl lg:text-4xl font-bold text-center mb-6">
+        Photography By Tosin Josh
+      </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {productsData.map((product) => (
+        {productsData.map((product: Product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
@@ -18,18 +30,21 @@ export default function ProductList() {
   );
 }
 
-const ProductCard = ({ product }: { product: any }) => {
+const ProductCard = ({ product }: { product: Product }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <Link href={`/product/${product.slug}`} className="block border p-4 text-center rounded-lg shadow-md hover:shadow-xl transition">
+    <Link
+      href={`/product/${product.slug}`}
+      className="block border p-4 text-center rounded-lg shadow-md hover:shadow-xl transition"
+    >
       <div
         className="relative w-full h-96 overflow-hidden"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
         <Image
-          src={isHovered ? product.hoverImage : product.image}
+          src={isHovered && product.hoverImage ? product.hoverImage : product.image}
           alt={product.title}
           width={300}
           height={800}

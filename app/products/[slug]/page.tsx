@@ -41,19 +41,19 @@ const ProductDetails = () => {
             <Image
               src={product.img || "/TJPG2415.jpg"} // Ensure src is not an empty string
               alt={product.title}
-              width={300}
-              height={300}
+              width={400}
+              height={400}
               className="p-10"
             />
           </figure>
         </div>
 
         <div className="flex flex-col gap-8">
-          <h1 className="text-4xl font-bold">{product.title}</h1>
+          <h1 className="text-2xl font-bold text-gray-700">{product.title}</h1>
 
           <div className="flex gap-4">
-            <div className="rating">
-              <div className="mask mask-star" aria-label="1 star"></div>
+            <div className="rating text-black">
+              <div className="mask mask-star " aria-label="1 star"></div>
               <div className="mask mask-star" aria-label="2 star"></div>
               <div className="mask mask-star" aria-label="3 star"></div>
               <div className="mask mask-star" aria-label="4 star"></div>
@@ -63,10 +63,10 @@ const ProductDetails = () => {
                 aria-current="true"
               ></div>
             </div>
-            <span className="text-gray-400">4 (1435)</span>
+            <span className="text-gray-700">4 (1435)</span>
           </div>
 
-          <p className="text-2xl">{product.price}</p>
+          <p className="text-lg font-bold">₦{new Intl.NumberFormat("en-NG").format(product.price)}</p>
           <div>
             <button
               className="btn btn-warning"
@@ -77,8 +77,8 @@ const ProductDetails = () => {
               Buy Now
             </button>
           </div>
-          <h3 className="text-3xl">Limited stock</h3>
-          <p>
+          <h3 className="text-lg text-gray-700">Limited stock</h3>
+          <p className="text-sm text-gray-700">
             Order within <span className="font-bold">2 hrs 51 mins</span> and
             choose <span className="font-bold">2-Day shipping</span> to receive
             your product as soon as <span className="font-bold">Wednesday</span>

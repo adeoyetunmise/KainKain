@@ -36,16 +36,26 @@ const NavBar = () => {
 
       {/* Desktop Navigation */}
       <div className="hidden md:flex space-x-8 text-lg font-semibold text-gray-700">
-        <Link href="/" className="hover:text-black">
-          Home
-        </Link>
-        <Link href="/about" className="hover:text-black">
-          About
-        </Link>
-        <Link href="/shop" className="hover:text-black">
-          Shop Prints
-        </Link>
-      </div>
+  <Link
+    href="/"
+    className="hover:text-black border-b-2 border-transparent hover:border-amber-600 transition duration-300"
+  >
+    Home
+  </Link>
+  <Link
+    href="/about"
+    className="hover:text-black border-b-2 border-transparent hover:border-amber-600 transition duration-300"
+  >
+    About
+  </Link>
+  <Link
+    href="/products"
+    className="hover:text-black border-b-2 border-transparent hover:border-amber-600 transition duration-300"
+  >
+    Shop Prints
+  </Link>
+</div>
+
 
       {/* Cart & Mobile Menu Button */}
       <div className="flex items-center space-x-4">
@@ -104,7 +114,7 @@ const NavBar = () => {
             About
           </Link>
           <Link
-            href="/shop"
+            href="/products"
             className="hover:text-black"
             onClick={() => setMenuOpen(false)}
           >
