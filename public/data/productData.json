@@ -2,7 +2,7 @@
   {
     "title": "Akoko",
     "img": "/Akoko.jpg",
-    "price": 400000,
+    "price": 4000000,
     "slug": "akoko"
   },
   {
@@ -14,7 +14,7 @@
   {
     "title": "KelegbeMegbe",
     "img": "/KelegbeMegbe.jpg",
-    "price": 200000,
+    "price": 1000000,
     "slug": "kelegbe-megbe"
   },
   {
@@ -26,13 +26,71 @@
   {
     "title": "Prism",
     "img": "/Prism.jpg",
-    "price": 250000,
+    "price": 1000000,
     "slug": "prism"
   },
   {
     "title": "Time Passes In Sound",
     "img": "/TimePassesInSound.jpg",
-    "price": 350000,
+    "price": 500000,
     "slug": "time-passes-in-sound"
+  },
+  {
+    "title": "Sponge Tub",
+    "img": "/TJPG2233.jpg",
+    "price": 1000000,
+    "slug": "sponge-tub"
+  },
+  {
+    "title": "Lifegiver",
+    "img": "/TJPG2301.jpg",
+    "price": 3000000,
+    "slug": "life-giver"
+  },
+  {
+    "title": "Spirit",
+    "img": "/Spirit.jpg",
+    "price": 1000000,
+    "slug": "spirit"
+  },
+  
+  {
+    "title": "Birds of a feather",
+    "img": "/BirdsOfAFeatheri.jpg",
+    "price": 800000,
+    "slug": "birds-of-a-feather"
+  },
+  {
+    "title": "Time Passes In Sounds",
+    "img": "/TimePassesInSoundii.jpg",
+    "price": 500000,
+    "slug": "time-passes-in-sounds"
+  },
+  {
+    "title": "Restless",
+    "img": "/Restless.jpg",
+    "price": 500000,
+    "slug": "restless"
+  },
+  {
+    "title": "KainKain",
+    "img": "/TJPG2296.jpg",
+    "price": 5000000,
+    "slug": "kainkain"
+  },
+
+  {
+    "title": "Aladire",
+    "img": "/TJPG2394.jpg",
+    "price": 4000000,
+    "slug": "aladire"
+  },
+  {
+    "title": "Egbon Adugbo",
+    "img": "/EgbonAdugbo.jpg",
+    "price": 1000000,
+    "slug": "egbon-adugbo"
   }
+  
+
 ]
