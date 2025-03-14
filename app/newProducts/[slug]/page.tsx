@@ -11,7 +11,8 @@ type Product = {
   slug: string;
 };
 
-export default function ProductPage({ params }: { params: { slug: string } }) {
+// Add async to make this a server component that can resolve params properly
+export default async function ProductPage({ params }: { params: { slug: string } }) {
   if (!params || !params.slug) {
     return notFound();
   }
