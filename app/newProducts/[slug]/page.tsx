@@ -2,16 +2,25 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import productsData from "@/app/data/products.json"; // Import JSON file
 
+type Product = {
+  id: number;
+  title: string;
+  image: string;
+  hoverImage?: string;
+  price: string;
+  slug: string;
+};
+
 export default function ProductPage({ params }: { params: { slug: string } }) {
-    if (!params || !params.slug) {
-      return notFound();
-    }
-  
-    const product = productsData.find((p) => p.slug === params.slug);
-  
-    if (!product) {
-      return notFound();
-    }
+  if (!params || !params.slug) {
+    return notFound();
+  }
+
+  const product = productsData.find((p: Product) => p.slug === params.slug);
+
+  if (!product) {
+    return notFound();
+  }
 
   return (
     <div className="container mx-auto p-6 text-center">
