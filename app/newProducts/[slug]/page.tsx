@@ -3,11 +3,15 @@ import Image from "next/image";
 import productsData from "@/app/data/products.json"; // Import JSON file
 
 export default function ProductPage({ params }: { params: { slug: string } }) {
-  const product = productsData.find((p) => p.slug === params.slug);
-
-  if (!product) {
-    return notFound(); // Show 404 if product is not found
-  }
+    if (!params || !params.slug) {
+      return notFound();
+    }
+  
+    const product = productsData.find((p) => p.slug === params.slug);
+  
+    if (!product) {
+      return notFound();
+    }
 
   return (
     <div className="container mx-auto p-6 text-center">
