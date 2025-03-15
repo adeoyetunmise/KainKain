@@ -81,7 +81,7 @@ const Hero = () => {
       {/* Navigation Buttons */}
       <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
         <button
-          className="btn btn-circle w-6 h-6 bg-white text-gray-700 p-2 sm:p-4"
+          className="btn btn-circle border-0 w-6 h-6 bg-white text-gray-700 p-2 sm:p-4"
           onClick={() =>
             setCurrentIndex((prevIndex) =>
               prevIndex === 0 ? slides.length - 1 : prevIndex - 1
@@ -91,7 +91,7 @@ const Hero = () => {
           ❮
         </button>
         <button
-          className="btn btn-circle w-6 h-6 bg-white text-gray-700 p-2 sm:p-4"
+          className="btn btn-circle border-0 w-6 h-6 bg-white text-gray-700 p-2 sm:p-4"
           onClick={() =>
             setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length)
           }
