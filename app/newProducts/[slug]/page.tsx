@@ -11,19 +11,24 @@ type Product = {
   slug: string;
 };
 
-type Props = {
-  params: {
-    slug: string;
-  };
-};
+// Generate all possible slug values at build time
+export async function generateStaticParams() {
+  return productsData.map((product: Product) => ({
+    slug: product.slug,
+  }));
+}
 
-export default function ProductPage({ params }: Props) {
-  if (!params || !params.slug) {
-    return notFound();
-  }
+export default function ProductPage({
+  params,
+}: {
+  params: { slug: string }
+}) {
+  // Find the product based on the slug
+  const product = productsData.find(
+    (p: Product) => p.slug === params.slug
+  );
 
-  const product = productsData.find((p: Product) => p.slug === params.slug);
-
+  // If product not found, return 404
   if (!product) {
     return notFound();
   }
