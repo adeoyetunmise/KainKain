@@ -33,7 +33,7 @@ const ProductCard = ({ product }: { product: Product }) => {
 
   return (
     <Link
-      href={`/product/${product.slug}`}
+      href={`/products/${product.slug}`}
       className="block border p-4 text-center rounded-lg shadow-md hover:shadow-xl transition"
     >
       <div
