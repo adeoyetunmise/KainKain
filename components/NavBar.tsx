@@ -18,7 +18,7 @@ const NavBar = () => {
   const cartItems = useCartStore((state: { cartItems: CartItem[] }) => state.cartItems);
 
   return (
-    <nav className="bg-amber-100 lg:bg-amber-50  shadow-sm sticky top-0 z-50 w-full px-5 sm:px-10 py-6 flex items-center justify-between">
+    <nav className="bg-amber-100 shadow-sm sticky top-0 z-50 w-full px-5 sm:px-10 py-6 flex items-center justify-between">
       {/* Logo Section */}
       <div className="flex items-center flex-shrink-0">
         <Link href="/">

@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
   return (
     <div>
-      <footer className="footer mt-4 bg-amber-50 text-gray-700 rounded p-10 flex flex-col items-center space-y-6 lg:space-y-0 lg:flex-row lg:justify-between">
+      <footer className="footer mt-4 bg-amber-100 text-gray-700 rounded p-10 flex flex-col items-center space-y-6 lg:space-y-0 lg:flex-row lg:justify-between">
         
         {/* Quick Links & Contact - Side by Side */}
         <div className="flex flex-col lg:flex-row lg:space-x-20 text-center lg:text-left">
