@@ -44,13 +44,13 @@ const NavBar = () => {
       <div className="flex items-center gap-6">
         {/* Desktop NavLinks */}
         <div className="hidden md:flex space-x-6">
-          <Link href="/" className="text-lg font-semibold text-black hover:text-black">
+          <Link href="/" className="text-sm font-semibold text-black hover:text-black">
             Home
           </Link>
-          <Link href="/about" className="text-lg font-semibold text-black hover:text-black">
+          <Link href="/about" className="text-sm font-semibold text-black hover:text-black">
             About
           </Link>
-          <Link href="/products" className="text-lg font-semibold text-black hover:text-black">
+          <Link href="/products" className="text-sm font-semibold text-black hover:text-black">
             Shop Prints
           </Link>
         </div>
