@@ -3,21 +3,21 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { useCartStore } from "@/store/cartStore";
+// import { useCartStore } from "@/store/cartStore";
 import clsx from "clsx";
 
-interface CartItem {
-  slug: string;
-  title: string;
-  price: string;
-  img: string;
-  quantity: number;
-}
+// interface CartItem {
+//   slug: string;
+//   title: string;
+//   price: string;
+//   img: string;
+//   quantity: number;
+// }
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hovering, setHovering] = useState(false);
-  const cartItems = useCartStore((state: { cartItems: CartItem[] }) => state.cartItems);
+  // const cartItems = useCartStore((state: { cartItems: CartItem[] }) => state.cartItems);
 
   return (
     <nav
