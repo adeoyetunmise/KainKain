@@ -32,3 +32,52 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+/* Hero button sliding animation */
+.group:hover .group-hover\:scale-x-0 {
+  transform: scaleX(0);
+}
+
+.group:hover .group-hover\:bg-transparent {
+  background-color: transparent;
+}
+
+.group:hover .group-hover\:text-white {
+  color: white;
+}
+
+/* Button base styles */
+.btn {
+  position: relative;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition-property: all;
+  transition-duration: 300ms;
+}
+
+/* Marquee animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+  will-change: transform;
+}
+
+/* Ensure adjacent instances are right next to each other */
+.animate-marquee > div:first-child {
+  margin-right: 0;
+}

@@ -2,79 +2,92 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X } from "lucide-react"; // Icons for the mobile menu
-import { useCartStore } from "@/store/cartStore";
+import { Menu, X } from "lucide-react";
+// import { useCartStore } from "@/store/cartStore";
+import clsx from "clsx";
 
-interface CartItem {
-  slug: string;
-  title: string;
-  price: string;
-  img: string;
-  quantity: number;
-}
+// interface CartItem {
+//   slug: string;
+//   title: string;
+//   price: string;
+//   img: string;
+//   quantity: number;
+// }
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const cartItems = useCartStore((state: { cartItems: CartItem[] }) => state.cartItems);
+  const [hovering, setHovering] = useState(false);
+  // const cartItems = useCartStore((state: { cartItems: CartItem[] }) => state.cartItems);
 
   return (
-    <nav className="bg-amber-100 shadow-sm sticky top-0 z-50 w-full px-5 sm:px-10 py-6 flex items-center justify-between">
-      {/* Logo Section */}
-      <div className="flex items-center flex-shrink-0">
-        <Link href="/">
-          <Image src="/KainKainn.png" alt="Logo" width={120} height={40} priority />
-        </Link>
+    <nav
+      className={clsx(
+        "w-full px-5 sm:px-10 py-6 md:py-8 lg:py-10 flex items-center justify-between z-50 transition-all duration-300",
+        hovering ? "bg-white shadow-md" : "bg-transparent"
+      )}
+      onMouseEnter={() => setHovering(true)}
+      onMouseLeave={() => setHovering(false)}
+    >
+      {/* Logo - Left */}
+      <Link href="/">
+        <Image
+          src="/KainKainn.png"
+          alt="Logo"
+          width={100}
+          height={35}
+          priority
+          className="w-[80px] sm:w-[100px] transition-all duration-300"
+        />
+      </Link>
+
+      {/* NavLinks & Menu - Right */}
+      <div className="flex items-center gap-6">
+        {/* Desktop NavLinks */}
+        <div className="hidden md:flex space-x-6">
+          <Link href="/" className="text-sm font-semibold text-black hover:text-black">
+            Home
+          </Link>
+          <Link href="/about" className="text-sm font-semibold text-black hover:text-black">
+            About
+          </Link>
+          <Link href="/products" className="text-sm font-semibold text-black hover:text-black">
+            Shop Prints
+          </Link>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden flex items-center text-black transition-colors duration-300"
+          onClick={() => setMenuOpen(true)}
+        >
+          <Menu className="h-6 w-6 sm:h-7 sm:w-7" />
+        </button>
       </div>
 
-      {/* Desktop Navigation */}
-      <div className="hidden md:flex space-x-8 text-lg font-semibold text-gray-700">
-        <Link href="/" className="hover:text-black border-b-2 border-transparent hover:border-amber-600 transition duration-300">
+      {/* Mobile Navigation Drawer (Now slides in from the right) */}
+      <div
+        className={clsx(
+          "fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform transition-transform ease-in-out duration-300 z-50 flex flex-col space-y-6 pt-20 px-6",
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        )}
+      >
+        <button className="absolute top-4 left-4 text-black" onClick={() => setMenuOpen(false)}>
+          <X className="h-6 w-6" />
+        </button>
+
+        <Link href="/" className="text-sm  sm:text-lg font-semibold text-black hover:text-black" onClick={() => setMenuOpen(false)}>
           Home
         </Link>
-        <Link href="/about" className="hover:text-black border-b-2 border-transparent hover:border-amber-600 transition duration-300">
+        <Link href="/about" className="text-sm sm:text-lg font-semibold text-black hover:text-black" onClick={() => setMenuOpen(false)}>
           About
         </Link>
-        <Link href="/products" className="hover:text-black border-b-2 border-transparent hover:border-amber-600 transition duration-300">
+        <Link href="/products" className="text-sm  sm:text-lg font-semibold text-black hover:text-black" onClick={() => setMenuOpen(false)}>
           Shop Prints
         </Link>
       </div>
 
-      {/* Cart & Mobile Menu Button */}
-      <div className="flex items-center space-x-4">
-        {/* Cart Section */}
-        <div className="relative">
-          <button className="bg-black p-2 rounded-full relative">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" viewBox="0 0 24 24" stroke="currentColor" fill="none">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
-            {cartItems.length > 0 && (
-              <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
-                {cartItems.reduce((total, item) => total + item.quantity, 0)}
-              </span>
-            )}
-          </button>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button className="md:hidden text-black" onClick={() => setMenuOpen(!menuOpen)}>
-          {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
-      </div>
-
-      {/* Mobile Navigation */}
-      {menuOpen && (
-        <div className="absolute top-16 left-0 w-full bg-amber-100 shadow-md md:hidden flex flex-col items-center space-y-6 py-6 text-sm font-semibold text-gray-700 z-50">
-          <Link href="/" className="hover:text-black border-b border-transparent hover:border-amber-600 transition duration-300" onClick={() => setMenuOpen(false)}>
-            Home
-          </Link>
-          <Link href="/about" className="hover:text-black border-b border-transparent hover:border-amber-600 transition duration-300" onClick={() => setMenuOpen(false)}>
-            About
-          </Link>
-          <Link href="/products" className="hover:text-black border-b border-transparent hover:border-amber-600 transition duration-300" onClick={() => setMenuOpen(false)}>
-            Shop Prints
-          </Link>
-        </div>
-      )}
+      {/* Overlay for mobile menu */}
+      {menuOpen && <div className="fixed inset-0 bg-black opacity-40 z-40" onClick={() => setMenuOpen(false)} />}
     </nav>
   );
 };

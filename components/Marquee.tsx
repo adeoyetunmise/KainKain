@@ -9,21 +9,41 @@ const logos = [
   "/KainKainn.png",
   "/KainKain - Solo Exhibition.jpg",
   "/Kainkain symbol.png",
+  "/Kainkain symbol.png",
+  "/KainKainn.png",
+  "/KainKain - Solo Exhibition.jpg",
+  "/Kainkain symbol.png",
+  "/KainKainn.png",
+  "/KainKain - Solo Exhibition.jpg",
+  "/KainKainn.png",
+  "/KainKain - Solo Exhibition.jpg",
+  "/Kainkain symbol.png",
+  "/KainKainn.png",
+  "/KainKain - Solo Exhibition.jpg",
+  "/Kainkain symbol.png",
+  "/Kainkain symbol.png",
+  "/KainKainn.png",
+  "/KainKain - Solo Exhibition.jpg",
+  "/Kainkain symbol.png",
+  "/KainKainn.png",
+  "/KainKain - Solo Exhibition.jpg",
 ];
 
 const Marquee: React.FC = () => {
   return (
-    <div className="overflow-hidden h-48 bg-gray-100 py-4">
+    <div className="overflow-hidden h-48 bg-gray-100 py-4 relative">
       <motion.div
         className="flex space-x-8 w-max"
-        initial={{ x: "100%" }}
-        animate={{ x: "-100%" }}
+        initial={{ x: 0 }} // Start immediately at 0
+        animate={{ x: "-100%" }} // Move left continuously
         transition={{
           repeat: Infinity,
-          duration: 20,
-          ease: "linear",
+          repeatType: "loop",
+          duration: 60, // Adjust speed (shorter = faster)
+          ease: "linear", // Smoother, continuous movement
         }}
       >
+        {/* Duplicate the logos twice for a seamless loop */}
         {[...logos, ...logos].map((logo, index) => (
           <Image
             key={index}
@@ -34,11 +54,8 @@ const Marquee: React.FC = () => {
             className="object-contain mt-7"
           />
         ))}
-        
       </motion.div>
-      
     </div>
-    
   );
 };
 

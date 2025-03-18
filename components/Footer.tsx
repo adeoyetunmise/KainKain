@@ -3,24 +3,24 @@ import React from 'react';
 const Footer = () => {
   return (
     <div>
-      <footer className="footer mt-4 bg-amber-100 text-gray-700 rounded p-10 flex flex-col items-center space-y-6 lg:space-y-0 lg:flex-row lg:justify-between">
+      <footer className="footer mt-4  text-gray-700 rounded p-10 flex flex-col items-center space-y-6 lg:space-y-0 lg:flex-row lg:justify-between">
         
         {/* Quick Links & Contact - Side by Side */}
-        <div className="flex flex-col lg:flex-row lg:space-x-20 text-center lg:text-left">
+        <div className="flex flex-col lg:flex-row lg:space-x-20 text-center lg:text-left items-center lg:items-start space-y-6 lg:space-y-0">
           {/* Quick Links */}
           <div className="space-y-2">
-            <p className="text-lg font-semibold">Quick Links</p>
+            <p className="text-sm font-semibold">Quick Links</p>
             <nav className="flex flex-col space-y-1 text-xs lg:text-sm">
-              <a href="#" className="hover:underline">FAQs</a>
-              <a href="#" className="hover:underline">Shipping Policy</a>
-              <a href="#" className="hover:underline">Privacy Policy</a>
-              <a href="#" className="hover:underline">Terms of Service</a>
+              <a href="#" className="hover:underline text-xs">FAQs</a>
+              <a href="#" className="hover:underline text-xs">Shipping Policy</a>
+              <a href="#" className="hover:underline text-xs">Privacy Policy</a>
+              <a href="#" className="hover:underline text-xs">Terms of Service</a>
             </nav>
           </div>
 
           {/* Contact Details */}
           <div className="space-y-2">
-            <p className="text-lg font-semibold">Contact</p>
+            <p className="text-sm font-semibold">Contact</p>
             <p className='text-xs lg:text-sm'>📞 WhatsApp: +234 803 661 4674</p>
             <p className='text-xs lg:text-sm lowercase'>✉️ Email: themodalandexperience@gmail.com</p>
           </div>
