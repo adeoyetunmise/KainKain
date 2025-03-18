@@ -1,7 +1,7 @@
-"use client"; // Ensure it's a Client Component
-
+"use client"; 
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const products = [
   {
@@ -47,10 +47,14 @@ const ProductCards = () => {
 
       {/* Card Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 w-full max-w-7xl">
-        {products.map((product) => (
-          <div
+        {products.map((product, index) => (
+          <motion.div
             key={product.id}
-            className="bg-white text-black w-full overflow-hidden mx-auto aspect-[4/5]" // Increased height (4:5 aspect ratio)
+            className="bg-white text-black w-full overflow-hidden mx-auto aspect-[4/5]"
+            initial={{ opacity: 0, y: 50 }} // Start hidden & slightly below
+            whileInView={{ opacity: 1, y: 0 }} // Animate in when visible
+            transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.2 }} // Staggered delay
+            viewport={{ once: true }} // Animate only once
           >
             {/* Clickable Image */}
             <Link href={`/products/${product.slug}`} className="block relative w-full h-[70%]">
@@ -66,9 +70,9 @@ const ProductCards = () => {
 
             {/* Title, Price & Rating */}
             <div className="p-3 text-center h-[30%] flex flex-col justify-start">
-              <h2 className="text-sm lg:text-xs sm:text-lg font-normal">{product.title}</h2>
+              <h2 className="text-sm lg:text-sm sm:text-lg font-normal">{product.title}</h2>
 
-              <p className="font-normal lg:text-sm text-xs sm:text-lg text-gray-700 mt-0.5">
+              <p className="font-normal lg:text-sm text-xs sm:text-lg text-gray-600 mt-0.5">
                 From ₦ {product.price} NGN
               </p>
 
@@ -81,7 +85,7 @@ const ProductCards = () => {
                 <input type="radio" name={`rating-${product.id}`} className="mask mask-star bg-gray-950" aria-label="5 star" />
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
 
