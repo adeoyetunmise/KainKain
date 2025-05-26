@@ -1,7 +1,7 @@
-"use client"; // Ensure it's a Client Component
-
+"use client"; 
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const products = [
   {
@@ -14,7 +14,7 @@ const products = [
   },
   {
     id: 2,
-    title: "Egbon Adugbo ",
+    title: "Egbon Adugbo",
     img: "/EgbonAdugbo.jpg",
     description: "Acrylic print, Edition 1/5, 24 x 36 inches.",
     price: "1,000,000",
@@ -41,18 +41,22 @@ const products = [
 const ProductCards = () => {
   return (
     <div className="flex flex-col items-center space-y-4 md:space-y-6 px-4 py-6 md:py-10 container mx-auto">
-      <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center">
+      <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-2xl font-bold text-center">
         Limited Edition Prints
       </h1>
 
       {/* Card Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 w-full max-w-7xl">
-        {products.map((product) => (
-          <div
+        {products.map((product, index) => (
+          <motion.div
             key={product.id}
-            className="bg-white text-black w-full overflow-hidden mx-auto aspect-[4/5]" // Increased height (4:5 aspect ratio)
+            className="bg-white text-black w-full overflow-hidden mx-auto aspect-[4/5]"
+            initial={{ opacity: 0, y: 50 }} // Start hidden & slightly below
+            whileInView={{ opacity: 1, y: 0 }} // Animate in when visible
+            transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.2 }} // Staggered delay
+            viewport={{ once: true }} // Animate only once
           >
-            {/* Clickable Image - Square Format */}
+            {/* Clickable Image */}
             <Link href={`/products/${product.slug}`} className="block relative w-full h-[70%]">
               <Image
                 src={product.img}
@@ -64,19 +68,24 @@ const ProductCards = () => {
               />
             </Link>
 
+            {/* Title, Price & Rating */}
             <div className="p-3 text-center h-[30%] flex flex-col justify-start">
-              <h2 className="text-base sm:text-lg font-semibold">
-                {product.title}
-              </h2>
-              <p className="font-normal text-sm sm:text-lg text-gray-900 mt-1">From ₦ 
-                {product.price} NGN
+              <h2 className="text-sm lg:text-sm sm:text-lg font-normal">{product.title}</h2>
+
+              <p className="font-normal lg:text-sm text-xs sm:text-lg text-gray-600 mt-0.5">
+                From ₦ {product.price} NGN
               </p>
-              {/* <p className="text-gray-600 text-xs sm:text-sm">
-                {product.description}
-              </p> */}
-              
+
+              {/* Rating (Dark Stars) */}
+              <div className="rating flex justify-center mt-1 scale-75">
+                <input type="radio" name={`rating-${product.id}`} className="mask mask-star bg-gray-950" aria-label="1 star" />
+                <input type="radio" name={`rating-${product.id}`} className="mask mask-star bg-gray-950" aria-label="2 star" defaultChecked />
+                <input type="radio" name={`rating-${product.id}`} className="mask mask-star bg-gray-950" aria-label="3 star" />
+                <input type="radio" name={`rating-${product.id}`} className="mask mask-star bg-gray-950" aria-label="4 star" />
+                <input type="radio" name={`rating-${product.id}`} className="mask mask-star bg-gray-950" aria-label="5 star" />
+              </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
 

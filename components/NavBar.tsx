@@ -3,21 +3,21 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { useCartStore } from "@/store/cartStore";
+// import { useCartStore } from "@/store/cartStore";
 import clsx from "clsx";
 
-interface CartItem {
-  slug: string;
-  title: string;
-  price: string;
-  img: string;
-  quantity: number;
-}
+// interface CartItem {
+//   slug: string;
+//   title: string;
+//   price: string;
+//   img: string;
+//   quantity: number;
+// }
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hovering, setHovering] = useState(false);
-  const cartItems = useCartStore((state: { cartItems: CartItem[] }) => state.cartItems);
+  // const cartItems = useCartStore((state: { cartItems: CartItem[] }) => state.cartItems);
 
   return (
     <nav
@@ -44,13 +44,13 @@ const NavBar = () => {
       <div className="flex items-center gap-6">
         {/* Desktop NavLinks */}
         <div className="hidden md:flex space-x-6">
-          <Link href="/" className="text-lg font-semibold text-black hover:text-black">
+          <Link href="/" className="text-sm font-semibold text-black hover:text-black">
             Home
           </Link>
-          <Link href="/about" className="text-lg font-semibold text-black hover:text-black">
+          <Link href="/about" className="text-sm font-semibold text-black hover:text-black">
             About
           </Link>
-          <Link href="/products" className="text-lg font-semibold text-black hover:text-black">
+          <Link href="/products" className="text-sm font-semibold text-black hover:text-black">
             Shop Prints
           </Link>
         </div>

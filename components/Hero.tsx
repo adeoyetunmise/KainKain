@@ -53,7 +53,7 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.7 }} // Faster transition
-                    className="text-2xl sm:text-4xl md:text-5xl lg:text-4xl font-bold text-white drop-shadow-lg"
+                    className="text-2xl sm:text-4xl md:text-5xl lg:text-3xl font-bold text-white drop-shadow-lg"
                   >
                     -{slide.title}-
                   </motion.h1>
@@ -66,7 +66,7 @@ const Hero = () => {
                     className="mt-8 sm:mt-10"
                   >
                     <Link href={`/products/${slide.title.toLowerCase().replace(/\s+/g, "-")}`} className="inline-block">
-                      <button className="btn border-white rounded-none lg:h-14 lg:w-60 h-10 w-44 bg-transparent px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-xl font-semibold text-white transition-all duration-300 hover:bg-white hover:text-black">
+                      <button className="btn border-white rounded-none lg:h-14 lg:w-60 h-10 w-40 bg-transparent px-6 sm:px-8 py-3 sm:py-4 text-xs lg:text-sm sm:text-xl font-semibold text-white transition-all duration-300 hover:bg-white hover:text-black">
                         SHOP THIS PRINT
                       </button>
                     </Link>
