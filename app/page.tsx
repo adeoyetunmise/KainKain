@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <section>
       <Hero />
-      <Marquee />
+      {/* <Marquee /> */}
       <ProductCards />
       <hr className="text-gray-300"/>
       <ProductList />
