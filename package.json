@@ -8,13 +8,18 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky",
+    "format": "prettier --write .",
     "add-hook": "echo '#!/bin/sh\n. \"$(dirname \"$0\")/_/husky.sh\"\nnpx lint-staged' > .husky/pre-commit && chmod +x .husky/pre-commit"
   },
   "lint-staged": {
-  "**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-    "prettier --write"
-  ]
-},
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,css,scss,md}": [
+      "prettier --write"
+    ]
+  },
   "dependencies": {
     "clsx": "^2.1.1",
     "daisyui": "^5.0.0",
