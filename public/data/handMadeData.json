@@ -1,0 +1,88 @@
+{
+  "handMadeProducts": [
+    {
+      "slug": "black-sponge",
+      "title": "Black Sponge",
+      "image": "/images/black-sponge.jpg",
+      "hoverImage": "/images/black-sponge2.jpg",
+      "price": "$45"
+    },
+    {
+      "slug": "color-sponge",
+      "title": "Color Sponge",
+      "image": "/images/color-sponge.jpg",
+      "hoverImage": "/images/color-sponge2.jpg",
+      "price": "$50"
+    },
+    {
+      "slug": "dark-spot",
+      "title": "Dark Spot",
+      "image": "/images/dark-spot.jpg",
+      "hoverImage": "/images/dark-spot2.jpg",
+      "price": "$55"
+    },
+    {
+      "slug": "dark-stand",
+      "title": "Dark Stand",
+      "image": "/images/dark-stand.jpg",
+      "hoverImage": "/images/dark-stand2.jpg",
+      "price": "$60"
+    },
+    {
+      "slug": "guy-stand",
+      "title": "Guy Stand",
+      "image": "/images/guy-stand.jpg",
+      "hoverImage": "/images/guy-stand2.jpg",
+      "price": "$65"
+    },
+    {
+      "slug": "multi-color",
+      "title": "Multi Color",
+      "image": "/images/multi-color.jpg",
+      "hoverImage": "/images/multi-color2.jpg",
+      "price": "$70"
+    },
+    {
+      "slug": "orange-stand",
+      "title": "Orange Stand",
+      "image": "/images/orange-stand.jpg",
+      "hoverImage": "/images/orange-stand2.jpg",
+      "price": "$55"
+    },
+    {
+      "slug": "paper-sponge",
+      "title": "Paper Sponge",
+      "image": "/images/paper-sponge.jpg",
+      "hoverImage": "/images/paper-sponge2.jpg",
+      "price": "$45"
+    },
+    {
+      "slug": "white-sponge",
+      "title": "White Sponge",
+      "image": "/images/white-sponge1.jpg",
+      "hoverImage": "/images/white-sponge2.jpg",
+      "price": "$50"
+    },
+    {
+      "slug": "white-stand",
+      "title": "White Stand",
+      "image": "/images/white-stand.jpg",
+      "hoverImage": "/images/white-stand2.jpg",
+      "price": "$60"
+    },
+    {
+      "slug": "yellow-green",
+      "title": "Yellow Green",
+      "image": "/images/yellow-green.jpg",
+      "hoverImage": "/images/yellow-green2.jpg",
+      "price": "$65"
+    },
+    {
+      "slug": "yellow-stand",
+      "title": "Yellow Stand",
+      "image": "/images/yellow-stand.jpg",
+      "hoverImage": "/images/yellow-stand2.jpg",
+      "price": "$55"
+    }
+  ]
+}

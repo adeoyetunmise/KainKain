@@ -5,7 +5,7 @@ import ButtonLink from './ui/ButtonLink'
 
 const Hero = () => {
   return (
-    <div className="hero min-h-screen"
+    <div className="hero min-h-[800px]"
       style={{
         backgroundImage: "url('/home-hero.png')",
         backgroundSize: 'cover',

@@ -59,7 +59,7 @@ const NavBar = () => {
                   <summary className="text-sm font-semibold">Shop Prints</summary>
                   <ul className="p-2 bg-white shadow-md">
                     <li><Link href="/collection/hand-made" className="text-sm">Hand Made</Link></li>
-                    <li><Link href="/collection/print-out" className="text-sm">Print Out</Link></li>
+                    <li><Link href="/collection/print-art" className="text-sm">Print Arts</Link></li>
                     <li><Link href="/collection" className="text-sm">Collection</Link></li>
                   </ul>
                 </details>
@@ -118,7 +118,7 @@ const NavBar = () => {
               <summary className="text-sm sm:text-lg font-semibold">Shop Prints</summary>
               <ul className="p-2">
                 <li><Link href="/collection/hand-made" className="text-sm sm:text-base" onClick={() => setMenuOpen(false)}>Hand Made</Link></li>
-                <li><Link href="/collection/print-out" className="text-sm sm:text-base" onClick={() => setMenuOpen(false)}>Pront Out</Link></li>
+                <li><Link href="/products/print-art" className="text-sm sm:text-base" onClick={() => setMenuOpen(false)}>Print Arts</Link></li>
                 <li><Link href="/collection" className="text-sm sm:text-base" onClick={() => setMenuOpen(false)}>collection</Link></li>
               </ul>
             </details>
