@@ -1,45 +1,55 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const Footer = () => {
   return (
-
     <footer className='bg-black'>
+      <div className='footer sm:footer-horizontal  text-white p-10 max-w-7xl mx-auto'>
+        <aside>
+          <Image src='/KainKainn.png' alt='KainKain Logo' width={150} height={50} />
+        </aside>
 
-      <div className="footer sm:footer-horizontal  text-white p-10 max-w-7xl mx-auto">
-      <aside>
-        <Image
-          src='/KainKainn.png'
-          alt='KainKain Logo'
-          width={150}
-          height={50}
-        />
-      </aside>
+        <nav>
+          <h6 className='footer-title'>Links</h6>
+          <Link className='link link-hover' href='/'>
+            Home
+          </Link>
+          <Link className='link link-hover' href='/about'>
+            About
+          </Link>
+          <Link className='link link-hover' href='/collections/print-art'>
+            Print Arts
+          </Link>
+          <Link className='link link-hover' href='/collections/hand-made'>
+            Hand Made Arts
+          </Link>
+        </nav>
 
-      <nav>
-        <h6 className="footer-title">Links</h6>
-        <a className="link link-hover" href='/'>Home</a>
-        <a className="link link-hover" href='/about'>About</a>
-        <a className="link link-hover" href='/products/print-art'>Print Arts</a>
-        <a className="link link-hover" href='/products/hand-made'>Hand Made Arts</a>
-      </nav>
+        <nav>
+          <h6 className='footer-title'>Address</h6>
+          <p>
+            This catalogue was published on <br /> the occassion of the exhibition KAINKAIN 2024{' '}
+            <br /> at Untitiled, 59 Raymond Njoku Ikoyi
+          </p>
+          <p>© Toshjosh 2024</p>
+        </nav>
 
-      <nav>
-        <h6 className="footer-title">Address</h6>
-        <p>This catalogue was published on <br /> the occassion of the exhibition KAINKAIN 2024 <br /> at Untitiled, 59 Raymond Njoku Ikoyi</p>
-        <p>© Toshjosh 2024</p>
-      </nav>
-
-      <nav>
-        <h6 className="footer-title">For Enquires</h6>
-        <p>
-          Phone: <a href="tel:+2348036614674">+234 803 661 4674</a>
-        </p>
-        <p>
-          Email: <a href="mailto:themodalandexperience@gmail.com">themodalandexperience@gmail.com</a>
-        </p>
-        <input type="search" placeholder="Search" className="input bg-[#D9D9D9] placeholder:text-[#000000] text-black" />
-      </nav>
+        <nav>
+          <h6 className='footer-title'>For Enquires</h6>
+          <p>
+            Phone: <a href='tel:+2348036614674'>+234 803 661 4674</a>
+          </p>
+          <p>
+            Email:{' '}
+            <a href='mailto:themodalandexperience@gmail.com'>themodalandexperience@gmail.com</a>
+          </p>
+          <input
+            type='search'
+            placeholder='Search'
+            className='input bg-[#D9D9D9] placeholder:text-[#000000] text-black'
+          />
+        </nav>
       </div>
     </footer>
 

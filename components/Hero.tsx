@@ -1,29 +1,30 @@
-
-
-import React from 'react'
-import ButtonLink from './ui/ButtonLink'
+import React from 'react';
+import ButtonLink from './ui/ButtonLink';
 
 const Hero = () => {
   return (
-    <div className="hero min-h-[800px]"
+    <div
+      className='hero min-h-[800px]'
       style={{
         backgroundImage: "url('/home-hero.png')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
     >
-      <div className="hero-content text-center text-white">
-        <div className="md:max-w-md">
-          <p className="py-6">Explore</p>
-          <h1 className="text-2xl md:text-5xl font-bold">KAINKAIN COLLECTION</h1>
-          <ButtonLink className='mt-6'>Shop</ButtonLink>
+      <div className='hero-content text-center text-white'>
+        <div className='md:max-w-md'>
+          <p className='py-6'>Explore</p>
+          <h1 className='text-2xl md:text-5xl font-bold'>KAINKAIN COLLECTION</h1>
+          <ButtonLink href='/collections' className='mt-6'>
+            Shop
+          </ButtonLink>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
 // "use client";
 
 // import Image from "next/image";
