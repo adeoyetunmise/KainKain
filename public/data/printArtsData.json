@@ -1,0 +1,88 @@
+{
+  "printArts": [
+    {
+      "id": 1,
+      "slug": "akoko",
+      "title": "Akoko",
+      "image": "/Akoko.jpg",
+      "price": "$95"
+    },
+    {
+      "id": 2,
+      "slug": "birds-of-a-feather",
+      "title": "Birds Of A Feather",
+      "image": "/BirdsOfAFeatheri.jpg",
+      "price": "$85"
+    },
+    {
+      "id": 3,
+      "slug": "echoes-of-freedom",
+      "title": "Echoes Of Freedom",
+      "image": "/EchoesOfFreedomi.jpg",
+      "price": "$90"
+    },
+    {
+      "id": 4,
+      "slug": "egbon-adugbo",
+      "title": "Egbon Adugbo",
+      "image": "/EgbonAdugbo.jpg",
+      "price": "$75"
+    },
+    {
+      "id": 5,
+      "slug": "kelegbe-megbe",
+      "title": "Kelegbe Megbe",
+      "image": "/KelegbeMegbe.jpg",
+      "price": "$80"
+    },
+    {
+      "id": 6,
+      "slug": "oori",
+      "title": "Oori",
+      "image": "/Oori.jpg",
+      "price": "$85"
+    },
+    {
+      "id": 7,
+      "slug": "prism",
+      "title": "Prism",
+      "image": "/Prism.jpg",
+      "price": "$70"
+    },
+    {
+      "id": 8,
+      "slug": "restless",
+      "title": "Restless",
+      "image": "/Restless.jpg",
+      "price": "$75"
+    },
+    {
+      "id": 9,
+      "slug": "spirit",
+      "title": "Spirit",
+      "image": "/Spirit.jpg",
+      "price": "$95"
+    },
+    {
+      "id": 10,
+      "slug": "time-passes-in-sound",
+      "title": "Time Passes In Sound",
+      "image": "/TimePassesInSound.jpg",
+      "price": "$85"
+    },
+    {
+      "id": 11,
+      "slug": "time-passes-in-sound-ii",
+      "title": "Time Passes In Sound II",
+      "image": "/TimePassesInSoundii.jpg",
+      "price": "$85"
+    },
+    {
+      "id": 12,
+      "slug": "urban-skyline",
+      "title": "Urban Skyline",
+      "image": "/UrbanSkyline.jpg",
+      "price": "$90"
+    }
+  ]
+}

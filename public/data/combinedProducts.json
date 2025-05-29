@@ -1,0 +1,196 @@
+{
+  "products": [
+    {
+      "slug": "black-sponge",
+      "title": "Black Sponge",
+      "image": "/images/black-sponge.jpg",
+      "hoverImage": "/images/black-sponge2.jpg",
+      "price": 45,
+      "category": "handmade"
+    },
+    {
+      "slug": "color-sponge",
+      "title": "Color Sponge",
+      "image": "/images/color-sponge.jpg",
+      "hoverImage": "/images/color-sponge2.jpg",
+      "price": 50,
+      "category": "handmade"
+    },
+    {
+      "slug": "dark-spot",
+      "title": "Dark Spot",
+      "image": "/images/dark-spot.jpg",
+      "hoverImage": "/images/dark-spot2.jpg",
+      "price": 55,
+      "category": "handmade"
+    },
+    {
+      "slug": "dark-stand",
+      "title": "Dark Stand",
+      "image": "/images/dark-stand.jpg",
+      "hoverImage": "/images/dark-stand2.jpg",
+      "price": 60,
+      "category": "handmade"
+    },
+    {
+      "slug": "guy-stand",
+      "title": "Guy Stand",
+      "image": "/images/guy-stand.jpg",
+      "hoverImage": "/images/guy-stand2.jpg",
+      "price": 65,
+      "category": "handmade"
+    },
+    {
+      "slug": "multi-color",
+      "title": "Multi Color",
+      "image": "/images/multi-color.jpg",
+      "hoverImage": "/images/multi-color2.jpg",
+      "price": 70,
+      "category": "handmade"
+    },
+    {
+      "slug": "orange-stand",
+      "title": "Orange Stand",
+      "image": "/images/orange-stand.jpg",
+      "hoverImage": "/images/orange-stand2.jpg",
+      "price": 55,
+      "category": "handmade"
+    },
+    {
+      "slug": "paper-sponge",
+      "title": "Paper Sponge",
+      "image": "/images/paper-sponge.jpg",
+      "hoverImage": "/images/paper-sponge2.jpg",
+      "price": 45,
+      "category": "handmade"
+    },
+    {
+      "slug": "white-sponge",
+      "title": "White Sponge",
+      "image": "/images/white-sponge1.jpg",
+      "hoverImage": "/images/white-sponge2.jpg",
+      "price": 50,
+      "category": "handmade"
+    },
+    {
+      "slug": "white-stand",
+      "title": "White Stand",
+      "image": "/images/white-stand.jpg",
+      "hoverImage": "/images/white-stand2.jpg",
+      "price": 60,
+      "category": "handmade"
+    },
+    {
+      "slug": "yellow-green",
+      "title": "Yellow Green",
+      "image": "/images/yellow-green.jpg",
+      "hoverImage": "/images/yellow-green2.jpg",
+      "price": 65,
+      "category": "handmade"
+    },
+    {
+      "slug": "yellow-stand",
+      "title": "Yellow Stand",
+      "image": "/images/yellow-stand.jpg",
+      "hoverImage": "/images/yellow-stand2.jpg",
+      "price": 55,
+      "category": "handmade"
+    },
+    {
+      "id": 1,
+      "slug": "akoko",
+      "title": "Akoko",
+      "image": "/Akoko.jpg",
+      "price": 95,
+      "category": "printart"
+    },
+    {
+      "id": 2,
+      "slug": "birds-of-a-feather",
+      "title": "Birds Of A Feather",
+      "image": "/BirdsOfAFeatheri.jpg",
+      "price": 85,
+      "category": "printart"
+    },
+    {
+      "id": 3,
+      "slug": "echoes-of-freedom",
+      "title": "Echoes Of Freedom",
+      "image": "/EchoesOfFreedomi.jpg",
+      "price": 90,
+      "category": "printart"
+    },
+    {
+      "id": 4,
+      "slug": "egbon-adugbo",
+      "title": "Egbon Adugbo",
+      "image": "/EgbonAdugbo.jpg",
+      "price": 75,
+      "category": "printart"
+    },
+    {
+      "id": 5,
+      "slug": "kelegbe-megbe",
+      "title": "Kelegbe Megbe",
+      "image": "/KelegbeMegbe.jpg",
+      "price": 80,
+      "category": "printart"
+    },
+    {
+      "id": 6,
+      "slug": "oori",
+      "title": "Oori",
+      "image": "/Oori.jpg",
+      "price": 85,
+      "category": "printart"
+    },
+    {
+      "id": 7,
+      "slug": "prism",
+      "title": "Prism",
+      "image": "/Prism.jpg",
+      "price": 70,
+      "category": "printart"
+    },
+    {
+      "id": 8,
+      "slug": "restless",
+      "title": "Restless",
+      "image": "/Restless.jpg",
+      "price": 75,
+      "category": "printart"
+    },
+    {
+      "id": 9,
+      "slug": "spirit",
+      "title": "Spirit",
+      "image": "/Spirit.jpg",
+      "price": 95,
+      "category": "printart"
+    },
+    {
+      "id": 10,
+      "slug": "time-passes-in-sound",
+      "title": "Time Passes In Sound",
+      "image": "/TimePassesInSound.jpg",
+      "price": 85,
+      "category": "printart"
+    },
+    {
+      "id": 11,
+      "slug": "time-passes-in-sound-ii",
+      "title": "Time Passes In Sound II",
+      "image": "/TimePassesInSoundii.jpg",
+      "price": 85,
+      "category": "printart"
+    },
+    {
+      "id": 12,
+      "slug": "urban-skyline",
+      "title": "Urban Skyline",
+      "image": "/UrbanSkyline.jpg",
+      "price": 90,
+      "category": "printart"
+    }
+  ]
+}

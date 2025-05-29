@@ -1,100 +1,66 @@
-"use client"; 
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-
-const products = [
-  {
-    id: 1,
-    title: "Aladire",
-    img: "/TJPG2393.jpg",
-    description: "Dyed Kainkain, on canvas with resin, acrylic white paint. 36 x 48 inches.",
-    price: "4,000,000",
-    slug: "aladire"
-  },
-  {
-    id: 2,
-    title: "Egbon Adugbo",
-    img: "/EgbonAdugbo.jpg",
-    description: "Acrylic print, Edition 1/5, 24 x 36 inches.",
-    price: "1,000,000",
-    slug: "egbon-adugbo"
-  },
-  {
-    id: 3,
-    title: "Lifegiver",
-    img: "/TJPG2301.jpg",
-    description: "Kainkain on canvas with resin oil and acrylic paint, 36 x 48 inches.",
-    price: "3,000,000",
-    slug: "life-giver"
-  },
-  {
-    id: 4,
-    title: "Echoes Of Freedom",
-    img: "/EchoesOfFreedomi.jpg",
-    description: "Acrylic and mixed media on canvas, 40 x 40 inches.",
-    price: "500,000",
-    slug: "sacred-threads"
-  }
-];
+import combinedProducts from '@/public/data/combinedProducts.json'; // Import combined JSON file
+import ButtonLink from "./ui/ButtonLink";
 
 const ProductCards = () => {
   return (
     <div className="flex flex-col items-center space-y-4 md:space-y-6 px-4 py-6 md:py-10 container mx-auto">
       <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-2xl font-bold text-center">
-        Limited Edition Prints
-      </h1>
+        PRINT ARTS SHOP
+      </h1>      {/* Card Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4  w-full max-w-7xl">
+        {combinedProducts.products
+          .filter(product => product.category === "printart")
+          .slice(0, 4) // Take only the first item
+          .map((product, index) => (
+            <motion.div
+              key={product.id || index}
+              className="bg-white text-black w-full overflow-hidden mx-auto aspect-[4/5]"
+              initial={{ opacity: 0, y: 50 }} // Start hidden & slightly below
+              whileInView={{ opacity: 1, y: 0 }} // Animate in when visible
+              transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.2 }} // Staggered delay
+              viewport={{ once: true }} // Animate only once
+            >
+              {/* Clickable Image */}
+              <Link href={`/products/${product.slug}`} className="block relative w-full h-[70%]">
+                <Image
+                  src={product.image}
+                  alt={product.title}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-cover absolute top-0 left-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
+                  priority
+                />
+              </Link>
 
-      {/* Card Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 w-full max-w-7xl">
-        {products.map((product, index) => (
-          <motion.div
-            key={product.id}
-            className="bg-white text-black w-full overflow-hidden mx-auto aspect-[4/5]"
-            initial={{ opacity: 0, y: 50 }} // Start hidden & slightly below
-            whileInView={{ opacity: 1, y: 0 }} // Animate in when visible
-            transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.2 }} // Staggered delay
-            viewport={{ once: true }} // Animate only once
-          >
-            {/* Clickable Image */}
-            <Link href={`/products/${product.slug}`} className="block relative w-full h-[70%]">
-              <Image
-                src={product.img}
-                alt={product.title}
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                className="object-cover absolute top-0 left-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
-                priority
-              />
-            </Link>
+              {/* Title, Price & Rating */}
+              <div className="p-3 text-left h-[30%] flex flex-col justify-start">
+                <h2 className="text-sm lg:text-sm sm:text-lg font-normal">{product.title}</h2>
 
-            {/* Title, Price & Rating */}
-            <div className="p-3 text-center h-[30%] flex flex-col justify-start">
-              <h2 className="text-sm lg:text-sm sm:text-lg font-normal">{product.title}</h2>
+                <p className="font-normal lg:text-sm text-xs sm:text-lg text-gray-600 mt-0.5">
+                  From ₦ {product.price} NGN
+                </p>
 
-              <p className="font-normal lg:text-sm text-xs sm:text-lg text-gray-600 mt-0.5">
-                From ₦ {product.price} NGN
-              </p>
-
-              {/* Rating (Dark Stars) */}
+                {/* Rating (Dark Stars)
               <div className="rating flex justify-center mt-1 scale-75">
                 <input type="radio" name={`rating-${product.id}`} className="mask mask-star bg-gray-950" aria-label="1 star" />
                 <input type="radio" name={`rating-${product.id}`} className="mask mask-star bg-gray-950" aria-label="2 star" defaultChecked />
                 <input type="radio" name={`rating-${product.id}`} className="mask mask-star bg-gray-950" aria-label="3 star" />
                 <input type="radio" name={`rating-${product.id}`} className="mask mask-star bg-gray-950" aria-label="4 star" />
                 <input type="radio" name={`rating-${product.id}`} className="mask mask-star bg-gray-950" aria-label="5 star" />
+              </div> */}
               </div>
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          ))}
       </div>
 
       {/* View All Button */}
-      <Link href="/products" className="mt-4 md:mt-6">
-        <button className="btn-outline bg-black rounded-none text-white btn btn-default h-10 md:h-12 text-sm md:text-base px-6 md:px-8 py-2 md:py-3 border-0">
-          View All
-        </button>
-      </Link>
+      <div className="flex justify-center">
+        <ButtonLink href="/products/print-arts"> View More</ButtonLink>
+      </div>
     </div>
   );
 };

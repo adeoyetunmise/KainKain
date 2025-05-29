@@ -31,7 +31,7 @@ const logos = [
 
 const Marquee: React.FC = () => {
   return (
-    <div className="overflow-hidden h-48 bg-gray-100 py-4 relative">
+    <div className="overflow-hidden flex items-center relative my-8">
       <motion.div
         className="flex space-x-8 w-max"
         initial={{ x: 0 }} // Start immediately at 0
@@ -49,7 +49,7 @@ const Marquee: React.FC = () => {
             key={index}
             src={logo}
             alt="logo"
-            width={100}
+            width={50}
             height={50}
             className="object-contain mt-7"
           />
