@@ -1,6 +1,7 @@
 {
   "products": [
     {
+      "id": 1,
       "slug": "black-sponge",
       "title": "Black Sponge",
       "image": "/images/black-sponge.jpg",
@@ -9,6 +10,7 @@
       "category": "handmade"
     },
     {
+      "id": 2,
       "slug": "color-sponge",
       "title": "Color Sponge",
       "image": "/images/color-sponge.jpg",
@@ -17,6 +19,7 @@
       "category": "handmade"
     },
     {
+      "id": 3,
       "slug": "dark-spot",
       "title": "Dark Spot",
       "image": "/images/dark-spot.jpg",
@@ -25,6 +28,7 @@
       "category": "handmade"
     },
     {
+      "id": 4,
       "slug": "dark-stand",
       "title": "Dark Stand",
       "image": "/images/dark-stand.jpg",
@@ -33,6 +37,7 @@
       "category": "handmade"
     },
     {
+      "id": 5,
       "slug": "guy-stand",
       "title": "Guy Stand",
       "image": "/images/guy-stand.jpg",
@@ -41,6 +46,7 @@
       "category": "handmade"
     },
     {
+      "id": 6,
       "slug": "multi-color",
       "title": "Multi Color",
       "image": "/images/multi-color.jpg",
@@ -49,6 +55,7 @@
       "category": "handmade"
     },
     {
+      "id": 7,
       "slug": "orange-stand",
       "title": "Orange Stand",
       "image": "/images/orange-stand.jpg",
@@ -57,6 +64,7 @@
       "category": "handmade"
     },
     {
+      "id": 8,
       "slug": "paper-sponge",
       "title": "Paper Sponge",
       "image": "/images/paper-sponge.jpg",
@@ -65,6 +73,7 @@
       "category": "handmade"
     },
     {
+      "id": 9,
       "slug": "white-sponge",
       "title": "White Sponge",
       "image": "/images/white-sponge1.jpg",
@@ -73,6 +82,7 @@
       "category": "handmade"
     },
     {
+      "id": 10,
       "slug": "white-stand",
       "title": "White Stand",
       "image": "/images/white-stand.jpg",
@@ -81,6 +91,7 @@
       "category": "handmade"
     },
     {
+      "id": 11,
       "slug": "yellow-green",
       "title": "Yellow Green",
       "image": "/images/yellow-green.jpg",
@@ -89,6 +100,7 @@
       "category": "handmade"
     },
     {
+      "id": 12,
       "slug": "yellow-stand",
       "title": "Yellow Stand",
       "image": "/images/yellow-stand.jpg",
@@ -97,7 +109,7 @@
       "category": "handmade"
     },
     {
-      "id": 1,
+      "id": 13,
       "slug": "akoko",
       "title": "Akoko",
       "image": "/Akoko.jpg",
@@ -105,7 +117,7 @@
       "category": "printart"
     },
     {
-      "id": 2,
+      "id": 14,
       "slug": "birds-of-a-feather",
       "title": "Birds Of A Feather",
       "image": "/BirdsOfAFeatheri.jpg",
@@ -113,7 +125,7 @@
       "category": "printart"
     },
     {
-      "id": 3,
+      "id": 15,
       "slug": "echoes-of-freedom",
       "title": "Echoes Of Freedom",
       "image": "/EchoesOfFreedomi.jpg",
@@ -121,7 +133,7 @@
       "category": "printart"
     },
     {
-      "id": 4,
+      "id": 16,
       "slug": "egbon-adugbo",
       "title": "Egbon Adugbo",
       "image": "/EgbonAdugbo.jpg",
@@ -129,7 +141,7 @@
       "category": "printart"
     },
     {
-      "id": 5,
+      "id": 17,
       "slug": "kelegbe-megbe",
       "title": "Kelegbe Megbe",
       "image": "/KelegbeMegbe.jpg",
@@ -137,7 +149,7 @@
       "category": "printart"
     },
     {
-      "id": 6,
+      "id": 18,
       "slug": "oori",
       "title": "Oori",
       "image": "/Oori.jpg",
@@ -145,7 +157,7 @@
       "category": "printart"
     },
     {
-      "id": 7,
+      "id": 19,
       "slug": "prism",
       "title": "Prism",
       "image": "/Prism.jpg",
@@ -153,7 +165,7 @@
       "category": "printart"
     },
     {
-      "id": 8,
+      "id": 20,
       "slug": "restless",
       "title": "Restless",
       "image": "/Restless.jpg",
@@ -161,7 +173,7 @@
       "category": "printart"
     },
     {
-      "id": 9,
+      "id": 21,
       "slug": "spirit",
       "title": "Spirit",
       "image": "/Spirit.jpg",
@@ -169,7 +181,7 @@
       "category": "printart"
     },
     {
-      "id": 10,
+      "id": 22,
       "slug": "time-passes-in-sound",
       "title": "Time Passes In Sound",
       "image": "/TimePassesInSound.jpg",
@@ -177,7 +189,7 @@
       "category": "printart"
     },
     {
-      "id": 11,
+      "id": 23,
       "slug": "time-passes-in-sound-ii",
       "title": "Time Passes In Sound II",
       "image": "/TimePassesInSoundii.jpg",
@@ -185,7 +197,7 @@
       "category": "printart"
     },
     {
-      "id": 12,
+      "id": 24,
       "slug": "urban-skyline",
       "title": "Urban Skyline",
       "image": "/UrbanSkyline.jpg",

@@ -6,10 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "prepare": "husky",
-    "format": "prettier --write .",
-    "add-hook": "echo '#!/bin/sh\n. \"$(dirname \"$0\")/_/husky.sh\"\nnpx lint-staged' > .husky/pre-commit && chmod +x .husky/pre-commit"
+    "lint": "next lint"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -36,11 +33,6 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.2.0",
-    "husky": "^9.1.7",
-    "lint-staged": "^16.0.0",
-    "prettier": "^3.5.3",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

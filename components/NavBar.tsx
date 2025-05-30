@@ -20,13 +20,22 @@ import Cart from './ui/Cart';
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hovering, setHovering] = useState(false);
+  const [scroll, setScroll] = useState(false);
   // const cartItems = useCartStore((state: { cartItems: CartItem[] }) => state.cartItems);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setScroll(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <nav
       className={clsx(
-        'w-full px-5 sm:px-10 py-4 md:py-4 flex items-center justify-between z-50 transition-all duration-300 fixed top-0 left-0 bg-white',
-        hovering ? 'bg-white shadow-md' : 'bg-transparent'
+        'w-full px-5 sm:px-10 py-4 md:py-4 flex items-center justify-between z-50 transition-all duration-300 fixed top-0 left-0 bg-transparent',
+        hovering || scroll ? 'bg-white shadow-md text-black' : 'bg-transparent text-white'
       )}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
