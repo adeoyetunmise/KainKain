@@ -1,5 +1,5 @@
 import { create } from "zustand";
-
+// Zustand store for managing cart state
 interface CartState {
     cartItems: { slug: string; title: string; price: string; img: string; quantity: number }[];
     addToCart: (product: { slug: string; title: string; price: string; img: string }) => void;
