@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import combinedProducts from '@/public/data/combinedProducts.json'; // Import combined JSON file
-import ButtonLink from "./ui/ButtonLink";
+import ButtonLink from "../ui/ButtonLink";
 
 const ProductCards = () => {
   return (

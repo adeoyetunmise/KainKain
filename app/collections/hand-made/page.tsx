@@ -22,7 +22,7 @@ const HandMade = () => {
         />
       </section>
 
-      <ProductCollectionListing category="handmade" />
+      <ProductCollectionListing />
 
     </section>
   );

@@ -20,8 +20,10 @@ const PrintArt = () => {
                 maxWidth: '1100px'
               }}
             />
-        </section>        {/* ProductCollectionListing component with printart category filter */}
-        <ProductCollectionListing category="printart" />
+        </section>
+    
+        {/* ProductCollectionListing component can be added here */}
+        <ProductCollectionListing />
     </section>
   )
 }
