@@ -7,12 +7,20 @@ import clsx from 'clsx';
 import Search from './ui/Search';
 import Language from './ui/Language';
 import Cart from './ui/Cart';
+import { usePathname } from 'next/navigation';
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hovering, setHovering] = useState(false);
   const [scroll, setScroll] = useState(false);
   const detailsRef = useRef<HTMLDetailsElement>(null);
+  const pathname = usePathname();
+  
+  // Determine if the current page should have dark text by default
+  // Add your page paths that should have dark text by default
+  const isDarkTextPage = ['/about', '/collections', '/products'].some(path => 
+    pathname.startsWith(path)
+  );
 
   // Handle clicks outside the dropdown
   useEffect(() => {
@@ -40,8 +48,10 @@ const NavBar = () => {
   return (
     <nav
       className={clsx(
-        'w-full px-5 sm:px-10 py-4 md:py-4 flex items-center justify-between z-50 transition-all duration-300 fixed top-0 left-0 bg-transparent',
-        hovering || scroll ? 'bg-white shadow-md text-black' : 'bg-transparent text-white'
+        'w-full px-5 sm:px-10 py-4 md:py-4 flex items-center justify-between z-50 transition-all duration-300 fixed top-0 left-0',
+        hovering || scroll ? 'bg-white shadow-md text-black' : 'bg-transparent',
+        // Apply dark text by default on certain pages when not scrolled
+        !hovering && !scroll ? (isDarkTextPage ? 'text-black' : 'text-white') : ''
       )}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
@@ -113,10 +123,13 @@ const NavBar = () => {
           </div>
           {/* Mobile Menu Button */}
           <button
-            className='md:hidden justify-end flex items-center text-black transition-colors duration-300'
+            className={clsx(
+              'md:hidden justify-end flex items-center transition-colors duration-300',
+              !hovering && !scroll && !isDarkTextPage ? 'text-white' : 'text-black'
+            )}
             onClick={() => setMenuOpen(true)}
           >
-            <Menu className='' />
+            <Menu className='cursor-pointer' />
           </button>
         </div>
       </div>

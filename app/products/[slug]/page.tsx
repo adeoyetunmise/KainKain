@@ -2,8 +2,7 @@
 
 import { useParams } from "next/navigation";
 import Image from "next/image";
-import productData from "@/public/data/productData.json";
-import products from "@/app/data/products.json"; // Ensure correct import
+import combinedProducts from "@/public/data/combinedProducts.json";
 import { useCartStore } from "@/store/cartStore";
 import { useEffect, useState } from "react";
 
@@ -11,30 +10,25 @@ const ProductDetails = () => {
   const params = useParams(); // Get slug from the dynamic route
   const addToCart = useCartStore((state) => state.addToCart);
 
-  // Define the product structure
+  // Define the product structure based on combinedProducts.json
   interface Product {
+    id: number;
     slug: string;
-    img: string;
     title: string;
-    description?: string;
+    image: string;
+    hoverImage?: string;
     price: number;
+    category: string;
   }
 
   const [product, setProduct] = useState<Product | null>(null);
 
   useEffect(() => {
     if (params?.slug) {
-      // Merge both datasets and find the product by slug
-      const mergedProducts = [
-        ...productData,
-        ...products.map((p) => ({
-          slug: p.slug,
-          img: p.image,
-          title: p.title,
-          price: parseFloat(p.price),
-        })),
-      ];
-      const foundProduct = mergedProducts.find((p) => p.slug === params.slug);
+      // Find the product by slug from combinedProducts.json
+      const foundProduct = combinedProducts.products.find(
+        (p) => p.slug === params.slug
+      );
       setProduct(foundProduct || null);
     }
   }, [params]);
@@ -53,7 +47,7 @@ const ProductDetails = () => {
         <div className="border-b lg:border-r lg:border-b-0 flex items-center justify-center">
           <figure>
             <Image
-              src={product.img || "/TJPG2415.jpg"} // Default image fallback
+              src={product.image || "/TJPG2415.jpg"} // Using the image property from combinedProducts
               alt={product.title}
               width={400}
               height={400}
@@ -65,9 +59,9 @@ const ProductDetails = () => {
         <div className="flex flex-col gap-8">
           <h1 className="text-2xl font-bold text-gray-700">{product.title}</h1>
 
-          {product.description && (
+          {/* {product.description && (
             <p className="text-gray-600">{product.description}</p>
-          )}
+          )} */}
 
           <div className="flex gap-4">
             <div className="rating text-black">
@@ -92,7 +86,12 @@ const ProductDetails = () => {
             <button
               className="btn btn-warning"
               onClick={() =>
-                addToCart({ ...product, price: product.price.toString() })
+                addToCart({
+                  slug: product.slug,
+                  title: product.title,
+                  price: product.price.toString(),
+                  img: product.image,
+                })
               }
             >
               Buy Now
@@ -103,7 +102,8 @@ const ProductDetails = () => {
           <p className="text-sm text-gray-700">
             Order within <span className="font-bold">2 hrs 51 mins</span> and
             choose <span className="font-bold">2-Day shipping</span> to receive
-            your product as soon as <span className="font-bold">Wednesday</span>
+            your product as soon as{" "}
+            <span className="font-bold">Wednesday</span>
           </p>
         </div>
       </div>

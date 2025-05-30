@@ -43,7 +43,7 @@ export default function ProductList() {
           ))}
           </motion.div>
           <div className="flex justify-center mt-4 md:mt-6">
-          <ButtonLink href="/products/hand-made"> View More</ButtonLink>      
+          <ButtonLink href="/collections/hand-made"> View More</ButtonLink>      
           </div>
     </div>
   );

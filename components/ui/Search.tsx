@@ -13,7 +13,7 @@ const SearchIcon = () => {
     return (
         <div className="relative flex items-center gap-4">
             {iconClicked && (
-                <input type="search" placeholder="Search" className="input" />
+                <input type="search" placeholder="Search" className="input bg-transparent border border-white" />
             )}
             <Search onClick={handleClick} className="cursor-pointer" />
         </div>

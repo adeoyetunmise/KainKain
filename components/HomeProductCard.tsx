@@ -22,7 +22,7 @@ const HomeProductCard = () => {
 
       {/* View All Button */}
       <div className='flex justify-center'>
-        <ButtonLink href='/products/print-arts'>View More</ButtonLink>
+        <ButtonLink href='/collections/print-art'>View More</ButtonLink>
       </div>
     </div>
   );
