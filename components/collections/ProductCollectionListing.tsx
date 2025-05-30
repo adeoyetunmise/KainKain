@@ -1,7 +1,7 @@
 'use client';
 
-import { ChevronDown, CircleX, Settings2, X } from 'lucide-react';
-import Image from 'next/image';
+import { ChevronDown, CircleX, Settings2 } from 'lucide-react';
+// Removed unused X and Image imports
 import { useState, useRef, useEffect } from 'react';
 import ProductGrid from '../products/ProductGrid';
 import { ProductCardProps } from '../products/ProductCard';
@@ -23,7 +23,8 @@ const ProductCollectionListing = ({ category }: ProductCollectionListingProps) =
     ? productsData.products.filter(product => product.category === category)
     : productsData.products;
     
-  const [products, setProducts] = useState<ProductCardProps[]>(initialProducts);
+  // Changed to readonly state since setProducts is never used
+  const [products] = useState<ProductCardProps[]>(initialProducts);
   const [filteredProducts, setFilteredProducts] = useState<ProductCardProps[]>(products);
   const [selectedSort, setSelectedSort] = useState<SortOption>('featured');
   const [priceRange, setPriceRange] = useState({ from: '', to: '' });
@@ -80,10 +81,10 @@ const ProductCollectionListing = ({ category }: ProductCollectionListingProps) =
   });
 
   // Create refs for each dropdown
-  const availabilityRef = useRef(null);
-  const priceRef = useRef(null);
-  const sortRef = useRef(null);
-  const mobileFilterRef = useRef(null);
+  const availabilityRef = useRef<HTMLDivElement>(null);
+  const priceRef = useRef<HTMLDivElement>(null);
+  const sortRef = useRef<HTMLDivElement>(null);
+  const mobileFilterRef = useRef<HTMLDivElement>(null);
 
   const toggleFilter = (filterName: FilterKey) => {
     setOpenFilters(prev => {
@@ -107,28 +108,28 @@ const ProductCollectionListing = ({ category }: ProductCollectionListingProps) =
       // Close availability dropdown if clicked outside
       if (openFilters.availability && 
           availabilityRef.current && 
-          !(availabilityRef.current as any).contains(event.target)) {
+          !availabilityRef.current.contains(event.target as Node)) {
         setOpenFilters(prev => ({ ...prev, availability: false }));
       }
       
       // Close price dropdown if clicked outside
       if (openFilters.price && 
           priceRef.current && 
-          !(priceRef.current as any).contains(event.target)) {
+          !priceRef.current.contains(event.target as Node)) {
         setOpenFilters(prev => ({ ...prev, price: false }));
       }
       
       // Close sort dropdown if clicked outside
       if (openFilters.sort && 
           sortRef.current && 
-          !(sortRef.current as any).contains(event.target)) {
+          !sortRef.current.contains(event.target as Node)) {
         setOpenFilters(prev => ({ ...prev, sort: false }));
       }
       
       // Close mobile filter sidebar if clicked outside
       if (mobileFilterOpen && 
           mobileFilterRef.current && 
-          !(mobileFilterRef.current as any).contains(event.target)) {
+          !mobileFilterRef.current.contains(event.target as Node)) {
         setMobileFilterOpen(false);
       }
     };
@@ -141,6 +142,7 @@ const ProductCollectionListing = ({ category }: ProductCollectionListingProps) =
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [openFilters, mobileFilterOpen]); // Re-run effect when openFilters changes
+
   return (
     <section className='my-10'>
       <section>

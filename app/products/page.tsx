@@ -1,9 +1,5 @@
 "use client"; // Ensure it's a Client Component
 
-import Image from "next/image";
-import productData from "@/public/data/productData.json";
-import Link from "next/link";
-import { motion } from "framer-motion";
 import ProductCollectionListing from "@/components/collections/ProductCollectionListing";
 
 const ProductPage = () => {

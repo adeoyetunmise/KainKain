@@ -13,7 +13,7 @@ export interface ProductCardProps {
   hoverImage?: string;
 }
 
-const ProductCard = ({ slug, title, image, price, category, hoverImage }: ProductCardProps) => {
+const ProductCard = ({ slug, title, image, price, }: ProductCardProps) => {
   return (
     <div className="product-card group">
       <Link href={`/products/${slug}`}>
