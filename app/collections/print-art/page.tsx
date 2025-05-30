@@ -1,3 +1,4 @@
+import ProductCollectionListing from '@/components/collections/ProductCollectionListing'
 import React from 'react'
 
 const PrintArt = () => {
@@ -11,7 +12,7 @@ const PrintArt = () => {
     
         <section className='flex flex-col items-center justify-center gap-4 mt-10'>
             <div 
-              className='w-full h-[300px] mb-20 rounded-[100px] shadow-lg' 
+              className='w-full h-[300px] mb-20 rounded-4xl shadow-lg' 
               style={{
                 backgroundImage: "url('/TimePassesInSoundii.jpg')",
                 backgroundSize: 'cover',
@@ -19,9 +20,8 @@ const PrintArt = () => {
                 maxWidth: '1100px'
               }}
             />
-        </section>
-    
-        {/* ProductCollectionListing component can be added here */}
+        </section>        {/* ProductCollectionListing component with printart category filter */}
+        <ProductCollectionListing category="printart" />
     </section>
   )
 }

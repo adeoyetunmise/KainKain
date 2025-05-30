@@ -13,8 +13,17 @@ import ButtonLink from '../ui/ButtonLink';
 type FilterKey = 'availability' | 'price' | 'sort';
 type SortOption = 'featured' | 'price-low-high' | 'price-high-low' | 'newest';
 
-const ProductCollectionListing = () => {  
-  const [products, setProducts] = useState<ProductCardProps[]>(productsData.products);
+interface ProductCollectionListingProps {
+  category?: string;
+}
+
+const ProductCollectionListing = ({ category }: ProductCollectionListingProps) => {  
+  // Filter products by category if specified
+  const initialProducts = category 
+    ? productsData.products.filter(product => product.category === category)
+    : productsData.products;
+    
+  const [products, setProducts] = useState<ProductCardProps[]>(initialProducts);
   const [filteredProducts, setFilteredProducts] = useState<ProductCardProps[]>(products);
   const [selectedSort, setSelectedSort] = useState<SortOption>('featured');
   const [priceRange, setPriceRange] = useState({ from: '', to: '' });

@@ -1,29 +1,35 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
-// import { useCartStore } from "@/store/cartStore";
 import clsx from 'clsx';
 import Search from './ui/Search';
 import Language from './ui/Language';
 import Cart from './ui/Cart';
 
-// interface CartItem {
-//   slug: string;
-//   title: string;
-//   price: string;
-//   img: string;
-//   quantity: number;
-// }
-
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hovering, setHovering] = useState(false);
   const [scroll, setScroll] = useState(false);
-  // const cartItems = useCartStore((state: { cartItems: CartItem[] }) => state.cartItems);
+  const detailsRef = useRef<HTMLDetailsElement>(null);
 
-  React.useEffect(() => {
+  // Handle clicks outside the dropdown
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (detailsRef.current && !detailsRef.current.contains(event.target as Node)) {
+        detailsRef.current.open = false;
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  // Handle scroll detection
+  useEffect(() => {
     const handleScroll = () => {
       setScroll(window.scrollY > 10);
     };
@@ -64,9 +70,9 @@ const NavBar = () => {
                 </Link>
               </li>
               <li>
-                <details>
+                <details ref={detailsRef}>
                   <summary className='text-sm font-semibold'>Shop Prints</summary>
-                  <ul className='p-2 bg-white shadow-md'>
+                  <ul className='p-2 bg-white shadow-md text-black'>
                     <li>
                       <Link href='/collections/hand-made' className='text-sm'>
                         Hand Made
