@@ -1,6 +1,5 @@
 import HandMadeHero from "@/components/collections/HandMadeHero";
 import Hero from "@/components/Hero";
-import Marquee from "@/components/Marquee";
 // import PrintArtHero from '@/components/PrintArtHero';
 import HomeProductCard from "@/components/HomeProductCard";
 import ProductList from "@/components/ProductList";
