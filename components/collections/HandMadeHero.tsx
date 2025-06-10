@@ -1,22 +1,30 @@
-import ButtonLink from '../ui/ButtonLink'
+import ButtonLink from "../ui/ButtonLink";
 
 const HandMadeHero = () => {
   return (
-    <div className="hero min-h-[500px]"
+    <div
+      className="hero min-h-[500px]"
       style={{
         backgroundImage: "url('/hand-made-bg.png')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
       <div className="hero-content text-center text-white">
         <div className="md:max-w-md">
-          <h2 className="text-2xl md:text-4xl font-bold">HAND MADE ARTS SHOP</h2>
-          <ButtonLink className='mt-6' href='/collections/hand-made'>Explore</ButtonLink>
+          <h2 className="text-2xl md:text-4xl font-bold">
+            HAND MADE ARTS SHOP
+          </h2>
+          <ButtonLink
+            className="mt-6 bg-white border-none rounded-none shadow-none w-[30px] text-black"
+            href="/collections/hand-made"
+          >
+            Explore
+          </ButtonLink>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default HandMadeHero
+export default HandMadeHero;

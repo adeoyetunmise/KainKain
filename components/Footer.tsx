@@ -1,110 +1,85 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
 const Footer = () => {
   return (
-    <footer className='bg-black'>
-      <div className='footer sm:footer-horizontal  text-white p-10 max-w-7xl mx-auto'>
-        <aside>
-          <Image src='/KainKainn.png' alt='KainKain Logo' width={150} height={50} />
-        </aside>
+    <footer className="bg-black">
+      <div className="container max-w-7xl mx-auto">
+        <div className="footer sm:footer-horizontal justify-between text-white py-10 px-4 lg:px-6">
+          <aside>
+            <Image
+              src="/KainKainn.png"
+              alt="KainKain Logo"
+              width={150}
+              height={50}
+            />
+          </aside>
 
-        <nav>
-          <h6 className='footer-title'>Links</h6>
-          <Link className='link link-hover' href='/'>
-            Home
-          </Link>
-          <Link className='link link-hover' href='/about'>
-            About
-          </Link>
-          <Link className='link link-hover' href='/collections/print-art'>
-            Print Arts
-          </Link>
-          <Link className='link link-hover' href='/collections/hand-made'>
-            Hand Made Arts
-          </Link>
-        </nav>
+          <nav className="gap-4">
+            <h6 className="font-bold text-lg">Links</h6>
+            <Link className="link link-hover" href="/">
+              Home
+            </Link>
+            <Link className="link link-hover" href="/about">
+              About
+            </Link>
+            <Link className="link link-hover" href="/collections/print-art">
+              Print Arts
+            </Link>
+            <Link className="link link-hover" href="/collections/hand-made">
+              Hand Made Arts
+            </Link>
+          </nav>
 
-        <nav>
-          <h6 className='footer-title'>Address</h6>
-          <p>
-            This catalogue was published on <br /> the occassion of the exhibition KAINKAIN 2024{' '}
-            <br /> at Untitiled, 59 Raymond Njoku Ikoyi
-          </p>
-          <p>© Toshjosh 2024</p>
-        </nav>
+          <nav>
+            <h6 className="font-bold text-lg">Address</h6>
+            <p>
+              This catalogue was published on <br /> the occassion of the
+              exhibition KAINKAIN 2024 <br /> at Untitiled, 59 Raymond Njoku
+              Ikoyi
+            </p>
+            <p>© Toshjosh 2024</p>
+          </nav>
 
-        <nav>
-          <h6 className='footer-title'>For Enquires</h6>
-          <p>
-            Phone: <a href='tel:+2348036614674'>+234 803 661 4674</a>
-          </p>
-          <p>
-            Email:{' '}
-            <a href='mailto:themodalandexperience@gmail.com'>themodalandexperience@gmail.com</a>
-          </p>
-          <input
-            type='search'
-            placeholder='Search'
-            className='input bg-[#D9D9D9] placeholder:text-[#000000] text-black'
-          />
-        </nav>
+          <nav>
+            <h6 className="font-bold text-lg">For Enquires</h6>
+            <p>
+              <a href="tel:+2348036614674">+234 803 661 4674</a>
+            </p>
+            <p>
+              {" "}
+              <a href="mailto:themodalandexperience@gmail.com">
+                themodalandexperience@gmail.com
+              </a>
+            </p>
+            <div className="relative">
+              <input
+                type="search"
+                placeholder="Search...."
+                className="input bg-[#D9D9D9] placeholder:text-[#000000] w-[170px] text-black border-none rounded-none pr-10"
+              />
+              <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-black"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </nav>
+        </div>
       </div>
     </footer>
-
-    // <div>
-    //   <footer className="footer mt-4  text-gray-700 rounded p-10 flex flex-col items-center space-y-6 lg:space-y-0 lg:flex-row lg:justify-between">
-
-    //     {/* Quick Links & Contact - Side by Side */}
-    //     <div className="flex flex-col lg:flex-row lg:space-x-20 text-center lg:text-left items-center lg:items-start space-y-6 lg:space-y-0">
-    //       {/* Quick Links */}
-    //       <div className="space-y-2">
-    //         <p className="text-sm font-semibold">Quick Links</p>
-    //         <nav className="flex flex-col space-y-1 text-xs lg:text-sm">
-    //           <a href="#" className="hover:underline text-xs">FAQs</a>
-    //           <a href="#" className="hover:underline text-xs">Shipping Policy</a>
-    //           <a href="#" className="hover:underline text-xs">Privacy Policy</a>
-    //           <a href="#" className="hover:underline text-xs">Terms of Service</a>
-    //         </nav>
-    //       </div>
-
-    //       {/* Contact Details */}
-    //       <div className="space-y-2">
-    //         <p className="text-sm font-semibold">Contact</p>
-    //         <p className='text-xs lg:text-sm'>📞 WhatsApp: +234 803 661 4674</p>
-    //         <p className='text-xs lg:text-sm lowercase'>✉️ Email: themodalandexperience@gmail.com</p>
-    //       </div>
-    //     </div>
-
-    //     {/* Social Media Icons */}
-    //     <nav>
-    //       <div className="grid grid-flow-col gap-4">
-    //         <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-    //           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current">
-    //             <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
-    //           </svg>
-    //         </a>
-
-    //         <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
-    //           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current">
-    //             <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
-    //           </svg>
-    //         </a>
-
-    //         <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-    //           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current">
-    //             <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-    //           </svg>
-    //         </a>
-    //       </div>
-    //     </nav>
-
-    //     <aside>
-    //       <p className='text-xs lg:text-sm'>Copyright © {new Date().getFullYear()} - All rights reserved by Tosin Josh</p>
-    //     </aside>
-    //   </footer>
-    // </div>
   );
 };
 
