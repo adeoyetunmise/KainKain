@@ -2,38 +2,38 @@
   "products": [
     {
       "id": 1,
-      "slug": "black-sponge",
-      "title": "Black Sponge",
-      "image": "/images/black-sponge.jpg",
-      "hoverImage": "/images/black-sponge2.jpg",
-      "price": 45,
+      "slug": "orange-stand",
+      "title": "72 Kankan 2024",
+      "image": "/images/orange-stand2.jpg",
+      "hoverImage": "/images/orange-stand.jpg",
+      "price": 3500000,
       "category": "handmade"
     },
     {
       "id": 2,
-      "slug": "color-sponge",
-      "title": "Color Sponge",
-      "image": "/images/color-sponge.jpg",
-      "hoverImage": "/images/color-sponge2.jpg",
-      "price": 50,
+      "slug": "aroni",
+      "title": "Aroni",
+      "image": "/images/white-sponge1.jpg",
+      "hoverImage": "/images/white-sponge2.jpg",
+      "price": 2500000,
       "category": "handmade"
     },
     {
       "id": 3,
-      "slug": "dark-spot",
-      "title": "Dark Spot",
-      "image": "/images/dark-spot.jpg",
-      "hoverImage": "/images/dark-spot2.jpg",
-      "price": 55,
+      "slug": "life-giver",
+      "title": "Lifegiver, 2024",
+      "image": "/images/Rectangle 13.png",
+      "hoverImage": "/images/Rectangle 13.png",
+      "price": 3000000,
       "category": "handmade"
     },
     {
       "id": 4,
-      "slug": "dark-stand",
-      "title": "Dark Stand",
-      "image": "/images/dark-stand.jpg",
-      "hoverImage": "/images/dark-stand2.jpg",
-      "price": 60,
+      "slug": "bro-ken",
+      "title": "Broken",
+      "image": "/images/Rectangle 14.png",
+      "hoverImage": "/images/Rectangle 14.png",
+      "price": 2000000,
       "category": "handmade"
     },
     {
