@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const ArtistStatement: React.FC = () => {
   return (
-    <div className="flex flex-col md:flex-row justify-between items-start gap-8 py-16 px-4 md:px-6 lg:px-8 container mx-auto bg-gray-50">
+    <div className="flex flex-col md:flex-row justify-between items-start gap-8 py-16 px-6 md:px-8 lg:px-4 container max-w-7xl mx-auto bg-gray-50">
       {/* Left Content */}
       <div className="flex-1 space-y-10 space-x-20">
         <h2 className="text-2xl font-bold tracking-wide uppercase">

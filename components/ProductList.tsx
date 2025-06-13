@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion"; // Import Framer Motion
-import { FaChevronRight } from "react-icons/fa"; // Change to chevron right icon
 import combinedProducts from "@/public/data/combinedProducts.json"; // Import combined JSON file
 import ButtonLink from "./ui/ButtonLink";
 
@@ -21,9 +20,9 @@ type Product = {
 
 export default function ProductList() {
   return (
-    <div className="container flex flex-col items-center mx-auto px-4 py-6 md:py-10">
+    <div className="container flex flex-col items-center mx-auto px-4 py-6 md:my-20">
       <div className="w-full self-start">
-        <h1 className="text-xl sm:text-2xl lg:ml-30 md:text-3xl lg:text-2xl font-bold mb-4 md:mb-6">
+        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-2xl font-bold mb-4 md:mb-6">
           HAND MADE ARTS SHOP
         </h1>
       </div>
@@ -34,7 +33,7 @@ export default function ProductList() {
         whileInView={{ opacity: 1, y: 0 }} // Animate when in viewport
         transition={{ duration: 0.8, ease: "easeOut" }} // Smooth animation
         viewport={{ once: true }} // Only animate once per scroll
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 w-full max-w-7xl"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-7xl"
       >
         {combinedProducts.products
           .filter((product) => product.category === "handmade")
@@ -45,10 +44,11 @@ export default function ProductList() {
       </motion.div>
       <div className="flex justify-center mt-4 md:mt-6">
         <ButtonLink
-          className="bg-black border-none rounded-none shadow-none text-white px-2 py-1 flex items-center justify-center whitespace-nowrap w-auto min-w-[80px] text-sm"
+          className="bg-black border-none rounded-none shadow-none text-white py-1 flex items-center justify-center whitespace-nowrap w-auto text-sm"
           href="/collections/hand-made"
         >
-          <FaChevronRight className="text-xs flex-shrink-0" /> <span className="ml-1">View All</span>
+          View All
+          {/* <FaChevronRight className="text-xs flex-shrink-0" /> <span className="ml-1">View All</span> */}
         </ButtonLink>
       </div>
     </div>
@@ -64,7 +64,7 @@ const ProductCard = ({ product }: { product: Product }) => {
   return (
     <Link
       href={`/products/${product.slug}`}
-      className="block bg-white p-1 md:p-2 text-center hover:transition max-w-[350px] mx-auto w-full"
+      className="block bg-white text-center hover:transition max-w-[350px] mx-auto w-full"
     >
       <div
         className="relative w-full pb-[460px]" // Increased height with 125% aspect ratio

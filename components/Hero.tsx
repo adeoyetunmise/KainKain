@@ -13,11 +13,11 @@ const Hero = () => {
     >
       <div className="hero-content text-center text-white">
         <div className="md:max-w-md lg:max-w-lg">
-          <p className="py-6 text-2xl">Explore</p>
+          <p className="text-2xl">Explore</p>
           <h1 className="text-3xl lg:text-6xl md:text-5xl font-bold tracking-wider whitespace-nowrap overflow-visible">
             KAINKAIN COLLECTION
           </h1>
-          <p className="py-6 text-2xl">By Tosin Josh</p>
+          <p className="text-2xl">By Tosin Josh</p>
         </div>
       </div>
     </div>

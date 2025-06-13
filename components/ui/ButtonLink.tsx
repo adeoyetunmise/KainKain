@@ -25,7 +25,7 @@ const ButtonLink: React.FC<ButtonLinkProps> = ({
   rel,
   ...props
 }) => {
-  const baseClasses = `btn ${variant !== 'default' ? `btn-${variant}` : ''} btn-${size} ${className} px-10 md:px-16`
+  const baseClasses = `btn ${variant !== 'default' ? `btn-${variant}` : ''} btn-${size} ${className} px-10`
   
   // If href is provided, render a link
   if (href) {

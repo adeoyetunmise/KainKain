@@ -4,7 +4,6 @@ import ButtonLink from "./ui/ButtonLink";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaChevronRight } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 // Define the Product type to match ProductList
@@ -26,7 +25,7 @@ const CustomProductCard = ({ product }: { product: Product }) => {
   return (
     <Link
       href={`/products/${product.slug}`}
-      className="block bg-white p-1 md:p-2 text-center hover:transition max-w-[350px] mx-auto w-full"
+      className="block bg-white text-center hover:transition max-w-[350px] mx-auto w-full"
     >
       <div
         className="relative w-full pb-[460px]" // Same height as ProductList
@@ -55,9 +54,9 @@ const CustomProductCard = ({ product }: { product: Product }) => {
 
 const HomeProductCard = () => {
   return (
-    <div className="container flex flex-col items-center mx-auto px-4 py-6 md:py-10">
+    <div className="container flex flex-col items-center mx-auto px-4 py-6 md:my-20">
       <div className="w-full self-start">
-        <h1 className="text-xl lg:ml-30 sm:text-2xl md:text-3xl lg:text-2xl font-bold mb-4 md:mb-6">
+        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-2xl font-bold mb-4 md:mb-6">
           PRINT ARTS SHOP
         </h1>
       </div>
@@ -83,9 +82,7 @@ const HomeProductCard = () => {
         <ButtonLink
           className="bg-black border-none rounded-none shadow-none text-white px-2 py-1 flex items-center justify-center whitespace-nowrap w-auto min-w-[80px] text-sm"
           href="/collections/print-art"
-        >
-          <FaChevronRight className="text-xs flex-shrink-0" />{" "}
-          <span className="ml-1">View All</span>
+        >View All
         </ButtonLink>
       </div>
     </div>

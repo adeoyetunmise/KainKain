@@ -19,7 +19,7 @@ const NavBar = () => {
   // Determine if the current page should have dark text by default
   // Add your page paths that should have dark text by default
   const isDarkTextPage = ["/about", "/collections", "/products"].some((path) =>
-    pathname.startsWith(path)
+    pathname?.startsWith(path)
   );
 
   // Handle clicks outside the dropdown
@@ -63,7 +63,7 @@ const NavBar = () => {
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
-      <div className="flex items-center justify-between w-full max-w-[96%] mx-auto">
+      <div className="flex items-center justify-between w-full max-w-7xl mx-auto px-4">
         {/* Logo & NavLinks on the same line */}
         <div className="flex items-center">
           <Link href="/" className="mr-6">
@@ -80,13 +80,13 @@ const NavBar = () => {
           {/* Desktop NavLinks */}
           <ul className="hidden md:flex mt-4  menu menu-horizontal">
             <li>
-              <Link href="/" className="text-lg font-semibold">
+              <Link href="/" className="text-lg ">
                 Home
               </Link>
             </li>
             <li>
               <details ref={detailsRef}>
-                <summary className="text-lg font-semibold">Shop Prints</summary>
+                <summary className="text-lg ">Shop Prints</summary>
                 <ul className="p-2 bg-white shadow-md text-black">
                   <li>
                     <Link href="/collections/hand-made" className="text-sm">
@@ -108,12 +108,12 @@ const NavBar = () => {
             </li>
 
             <li>
-              <Link href="/about" className="text-lg font-semibold">
+              <Link href="/about" className="text-lg ">
                 About
               </Link>
             </li>
             <li>
-              <Link href="/Exhibition" className="text-lg font-semibold">
+              <Link href="/Exhibition" className="text-lg ">
                 Exhibition
               </Link>
             </li>
@@ -171,7 +171,7 @@ const NavBar = () => {
           <li>
             <Link
               href="/"
-              className="text-sm sm:text-lg font-semibold"
+              className="text-sm sm:text-lg "
               onClick={() => setMenuOpen(false)}
             >
               Home
@@ -179,7 +179,7 @@ const NavBar = () => {
           </li>
           <li>
             <details>
-              <summary className="text-sm sm:text-lg font-semibold">
+              <summary className="text-sm sm:text-lg ">
                 Shop Prints
               </summary>
               <ul className="p-2">
@@ -216,7 +216,7 @@ const NavBar = () => {
           <li>
             <Link
               href="/collections/exhibition"
-              className="text-sm sm:text-lg font-semibold"
+              className="text-sm sm:text-lg "
               onClick={() => setMenuOpen(false)}
             >
               Exhibition
@@ -225,7 +225,7 @@ const NavBar = () => {
           <li>
             <Link
               href="/about"
-              className="text-sm sm:text-lg font-semibold"
+              className="text-sm sm:text-lg "
               onClick={() => setMenuOpen(false)}
             >
               About
@@ -234,7 +234,7 @@ const NavBar = () => {
           <li>
             <Link
               href="/contact"
-              className="text-sm sm:text-lg font-semibold"
+              className="text-sm sm:text-lg "
               onClick={() => setMenuOpen(false)}
             >
               Contact Us
