@@ -2,15 +2,15 @@ import ProductCollectionListing from "@/components/collections/ProductCollection
 
 const HandMade = () => {
   return (
-    <section className='mt-20 px-5 max-w-7xl mx-auto'>
-      <h1 className='text-2xl md:text-4xl text-center'>KainKain HandMade</h1>
+    <section className='pt-20 px-5 max-w-7xl mx-auto'>
+      <h1 className='text-2xl md:text-4xl text-center mt-20'>KainKain HandMade</h1>
 
       <p className='text-center text-lg md:text-xl lg:text-2xl font-light py-10'>
         Discover the unique charm of our handmade collection, where each piece is crafted with care
         and creativity.
       </p>
 
-      <section className='flex flex-col items-center justify-center gap-4 mt-10'>
+      {/* <section className='flex flex-col items-center justify-center gap-4 mt-10'>
         <div
           className='w-full h-[300px] mb-20 rounded-4xl shadow-lg'
           style={{
@@ -20,9 +20,9 @@ const HandMade = () => {
             maxWidth: '1100px'
           }}
         />
-      </section>
+      </section> */}
 
-      <ProductCollectionListing />
+      <ProductCollectionListing category="handmade" />
 
     </section>
   );

@@ -3,14 +3,14 @@ import React from 'react'
 
 const PrintArt = () => {
   return (
-    <section className='mt-20 px-5 max-w-7xl mx-auto'>
-        <h1 className='text-2xl md:text-4xl text-center'>KainKain Print Art</h1>
+    <section className='pt-20 px-5 max-w-7xl mx-auto'>
+        <h1 className='text-2xl md:text-4xl text-center mt-20'>KainKain Print Art</h1>
     
         <p className='text-center text-lg md:text-xl lg:text-2xl font-light py-10'>
             Explore our exclusive collection of print art, where creativity meets craftsmanship.
         </p>
     
-        <section className='flex flex-col items-center justify-center gap-4 mt-10'>
+        {/* <section className='flex flex-col items-center justify-center gap-4 mt-10'>
             <div 
               className='w-full h-[300px] mb-20 rounded-4xl shadow-lg' 
               style={{
@@ -20,10 +20,10 @@ const PrintArt = () => {
                 maxWidth: '1100px'
               }}
             />
-        </section>
+        </section> */}
     
         {/* ProductCollectionListing component can be added here */}
-        <ProductCollectionListing />
+        <ProductCollectionListing category='printart' />
     </section>
   )
 }

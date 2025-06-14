@@ -13,7 +13,7 @@ const ProductGrid = ({ products }: ProductGridProps) => {
       {products.map((product) => (
         <ProductCard
           id={product.id}
-          key={product.slug}
+          key={product.id}
           slug={product.slug}
           title={product.title}
           image={product.image}

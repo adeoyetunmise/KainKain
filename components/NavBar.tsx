@@ -121,7 +121,7 @@ const NavBar = () => {
         </div>
 
         <div className="flex items-center justify-end gap-3">
-          <div className="flex items-center mt-4 justify-center md:gap-6">
+          <div className="flex items-center mt-4 justify-center gap-3 md:gap-6">
             <Search />
             <Cart />
             <Language className="hidden md:flex" />
@@ -136,7 +136,6 @@ const NavBar = () => {
             >
               Contact Us
             </Link>
-          </div>
           {/* Mobile Menu Button */}
           <button
             className={clsx(
@@ -149,6 +148,7 @@ const NavBar = () => {
           >
             <Menu className="cursor-pointer" />
           </button>
+          </div>
         </div>
       </div>
 

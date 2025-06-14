@@ -16,7 +16,7 @@ const HandMadeHero = () => {
             HAND MADE ARTS SHOP
           </h2>
           <ButtonLink
-            className="mt-6 bg-white border-none rounded-none shadow-none w-[30px] text-black"
+            className="mt-6 bg-white border-none rounded-none shadow-none text-black"
             href="/collections/hand-made"
           >
             Explore

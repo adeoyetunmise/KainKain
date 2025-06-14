@@ -10,7 +10,7 @@ const Collections = () => {
       title: 'Print Arts',
       description: 'Explore our collection of stunning print arts.',
       image: '/EchoesOfFreedomi.jpg',
-      link: '/collections/print-arts',
+      link: '/collections/print-art',
     },
     {
       title: 'Hand Made',
@@ -27,7 +27,7 @@ const Collections = () => {
   ];
 
   return (
-    <section className='container mx-auto px-4 py-6 mt-20 mb-12'>
+    <section className='container mx-auto px-4 py-6 pt-20 mb-12'>
       <h1 className='text-xl sm:text-2xl md:text-3xl lg:text-2xl font-bold text-center mb-8 md:mb-10'>
         Our Collections
       </h1>
