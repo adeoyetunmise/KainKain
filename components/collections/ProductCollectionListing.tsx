@@ -1,7 +1,6 @@
 'use client';
 
 import { ChevronDown, CircleX, Settings2 } from 'lucide-react';
-// Removed unused X and Image imports
 import { useState, useRef, useEffect } from 'react';
 import ProductGrid from '../products/ProductGrid';
 import { ProductCardProps } from '../products/ProductCard';
@@ -396,7 +395,7 @@ const ProductCollectionListing = ({ category }: ProductCollectionListingProps) =
                     <input 
                       type='text' 
                       placeholder='From' 
-                      className='input input-sm w-full'
+                      className='input input-sm w-full bg-white text-black border-neutral'
                       value={priceRange.from}
                       onChange={(e) => setPriceRange(prev => ({ ...prev, from: e.target.value }))
                       }
@@ -407,7 +406,7 @@ const ProductCollectionListing = ({ category }: ProductCollectionListingProps) =
                     <input 
                       type='text' 
                       placeholder='To' 
-                      className='input input-sm w-full'
+                      className='input input-sm w-full bg-white text-black border-neutral'
                       value={priceRange.to}
                       onChange={(e) => setPriceRange(prev => ({ ...prev, to: e.target.value }))
                       }
