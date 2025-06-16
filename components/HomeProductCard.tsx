@@ -25,10 +25,10 @@ const CustomProductCard = ({ product }: { product: Product }) => {
   return (
     <Link
       href={`/products/${product.slug}`}
-      className="block bg-[#ece8e5] text-center hover:transition max-w-[350px] mx-auto w-full"
+      className="block bg-smoke-white text-center hover:transition max-w-[350px] mx-auto w-full"
     >
       <div
-        className="relative w-full pb-[460px]" // Same height as ProductList
+        className="relative w-full aspect-[3/4] overflow-hidden"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -39,15 +39,17 @@ const CustomProductCard = ({ product }: { product: Product }) => {
           alt={product.title}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover font-bold absolute top-0 left-0 transition-all duration-500 ease-in-out"
+          className="object-cover absolute top-0 left-0 transition-all duration-500 ease-in-out group-hover:scale-105"
         />
       </div>
-      <h2 className="text-sm lg:text-lg sm:text-lg md:text-xl font-bold mt-2 line-clamp-2 text-left">
-        {product.title}
-      </h2>
-      <p className="text-sm lg:text-lg text-dark sm:text-base md:text-lg mt-1 text-left">
-        &#8358; {formattedPrice}
-      </p>
+      <div className="pt-3">
+        <h2 className="text-sm lg:text-base font-bold line-clamp-2 text-left">
+          {product.title}
+        </h2>
+        <p className="text-sm lg:text-base text-dark mt-1 text-left font-medium">
+          &#8358; {formattedPrice}
+        </p>
+      </div>
     </Link>
   );
 };
@@ -61,31 +63,32 @@ const HomeProductCard = () => {
         </h1>
       </div>
 
-      {/* Wrap the grid with motion.div like in ProductList */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true }}
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-7xl"
-      >
-        {combinedProducts.products
-          .filter((product) => product.category === "printart")
-          .slice(0, 4)
-          .map((product, index) => (
-            <CustomProductCard key={product.id || index} product={product} />
-          ))}
-      </motion.div>
+        {/* Wrap the grid with motion.div like in ProductList */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-6 w-full"
+        >
+          {combinedProducts.products
+            .filter((product) => product.category === "printart")
+            .slice(0, 4)
+            .map((product, index) => (
+              <CustomProductCard key={product.id || index} product={product} />
+            ))}
+        </motion.div>
 
-      {/* View All Button - match styling with ProductList */}
-      <div className="flex justify-center mt-4 md:mt-6">
+        {/* View All Button - match styling with ProductList */}
+        <div className="flex justify-center mt-8 md:mt-10">
         <ButtonLink
-          className="bg-black border-none rounded-none shadow-none text-white px-2 py-1 flex items-center justify-center whitespace-nowrap w-auto min-w-[80px] text-sm"
-          href="/collections/print-art"
-        >View All
-        </ButtonLink>
+            className="bg-[#1a1a1a] border-none rounded-none shadow-none text-[#faf9f6]  flex items-center justify-center whitespace-nowrap w-3 text-sm  "
+            href="/collections/print-art"
+          >
+            View All
+          </ButtonLink>
+        </div>
       </div>
-    </div>
   );
 };
 

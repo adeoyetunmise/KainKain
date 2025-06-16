@@ -8,10 +8,10 @@ import ArtistStatement from "@/components/ArtistStatement";
 
 export default function Home() {
   return (
-    <section className="bg-[#ece8e5]">
+    <section className="bg-smoke-white">
       <Hero />
       <ArtistStatement />
-      <HandMadeHero />
+      <HandMadeHero /> 
       <ProductList />
       <hr className="text-gray-300" />
       <PrintArtHero />

@@ -10,13 +10,13 @@ const PrintArtHero = () => {
         backgroundPosition: "center",
       }}
     >
-      <div className="hero-content text-center text-white">
+      <div className="hero-content text-center text-[#faf9f6]">
         <div className="md:max-w-md">
           <h2 className="text-2xl lg:text-5xl md:text-4xl font-bold">
             PRINT ARTS SHOP
           </h2>
           <ButtonLink
-            className="mt-6 bg-[#ece8e5] text-black border-none rounded-none shadow-none text-sm"
+            className="mt-6 bg-smoke-white text-custom-black border-none rounded-none shadow-none w-[30px] text-sm"
             href="/collections/print-art"
           >
             Explore
