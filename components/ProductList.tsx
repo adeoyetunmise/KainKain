@@ -20,7 +20,7 @@ type Product = {
 
 export default function ProductList() {
   return (
-    <section className="w-full bg-[#faf9f6] ">
+    <section className="w-full bg-smoke-white">
       <div className="container  mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
         <h1 className="text-xl lg:text-2xl mt-1 sm:text-2xl md:text-3xl font-bold mb-6">
           HAND MADE ARTS SHOP
@@ -63,7 +63,7 @@ const ProductCard = ({ product }: { product: Product }) => {
   return (
     <Link
       href={`/products/${product.slug}`}
-      className="block bg-[#faf9f6] text-center  transition duration-300 h-full"
+      className="block bg-smoke-white text-center  transition duration-300 h-full"
     >
       <div
         className="relative w-full aspect-[3/4]"

@@ -17,7 +17,7 @@ const ButtonLink: React.FC<ButtonLinkProps> = ({
   href,
   onClick,
   children,
-  className = "bg-[#dcb094]",
+  className = "",
   variant = "default",
   size = "md",
   disabled = false,

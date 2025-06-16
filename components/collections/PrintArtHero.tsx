@@ -16,7 +16,7 @@ const PrintArtHero = () => {
             PRINT ARTS SHOP
           </h2>
           <ButtonLink
-            className="mt-6 bg-[#faf9f6] text-[#1a1a1a] border-none rounded-none shadow-none w-[30px] text-sm"
+            className="mt-6 bg-smoke-white text-custom-black border-none rounded-none shadow-none w-[30px] text-sm"
             href="/collections/print-art"
           >
             Explore

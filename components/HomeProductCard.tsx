@@ -25,7 +25,7 @@ const CustomProductCard = ({ product }: { product: Product }) => {
   return (
     <Link
       href={`/products/${product.slug}`}
-      className="block bg-[#faf9f6] hover:transition w-full group"
+      className="block bg-smoke-white text-center hover:transition max-w-[350px] mx-auto w-full"
     >
       <div
         className="relative w-full aspect-[3/4] overflow-hidden"
@@ -56,13 +56,12 @@ const CustomProductCard = ({ product }: { product: Product }) => {
 
 const HomeProductCard = () => {
   return (
-    <section className="w-full bg-[#faf9f6]">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-20">
-        <div className="w-full">
-          <h1 className="text-xl lg:text-2xl sm:text-2xl md:text-3xl font-bold mb-6 md:mb-8">
-            PRINT ARTS SHOP
-          </h1>
-        </div>
+    <div className="container flex flex-col items-center mx-auto px-4 py-6 md:py-20">
+      <div className="w-full self-start">
+        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-2xl font-bold mb-4 md:mb-6">
+          PRINT ARTS SHOP
+        </h1>
+      </div>
 
         {/* Wrap the grid with motion.div like in ProductList */}
         <motion.div
@@ -90,7 +89,6 @@ const HomeProductCard = () => {
           </ButtonLink>
         </div>
       </div>
-    </section>
   );
 };
 

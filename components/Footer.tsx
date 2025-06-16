@@ -4,9 +4,9 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#1a1a1a] w-full">
-      <div className="mx-auto w-full" style={{ padding: "0 4%" }}>
-        <div className="footer sm:footer-horizontal justify-between text-[#faf9f6] py-10">
+    <footer className="bg-custom-black w-full">
+      <div className="container mx-auto w-full px-4 md:px-6 lg:px-8">
+        <div className="footer sm:footer-horizontal justify-between text-smoke-white py-10">
           <aside>
             <Image
               src="/KainKainn.png"

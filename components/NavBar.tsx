@@ -17,7 +17,6 @@ const NavBar = () => {
   const pathname = usePathname();
 
   // Determine if the current page should have dark text by default
-  // Add your page paths that should have dark text by default
   const isDarkTextPage = ["/about", "/collections", "/products"].some((path) =>
     pathname.startsWith(path)
   );
@@ -52,20 +51,18 @@ const NavBar = () => {
     <nav
       className={clsx(
         "w-full px-3 sm:px-6 py-4 md:py-4 flex items-center justify-between z-50 transition-all duration-300 fixed top-0 left-0",
-        hovering || scroll
-          ? "bg-[#faf9f6] shadow-md text-[#1a1a1a]"
-          : "bg-transparent",
+        hovering || scroll ? "bg-smoke-white shadow-md text-black" : "bg-transparent",
         // Apply dark text by default on certain pages when not scrolled
-        !hovering && !scroll
-          ? isDarkTextPage
-            ? "text-[#1a1a1a]"
-            : "text-[#faf9f6]"
-          : ""
+        hovering || scroll 
+          ? "text-black" 
+          : isDarkTextPage 
+            ? "text-black" 
+            : "text-white"
       )}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
-      <div className="flex items-center justify-between w-full max-w-[96%] mx-auto">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 flex items-center justify-between w-full">
         {/* Logo & NavLinks on the same line */}
         <div className="flex items-center">
           <Link href="/" className="mr-6">
@@ -82,14 +79,14 @@ const NavBar = () => {
           {/* Desktop NavLinks */}
           <ul className="hidden md:flex mt-4  menu menu-horizontal">
             <li>
-              <Link href="/" className="text-lg font-semibold">
+              <Link href="/" className="text-lg">
                 Home
               </Link>
             </li>
             <li>
               <details ref={detailsRef}>
-                <summary className="text-lg font-semibold">Shop Prints</summary>
-                <ul className="p-2 bg-[#faf9f6] shadow-md text-[#1a1a1a]">
+                <summary className="text-lg ">Shop Prints</summary>
+                <ul className="p-2 bg-[#ece8e5] shadow-md text-black">
                   <li>
                     <Link href="/collections/hand-made" className="text-sm">
                       Hand Made
@@ -110,12 +107,12 @@ const NavBar = () => {
             </li>
 
             <li>
-              <Link href="/about" className="text-lg font-semibold">
+              <Link href="/about" className="text-lg">
                 About
               </Link>
             </li>
             <li>
-              <Link href="/Exhibition" className="text-lg font-semibold">
+              <Link href="/Exhibition" className="text-lg">
                 Exhibition
               </Link>
             </li>
@@ -132,8 +129,8 @@ const NavBar = () => {
               className={clsx(
                 "hidden md:block px-6 py-1 -mt-3 rounded-full font-medium text-lg transition-all duration-300",
                 scroll || hovering
-                  ? "bg-[#1a1a1a] text-[#faf9f6]"
-                  : "bg-[#faf9f6] text-[#1a1a1a]"
+                  ? "bg-custom-black text-smoke-white"
+                  : "text-custom-black bg-smoke-white"
               )}
             >
               Contact Us
@@ -144,7 +141,7 @@ const NavBar = () => {
               "md:hidden justify-end flex items-center transition-colors duration-300",
               !hovering && !scroll && !isDarkTextPage
                 ? "text-[#faf9f6]"
-                : "text-[#1a1a1a]"
+                : "text-custom-black"
             )}
             onClick={() => setMenuOpen(true)}
           >
@@ -157,7 +154,8 @@ const NavBar = () => {
       {/* Mobile Navigation Drawer (Now slides in from the right) */}
       <div
         className={clsx(
-          "fixed top-0 right-0 h-full w-64 bg-[#faf9f6] shadow-lg transform transition-transform ease-in-out duration-300 z-50 flex flex-col pt-20 px-6",
+          "fixed top-0 right-0 h-full w-64 bg-smoke-white shadow-lg transform transition-transform ease-in-out duration-300 z-50 flex flex-col pt-20 px-6",
+
           menuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
@@ -173,7 +171,7 @@ const NavBar = () => {
           <li>
             <Link
               href="/"
-              className="text-sm sm:text-lg font-semibold"
+              className="text-sm sm:text-lg"
               onClick={() => setMenuOpen(false)}
             >
               Home
@@ -181,7 +179,7 @@ const NavBar = () => {
           </li>
           <li>
             <details>
-              <summary className="text-sm sm:text-lg font-semibold">
+              <summary className="text-sm sm:text-lg">
                 Shop Prints
               </summary>
               <ul className="p-2">
@@ -218,7 +216,7 @@ const NavBar = () => {
           <li>
             <Link
               href="/collections/exhibition"
-              className="text-sm sm:text-lg font-semibold"
+              className="text-sm sm:text-lg"
               onClick={() => setMenuOpen(false)}
             >
               Exhibition
@@ -227,7 +225,7 @@ const NavBar = () => {
           <li>
             <Link
               href="/about"
-              className="text-sm sm:text-lg font-semibold"
+              className="text-sm sm:text-lg"
               onClick={() => setMenuOpen(false)}
             >
               About
@@ -236,7 +234,7 @@ const NavBar = () => {
           <li>
             <Link
               href="/contact"
-              className="text-sm sm:text-lg  font-semibold"
+              className="text-sm sm:text-lg"
               onClick={() => setMenuOpen(false)}
             >
               Contact Us

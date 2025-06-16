@@ -3,9 +3,9 @@ import ButtonLink from "../ui/ButtonLink";
 const HandMadeHero = () => {
   return (
     <div
-      className="hero min-h-[500px] -mt-10"
+      className="hero min-h-screen"
       style={{
-        backgroundImage: "url('/hand-made-bg.png')",
+        backgroundImage: "url('/hand-made-bg.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -16,7 +16,7 @@ const HandMadeHero = () => {
             HAND MADE ARTS SHOP
           </h2>
           <ButtonLink
-            className="mt-6 bg-[#faf9f6] border-none rounded-none shadow-none w-[30px] text-[#1a1a1a]"
+            className="mt-6 md:w-[30px] bg-white border-none rounded-none shadow-none text-black"
             href="/collections/hand-made"
           >
             Explore
