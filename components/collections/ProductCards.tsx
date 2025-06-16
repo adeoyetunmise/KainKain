@@ -18,7 +18,7 @@ const ProductCards = () => {
           .map((product, index) => (
             <motion.div
               key={product.id || index}
-              className="bg-white text-black w-full overflow-hidden mx-auto aspect-[4/5]"
+              className="bbg-[#ece8e5] text-black w-full overflow-hidden mx-auto aspect-[4/5]"
               initial={{ opacity: 0, y: 50 }} // Start hidden & slightly below
               whileInView={{ opacity: 1, y: 0 }} // Animate in when visible
               transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.2 }} // Staggered delay

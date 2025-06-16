@@ -18,7 +18,7 @@ const ProductCard = ({ id, slug, title, image, price }: ProductCardProps) => {
   return (
     <motion.div
       key={id}
-      className="bg-white text-black w-full overflow-hidden mx-auto aspect-[4/5]"
+      className="bg-[#ece8e5] text-black w-full overflow-hidden mx-auto aspect-[4/5]"
       initial={{ opacity: 0, y: 50 }} // Start hidden & slightly below
       whileInView={{ opacity: 1, y: 0 }} // Animate in when visible
       transition={{ duration: 0.6, ease: "easeOut" }} // Animation

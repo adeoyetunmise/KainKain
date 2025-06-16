@@ -17,7 +17,6 @@ const NavBar = () => {
   const pathname = usePathname();
 
   // Determine if the current page should have dark text by default
-  // Add your page paths that should have dark text by default
   const isDarkTextPage = ["/about", "/collections", "/products"].some((path) =>
     pathname?.startsWith(path)
   );
@@ -52,13 +51,13 @@ const NavBar = () => {
     <nav
       className={clsx(
         "w-full px-3 sm:px-6 py-4 md:py-4 flex items-center justify-between z-50 transition-all duration-300 fixed top-0 left-0",
-        hovering || scroll ? "bg-white shadow-md text-black" : "bg-transparent",
+        hovering || scroll ? "bg-[#ece8e5] shadow-md text-black" : "bg-transparent",
         // Apply dark text by default on certain pages when not scrolled
-        !hovering && !scroll
-          ? isDarkTextPage
-            ? "text-black"
+        hovering || scroll 
+          ? "text-black" 
+          : isDarkTextPage 
+            ? "text-black" 
             : "text-white"
-          : ""
       )}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
@@ -87,7 +86,7 @@ const NavBar = () => {
             <li>
               <details ref={detailsRef}>
                 <summary className="text-lg ">Shop Prints</summary>
-                <ul className="p-2 bg-white shadow-md text-black">
+                <ul className="p-2 bg-[#ece8e5] shadow-md text-black">
                   <li>
                     <Link href="/collections/hand-made" className="text-sm">
                       Hand Made
@@ -131,7 +130,7 @@ const NavBar = () => {
                 "hidden md:block px-6 py-1 rounded-full font-medium text-lg transition-all duration-300",
                 scroll || hovering
                   ? "bg-black text-white"
-                  : "bg-white text-black"
+                  : "bg-[#ece8e5] text-black"
               )}
             >
               Contact Us
@@ -155,7 +154,7 @@ const NavBar = () => {
       {/* Mobile Navigation Drawer (Now slides in from the right) */}
       <div
         className={clsx(
-          "fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform transition-transform ease-in-out duration-300 z-50 flex flex-col pt-20 px-6",
+          "fixed top-0 right-0 h-full w-64 bg-[#ece8e5] shadow-lg transform transition-transform ease-in-out duration-300 z-50 flex flex-col pt-20 px-6",
           menuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >

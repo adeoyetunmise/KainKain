@@ -2,7 +2,8 @@ import ProductCollectionListing from "@/components/collections/ProductCollection
 
 const HandMade = () => {
   return (
-    <section className='pt-20 px-5 max-w-7xl mx-auto'>
+    <section className="w-full bg-[#ece8e5]" >
+      <div className='pt-20 px-5 max-w-7xl mx-auto '>
       <h1 className='text-2xl md:text-4xl text-center mt-20'>KainKain HandMade</h1>
 
       <p className='text-center text-lg md:text-xl lg:text-2xl font-light py-10'>
@@ -23,7 +24,7 @@ const HandMade = () => {
       </section> */}
 
       <ProductCollectionListing category="handmade" />
-
+</div>
     </section>
   );
 };

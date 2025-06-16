@@ -27,7 +27,8 @@ const Collections = () => {
   ];
 
   return (
-    <section className='container mx-auto px-4 py-6 pt-20 mb-12'>
+    <section className='bg-[#ece8e5] w-full'>
+      <div className='container mx-auto px-4 py-6 pt-20 pb-12'>
       <h1 className='text-xl sm:text-2xl md:text-3xl lg:text-2xl font-bold text-center mb-8 md:mb-10'>
         Our Collections
       </h1>
@@ -46,7 +47,7 @@ const Collections = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.2 }}
             viewport={{ once: true }}
-            className='bg-white transition-shadow duration-300'
+            className='bg-[#ece8e5] transition-shadow duration-300'
           >
             <Link href={collection.link} className='block'>
               <div className='relative w-full pb-[70%] overflow-hidden'>
@@ -84,6 +85,7 @@ const Collections = () => {
           </motion.div>
         ))}
       </motion.div>
+      </div>
     </section>
   );
 };

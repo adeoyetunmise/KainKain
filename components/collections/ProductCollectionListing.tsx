@@ -143,7 +143,7 @@ const ProductCollectionListing = ({ category }: ProductCollectionListingProps) =
   }, [openFilters, mobileFilterOpen]); // Re-run effect when openFilters changes
 
   return (
-    <section className='my-10'>
+    <section className='py-10'>
       <section>
         {/* Desktop filters */}
         <div className='hidden md:flex justify-between items-center mb-10'>
@@ -155,7 +155,7 @@ const ProductCollectionListing = ({ category }: ProductCollectionListingProps) =
                 Availability <ChevronDown className='cursor-pointer' onClick={() => toggleFilter('availability')} />
               </p>
               {openFilters.availability && (
-                <div className='absolute top-full left-0 mt-1 shadow-lg w-[300px] p-4 space-y-8 bg-white z-10'>
+                <div className='absolute top-full left-0 mt-1 shadow-lg w-[300px] p-4 space-y-8 bg-[#ece8e5] z-10'>
                   <div className='flex justify-between'>
                     <p>0 selected</p>
                     <p className='underline'>Reset</p>
@@ -180,7 +180,7 @@ const ProductCollectionListing = ({ category }: ProductCollectionListingProps) =
                 Price <ChevronDown className='cursor-pointer' onClick={() => toggleFilter('price')} />
               </p>
               {openFilters.price && (
-                <div className='absolute top-full left-0 mt-1 shadow-lg w-[300px] p-4 space-y-8 bg-white z-10'>
+                <div className='absolute top-full left-0 mt-1 shadow-lg w-[300px] p-4 space-y-8 bg-[#ece8e5] z-10'>
                   <div className='flex justify-between'>
                     <p>The height price is &#8358;</p>
                     <p className='underline'>Reset</p>
@@ -221,7 +221,7 @@ const ProductCollectionListing = ({ category }: ProductCollectionListingProps) =
               Sort By <ChevronDown className='cursor-pointer' onClick={() => toggleFilter('sort')} />
             </p>
             {openFilters.sort && (
-              <div className='absolute top-full right-0 mt-1 shadow-lg w-[250px] p-4 space-y-4 bg-white z-10'>
+              <div className='absolute top-full right-0 mt-1 shadow-lg w-[250px] p-4 space-y-4 bg-[#ece8e5] z-10'>
                 <label className='cursor-pointer block'>
                   <input 
                     type='radio' 
@@ -291,7 +291,7 @@ const ProductCollectionListing = ({ category }: ProductCollectionListingProps) =
         {/* Mobile filter sidebar */}
         <div 
           ref={mobileFilterRef}
-          className={`fixed top-0 left-0 h-full w-[280px] bg-white z-50 transform transition-transform duration-300 ease-in-out p-4 overflow-y-auto ${
+          className={`fixed top-0 left-0 h-full w-[280px] bg-[#ece8e5] z-50 transform transition-transform duration-300 ease-in-out p-4 overflow-y-auto ${
             mobileFilterOpen ? 'translate-x-0' : '-translate-x-full'
           }`}
         >
@@ -395,7 +395,7 @@ const ProductCollectionListing = ({ category }: ProductCollectionListingProps) =
                     <input 
                       type='text' 
                       placeholder='From' 
-                      className='input input-sm w-full bg-white text-black border-neutral'
+                      className='input input-sm w-full bg-[#ece8e5] text-black border-neutral'
                       value={priceRange.from}
                       onChange={(e) => setPriceRange(prev => ({ ...prev, from: e.target.value }))
                       }
@@ -406,7 +406,7 @@ const ProductCollectionListing = ({ category }: ProductCollectionListingProps) =
                     <input 
                       type='text' 
                       placeholder='To' 
-                      className='input input-sm w-full bg-white text-black border-neutral'
+                      className='input input-sm w-full bg-[#ece8e5] text-black border-neutral'
                       value={priceRange.to}
                       onChange={(e) => setPriceRange(prev => ({ ...prev, to: e.target.value }))
                       }

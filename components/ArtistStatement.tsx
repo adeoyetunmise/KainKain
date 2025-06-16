@@ -3,9 +3,9 @@ import Image from "next/image";
 
 const ArtistStatement: React.FC = () => {
   return (
-    <div className="flex flex-col md:flex-row justify-between items-start gap-8 py-16 px-6 md:px-8 lg:px-4 container max-w-7xl mx-auto bg-gray-50">
+    <div className="flex flex-col lg:flex-row justify-between items-start gap-8 py-16 px-6 md:px-8 lg:px-4 container md:max-w-7xl mx-auto bg-[#ece8e5]">
       {/* Left Content */}
-      <div className="flex-1 space-y-10 space-x-20">
+      <div className="flex-1 space-y-6">
         <h2 className="text-2xl font-bold tracking-wide uppercase">
           ARTIST STATEMENT
         </h2>
@@ -39,32 +39,14 @@ const ArtistStatement: React.FC = () => {
         </button>
       </div>
 
-      {/* Right Images - Overlapping layout */}
-      <div className="flex-1 relative">
-        {/* Container for the overlapping images */}
-        <div className="relative h-[520px] w-full">
-          {/* Rectangular Image (positioned slightly up from the bottom) */}
-          <div className="absolute bottom-14 left-0 w-[96%] h-[250px]">
-            <Image
-              src="/Rectangle 2.png"
-              alt="Additional gallery view"
-              fill
-              style={{ objectFit: "cover" }}
-              className=" "
-            />
-          </div>
-
-          {/* Main Image (positioned to overlap) */}
-          <div className="absolute top-0 right-0 w-[96%] h-[440px] z-10">
-            <Image
-              src="/JOSH0310.jpeg"
-              alt="Art gallery exhibition with colorful textile displays"
-              fill
-              style={{ objectFit: "cover" }}
-              className=""
-            />
-          </div>
-        </div>
+      {/* Right Image */}
+      <div className="flex-1 relative min-h-80 lg:h-96 w-full">
+        <Image
+          src="/JOSH0310.png"
+          alt="Artist Image"
+          fill
+          className="object-cover"
+        />
       </div>
     </div>
   );

@@ -64,7 +64,7 @@ const ProductCard = ({ product }: { product: Product }) => {
   return (
     <Link
       href={`/products/${product.slug}`}
-      className="block bg-white text-center hover:transition max-w-[350px] mx-auto w-full"
+      className="block bg-[#ece8e5] text-center hover:transition max-w-[350px] mx-auto w-full"
     >
       <div
         className="relative w-full pb-[460px]" // Increased height with 125% aspect ratio

@@ -50,13 +50,13 @@ const CheckoutPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
+    <div className="min-h-screen bg-[#ece8e5] py-8 px-4">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-3xl font-bold text-center mb-8">Checkout</h1>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Order Summary */}
-          <div className="bg-white rounded-lg shadow-md p-6">
+          <div className="bg-[#ece8e5] rounded-lg shadow-md p-6">
             <h2 className="text-2xl font-semibold mb-4">Order Summary</h2>
             
             <div className="space-y-4">
@@ -117,7 +117,7 @@ const CheckoutPage = () => {
           </div>
 
           {/* Customer Information Form */}
-          <div className="bg-white rounded-lg shadow-md p-6">
+          <div className="bg-[#ece8e5] rounded-lg shadow-md p-6">
             <h2 className="text-2xl font-semibold mb-4">Shipping Information</h2>
             
             <form onSubmit={handleSubmit} className="space-y-4">

@@ -25,7 +25,7 @@ const CustomProductCard = ({ product }: { product: Product }) => {
   return (
     <Link
       href={`/products/${product.slug}`}
-      className="block bg-white text-center hover:transition max-w-[350px] mx-auto w-full"
+      className="block bg-[#ece8e5] text-center hover:transition max-w-[350px] mx-auto w-full"
     >
       <div
         className="relative w-full pb-[460px]" // Same height as ProductList
@@ -54,7 +54,7 @@ const CustomProductCard = ({ product }: { product: Product }) => {
 
 const HomeProductCard = () => {
   return (
-    <div className="container flex flex-col items-center mx-auto px-4 py-6 md:my-20">
+    <div className="container flex flex-col items-center mx-auto px-4 py-6 md:py-20">
       <div className="w-full self-start">
         <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-2xl font-bold mb-4 md:mb-6">
           PRINT ARTS SHOP
