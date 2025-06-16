@@ -23,7 +23,7 @@
       "slug": "life-giver",
       "title": "Lifegiver, 2024",
       "image": "/images/Rectangle 13.png",
-      "hoverImage": "/images/Rectangle 13.png",
+      "hoverImage": "/images/TJPG2444.jpg",
       "price": 3000000,
       "category": "handmade"
     },
@@ -32,7 +32,7 @@
       "slug": "bro-ken",
       "title": "Broken",
       "image": "/images/Rectangle 14.png",
-      "hoverImage": "/images/Rectangle 14.png",
+      "hoverImage": "/images/TJPG2413.jpg",
       "price": 2000000,
       "category": "handmade"
     },
@@ -54,15 +54,7 @@
       "price": 70,
       "category": "handmade"
     },
-    {
-      "id": 7,
-      "slug": "orange-stand",
-      "title": "Orange Stand",
-      "image": "/images/orange-stand.jpg",
-      "hoverImage": "/images/orange-stand2.jpg",
-      "price": 55,
-      "category": "handmade"
-    },
+    
     {
       "id": 8,
       "slug": "paper-sponge",
@@ -197,16 +189,9 @@
       "price": 85,
       "category": "printart"
     },
+  
     {
       "id": 24,
-      "slug": "echoes-of-freedom",
-      "title": "Echoes Of Freedom",
-      "image": "/EchoesOfFreedomi.jpg",
-      "price": 90,
-      "category": "printart"
-    },
-    {
-      "id": 25,
       "slug": "birds-of-a-feather",
       "title": "Birds Of A Feather",
       "image": "/BirdsOfAFeatheri.jpg",

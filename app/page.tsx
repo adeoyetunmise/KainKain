@@ -8,10 +8,10 @@ import ArtistStatement from "@/components/ArtistStatement";
 
 export default function Home() {
   return (
-    <section>
+    <section className="">
       <Hero />
       <ArtistStatement />
-      <HandMadeHero />
+      <HandMadeHero /> 
       <ProductList />
       <hr className="text-gray-300" />
       <PrintArtHero />

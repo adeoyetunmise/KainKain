@@ -19,7 +19,7 @@ const NavBar = () => {
   // Determine if the current page should have dark text by default
   // Add your page paths that should have dark text by default
   const isDarkTextPage = ["/about", "/collections", "/products"].some((path) =>
-    pathname?.startsWith(path)
+    pathname.startsWith(path)
   );
 
   // Handle clicks outside the dropdown
@@ -52,18 +52,20 @@ const NavBar = () => {
     <nav
       className={clsx(
         "w-full px-3 sm:px-6 py-4 md:py-4 flex items-center justify-between z-50 transition-all duration-300 fixed top-0 left-0",
-        hovering || scroll ? "bg-white shadow-md text-black" : "bg-transparent",
+        hovering || scroll
+          ? "bg-[#faf9f6] shadow-md text-[#1a1a1a]"
+          : "bg-transparent",
         // Apply dark text by default on certain pages when not scrolled
         !hovering && !scroll
           ? isDarkTextPage
-            ? "text-black"
-            : "text-white"
+            ? "text-[#1a1a1a]"
+            : "text-[#faf9f6]"
           : ""
       )}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
-      <div className="flex items-center justify-between w-full max-w-7xl mx-auto px-4">
+      <div className="flex items-center justify-between w-full max-w-[96%] mx-auto">
         {/* Logo & NavLinks on the same line */}
         <div className="flex items-center">
           <Link href="/" className="mr-6">
@@ -80,14 +82,14 @@ const NavBar = () => {
           {/* Desktop NavLinks */}
           <ul className="hidden md:flex mt-4  menu menu-horizontal">
             <li>
-              <Link href="/" className="text-lg ">
+              <Link href="/" className="text-lg font-semibold">
                 Home
               </Link>
             </li>
             <li>
               <details ref={detailsRef}>
-                <summary className="text-lg ">Shop Prints</summary>
-                <ul className="p-2 bg-white shadow-md text-black">
+                <summary className="text-lg font-semibold">Shop Prints</summary>
+                <ul className="p-2 bg-[#faf9f6] shadow-md text-[#1a1a1a]">
                   <li>
                     <Link href="/collections/hand-made" className="text-sm">
                       Hand Made
@@ -108,12 +110,12 @@ const NavBar = () => {
             </li>
 
             <li>
-              <Link href="/about" className="text-lg ">
+              <Link href="/about" className="text-lg font-semibold">
                 About
               </Link>
             </li>
             <li>
-              <Link href="/Exhibition" className="text-lg ">
+              <Link href="/Exhibition" className="text-lg font-semibold">
                 Exhibition
               </Link>
             </li>
@@ -128,10 +130,10 @@ const NavBar = () => {
             <Link
               href="/contact"
               className={clsx(
-                "hidden md:block px-6 py-1 rounded-full font-medium text-lg transition-all duration-300",
+                "hidden md:block px-6 py-1 -mt-3 rounded-full font-medium text-lg transition-all duration-300",
                 scroll || hovering
-                  ? "bg-black text-white"
-                  : "bg-white text-black"
+                  ? "bg-[#1a1a1a] text-[#faf9f6]"
+                  : "bg-[#faf9f6] text-[#1a1a1a]"
               )}
             >
               Contact Us
@@ -141,8 +143,8 @@ const NavBar = () => {
             className={clsx(
               "md:hidden justify-end flex items-center transition-colors duration-300",
               !hovering && !scroll && !isDarkTextPage
-                ? "text-white"
-                : "text-black"
+                ? "text-[#faf9f6]"
+                : "text-[#1a1a1a]"
             )}
             onClick={() => setMenuOpen(true)}
           >
@@ -155,12 +157,12 @@ const NavBar = () => {
       {/* Mobile Navigation Drawer (Now slides in from the right) */}
       <div
         className={clsx(
-          "fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform transition-transform ease-in-out duration-300 z-50 flex flex-col pt-20 px-6",
+          "fixed top-0 right-0 h-full w-64 bg-[#faf9f6] shadow-lg transform transition-transform ease-in-out duration-300 z-50 flex flex-col pt-20 px-6",
           menuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
         <button
-          className="absolute top-4 left-4 text-black cursor-pointer"
+          className="absolute top-4 left-4 text-[#1a1a1a] cursor-pointer"
           onClick={() => setMenuOpen(false)}
         >
           <X className="h-6 w-6" />
@@ -171,7 +173,7 @@ const NavBar = () => {
           <li>
             <Link
               href="/"
-              className="text-sm sm:text-lg "
+              className="text-sm sm:text-lg font-semibold"
               onClick={() => setMenuOpen(false)}
             >
               Home
@@ -179,7 +181,7 @@ const NavBar = () => {
           </li>
           <li>
             <details>
-              <summary className="text-sm sm:text-lg ">
+              <summary className="text-sm sm:text-lg font-semibold">
                 Shop Prints
               </summary>
               <ul className="p-2">
@@ -216,7 +218,7 @@ const NavBar = () => {
           <li>
             <Link
               href="/collections/exhibition"
-              className="text-sm sm:text-lg "
+              className="text-sm sm:text-lg font-semibold"
               onClick={() => setMenuOpen(false)}
             >
               Exhibition
@@ -225,7 +227,7 @@ const NavBar = () => {
           <li>
             <Link
               href="/about"
-              className="text-sm sm:text-lg "
+              className="text-sm sm:text-lg font-semibold"
               onClick={() => setMenuOpen(false)}
             >
               About
@@ -234,25 +236,19 @@ const NavBar = () => {
           <li>
             <Link
               href="/contact"
-              className="text-sm sm:text-lg "
+              className="text-sm sm:text-lg  font-semibold"
               onClick={() => setMenuOpen(false)}
             >
               Contact Us
             </Link>
           </li>
         </ul>
-
-        {/* <div className="flex flex-col gap-4 mt-8">
-          <Search />
-          <Language />
-          <Cart />
-        </div> */}
       </div>
 
       {/* Overlay for mobile menu */}
       {menuOpen && (
         <div
-          className="fixed inset-0 bg-black opacity-40 z-40"
+          className="fixed inset-0 bg-[#1a1a1a] opacity-40 z-40"
           onClick={() => setMenuOpen(false)}
         />
       )}
