@@ -51,13 +51,15 @@ const NavBar = () => {
     <nav
       className={clsx(
         "w-full px-3 sm:px-6 py-4 md:py-4 flex items-center justify-between z-50 transition-all duration-300 fixed top-0 left-0",
-        hovering || scroll ? "bg-smoke-white shadow-md text-black" : "bg-transparent",
+        hovering || scroll
+          ? "bg-smoke-white shadow-md text-black"
+          : "bg-transparent",
         // Apply dark text by default on certain pages when not scrolled
-        hovering || scroll 
-          ? "text-black" 
-          : isDarkTextPage 
-            ? "text-black" 
-            : "text-white"
+        hovering || scroll
+          ? "text-black"
+          : isDarkTextPage
+          ? "text-black"
+          : "text-white"
       )}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
@@ -135,18 +137,18 @@ const NavBar = () => {
             >
               Contact Us
             </Link>
-          {/* Mobile Menu Button */}
-          <button
-            className={clsx(
-              "md:hidden justify-end flex items-center transition-colors duration-300",
-              !hovering && !scroll && !isDarkTextPage
-                ? "text-[#faf9f6]"
-                : "text-custom-black"
-            )}
-            onClick={() => setMenuOpen(true)}
-          >
-            <Menu className="cursor-pointer" />
-          </button>
+            {/* Mobile Menu Button */}
+            <button
+              className={clsx(
+                "md:hidden justify-end flex items-center transition-colors duration-300",
+                !hovering && !scroll && !isDarkTextPage
+                  ? "text-smoke-white"
+                  : "text-custom-black"
+              )}
+              onClick={() => setMenuOpen(true)}
+            >
+              <Menu className="cursor-pointer" />
+            </button>
           </div>
         </div>
       </div>
@@ -179,9 +181,7 @@ const NavBar = () => {
           </li>
           <li>
             <details>
-              <summary className="text-sm sm:text-lg">
-                Shop Prints
-              </summary>
+              <summary className="text-sm sm:text-lg">Shop Prints</summary>
               <ul className="p-2">
                 <li>
                   <Link

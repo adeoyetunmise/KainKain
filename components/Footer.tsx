@@ -11,8 +11,8 @@ const Footer = () => {
             <Image
               src="/KainKainn.png"
               alt="KainKain Logo"
-              width={150}
-              height={50}
+              width={100}
+              height={35}
             />
           </aside>
 
@@ -57,12 +57,12 @@ const Footer = () => {
               <input
                 type="search"
                 placeholder="Search...."
-                className="input bg-[#D9D9D9] placeholder:text-[#000000] w-[170px] text-[#1a1a1a] border-none rounded-none pr-10"
+                className="input bg-[#D9D9D9] placeholder:text-custom-black w-[170px] text-custom-black border-none rounded-none pr-10"
               />
               <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-[#1a1a1a]"
+                  className="h-5 w-5 text-custom-black"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
