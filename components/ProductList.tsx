@@ -22,7 +22,7 @@ export default function ProductList() {
   return (
     <section className="w-full bg-smoke-white">
       <div className="container  mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
-        <h1 className="text-xl lg:text-2xl mt-1 sm:text-2xl md:text-3xl font-bold mb-6">
+        <h1 className="text-xl lg:text-2xl text-custom-black mt-1 sm:text-2xl md:text-3xl font-bold mb-6">
           HAND MADE ARTS SHOP
         </h1>
 
@@ -43,7 +43,7 @@ export default function ProductList() {
         </motion.div>
         <div className="flex justify-center mt-8">
           <ButtonLink
-            className="bg-[#1a1a1a] border-none rounded-none shadow-none text-[#faf9f6]  flex items-center justify-center whitespace-nowrap w-3 text-sm  "
+            className="bg-custom-black border-none rounded-none shadow-none text-smoke-white  flex items-center justify-center whitespace-nowrap w-3 text-sm  "
             href="/collections/hand-made"
           >
             View All
@@ -81,10 +81,10 @@ const ProductCard = ({ product }: { product: Product }) => {
         />
       </div>
       <div className="">
-        <h2 className="text-base font-bold mt-2 line-clamp-2 text-left">
+        <h2 className="text-base font-bold text-custom-black mt-2 line-clamp-2 text-left">
           {product.title}
         </h2>
-        <p className="text-base text-dark mt-1 text-left">
+        <p className="text-base text-custom-black mt-1 text-left">
           &#8358; {formattedPrice}
         </p>
       </div>
