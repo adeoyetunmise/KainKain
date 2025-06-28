@@ -27,7 +27,7 @@ const ButtonLink: React.FC<ButtonLinkProps> = ({
 }) => {
   const baseClasses = `btn ${
     variant !== "default" ? `btn-${variant}` : ""
-  } btn-${size} ${className} px-12 py-3`;
+  } btn-${size} ${className} px-12 py-3 hover:scale-105 transition-transform duration-200 ease-in-out`;
 
   // If href is provided, render a link
   if (href) {

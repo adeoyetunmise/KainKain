@@ -1,4 +1,6 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
+
 // Zustand store for managing cart state
 interface CartState {
     cartItems: { slug: string; title: string; price: string; img: string; quantity: number }[];
@@ -8,7 +10,9 @@ interface CartState {
     addToCart: (product: { slug: string; title: string; price: string; img: string }) => void;
   }
 
-export const useCartStore =  create<CartState>((set, get) => ({
+export const useCartStore = create<CartState>()(
+  persist(
+    (set, get) => ({
     cartItems: [],
 
     addToCart: (product) => set((state) => {
@@ -39,4 +43,11 @@ export const useCartStore =  create<CartState>((set, get) => ({
             total + (parseFloat(item.price) * item.quantity), 0
         );
     }
-}))
+    }),
+    {
+      name: 'cart-storage', // unique name for the storage key
+      // You can optionally specify which storage to use (localStorage is default)
+      // storage: createJSONStorage(() => sessionStorage), // Use sessionStorage instead
+    }
+  )
+)

@@ -6,8 +6,8 @@ import Link from "next/link";
 const CartIcon = () => {
   const cartItems = useCartStore((state) => state.cartItems);
   
-  // Calculate total number of items in cart
-  const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+  // Calculate number of unique items in cart (not total quantity)
+  const totalItems = cartItems.length;
 
   // If cart is empty, render without Link
   if (totalItems === 0) {

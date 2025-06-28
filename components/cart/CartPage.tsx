@@ -4,7 +4,6 @@ import { useCartStore } from "@/store/cartStore";
 import { Trash2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import ButtonLink from "../ui/ButtonLink";
 
 const CartPage = () => {
@@ -17,16 +16,16 @@ const CartPage = () => {
     }
   };
 
-  //   if (cartItems.length === 0) {
-  //     return (
-  //       <div className="min-h-screen flex flex-col items-center justify-center">
-  //         <h1 className="text-3xl font-bold mb-4">Your cart is empty</h1>
-  //         <Link href="/products" className="btn bg-[#dcb094] text-white">
-  //           Continue Shopping
-  //         </Link>
-  //       </div>
-  //     );
-  //   }
+    if (cartItems.length === 0) {
+      return (
+        <div className="min-h-screen flex flex-col items-center justify-center bg-smoke-white">
+          <h1 className="text-3xl font-bold mb-4">Your cart is empty</h1>
+          <ButtonLink href="/products" className=" text-white">
+            Continue Shopping
+          </ButtonLink>
+        </div>
+      );
+    }
 
   return (
     <section className="bg-smoke-white w-full pt-10 pb-20">
@@ -181,7 +180,7 @@ const CartPage = () => {
               <div className="mt-6 flex justify-end">
                 <ButtonLink 
                   href="/checkout" 
-                  className="py-4 w-full md:w-2xs text-white hover:bg-[#c9a082] transition-colors"
+                  className="py-4 w-full md:w-2xs text-white"
                 >
                   Checkout
                 </ButtonLink>
