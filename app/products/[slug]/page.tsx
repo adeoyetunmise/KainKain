@@ -33,9 +33,20 @@ const ProductPage = () => {
 
   if (!product) {
     return (
-      <h1 className="text-center text-2xl font-bold mt-10">
-        Product Not Found
-      </h1>
+      <div className="min-h-screen flex gap-10 items-center justify-center">
+        <div className="flex w-52 flex-col gap-4">
+          <div className="skeleton h-32 w-full"></div>
+          <div className="skeleton h-4 w-28"></div>
+          <div className="skeleton h-4 w-full"></div>
+          <div className="skeleton h-4 w-full"></div>
+        </div>
+        <div className="flex w-52 flex-col gap-4">
+          <div className="skeleton h-32 w-full"></div>
+          <div className="skeleton h-4 w-28"></div>
+          <div className="skeleton h-4 w-full"></div>
+          <div className="skeleton h-4 w-full"></div>
+        </div>
+      </div>
     );
   }
 

@@ -136,15 +136,7 @@ const ProductDetails = () => {
               expedita laborum?
             </p>
 
-            {/* <h3 className="text-lg text-gray-700">Limited stock</h3>
-          <p className="text-sm text-gray-700">
-            Order within{" "}
-            <span className="font-bold">2 hrs 51 mins</span> and choose{" "}
-            <span className="font-bold">2-Day shipping</span> to receive your
-            product as soon as{" "}
-            <span className="font-bold">Wednesday</span>
-          </p> */}
-          </div>{" "}
+          </div>
         </div>
   )
 }

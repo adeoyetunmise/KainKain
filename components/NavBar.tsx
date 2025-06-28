@@ -6,8 +6,8 @@ import { Menu, X } from "lucide-react";
 import clsx from "clsx";
 import Search from "./ui/Search";
 import Language from "./ui/Language";
-import Cart from "./ui/Cart";
 import { usePathname } from "next/navigation";
+import CartIcon from "./ui/CartIcon";
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -122,7 +122,7 @@ const NavBar = () => {
         <div className="flex items-center justify-end gap-3">
           <div className="flex items-center mt-4 justify-center gap-3 md:gap-6">
             <Search />
-            <Cart />
+            <CartIcon />
             <Language className="hidden md:flex" />
             <Link
               href="/contact"
