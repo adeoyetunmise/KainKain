@@ -54,12 +54,15 @@ const NavBar = () => {
     <nav
       className={clsx(
         "w-full px-3 sm:px-6 py-4 md:py-4 flex items-center justify-between z-50 transition-all duration-300 fixed top-0 left-0",
-        hovering || scroll ? "bg-smoke-white shadow-md text-black" : "bg-transparent",
-        hovering || scroll 
-          ? "text-black" 
-          : isDarkTextPage 
-            ? "text-black" 
-            : "text-white"
+        hovering || scroll
+          ? "bg-smoke-white shadow-md text-black"
+          : "bg-transparent",
+        // Apply dark text by default on certain pages when not scrolled
+        hovering || scroll
+          ? "text-black"
+          : isDarkTextPage
+          ? "text-black"
+          : "text-white"
       )}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
@@ -130,39 +133,32 @@ const NavBar = () => {
 
         <div className="flex items-center justify-end gap-3">
           <div className="flex items-center mt-4 justify-center gap-3 md:gap-6">
-            {/* Only show CartIcon on checkout page, otherwise show all items */}
-            {isCheckoutPage ? (
-              <CartIcon />
-            ) : (
-              <>
-                <Search />
-                <CartIcon />
-                <Language className="hidden md:flex" />
-                <Link
-                  href="/contact"
-                  className={clsx(
-                    "hidden md:block px-6 py-1 -mt-3 rounded-full font-medium text-lg transition-all duration-300",
-                    scroll || hovering
-                      ? "bg-custom-black text-smoke-white"
-                      : "text-custom-black bg-smoke-white"
-                  )}
-                >
-                  Contact Us
-                </Link>
-                {/* Mobile Menu Button */}
-                <button
-                  className={clsx(
-                    "md:hidden justify-end flex items-center transition-colors duration-300",
-                    !hovering && !scroll && !isDarkTextPage
-                      ? "text-[#faf9f6]"
-                      : "text-custom-black"
-                  )}
-                  onClick={() => setMenuOpen(true)}
-                >
-                  <Menu className="cursor-pointer" />
-                </button>
-              </>
-            )}
+            <Search />
+            <Cart />
+            <Language className="hidden md:flex" />
+            <Link
+              href="/contact"
+              className={clsx(
+                "hidden md:block px-6 py-1 -mt-3 rounded-full font-medium text-lg transition-all duration-300",
+                scroll || hovering
+                  ? "bg-custom-black text-smoke-white"
+                  : "text-custom-black bg-smoke-white"
+              )}
+            >
+              Contact Us
+            </Link>
+            {/* Mobile Menu Button */}
+            <button
+              className={clsx(
+                "md:hidden justify-end flex items-center transition-colors duration-300",
+                !hovering && !scroll && !isDarkTextPage
+                  ? "text-smoke-white"
+                  : "text-custom-black"
+              )}
+              onClick={() => setMenuOpen(true)}
+            >
+              <Menu className="cursor-pointer" />
+            </button>
           </div>
         </div>
       </div>
@@ -272,9 +268,80 @@ const NavBar = () => {
             <div
               className="fixed inset-0 bg-[#1a1a1a] opacity-40 z-40"
               onClick={() => setMenuOpen(false)}
-            />
-          )}
-        </>
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <details>
+              <summary className="text-sm sm:text-lg">Shop Prints</summary>
+              <ul className="p-2">
+                <li>
+                  <Link
+                    href="/collections/hand-made"
+                    className="text-sm sm:text-base"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Hand Made
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/collections/print-art"
+                    className="text-sm sm:text-base"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Print Arts
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/collections"
+                    className="text-sm sm:text-base"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    collection
+                  </Link>
+                </li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <Link
+              href="/collections/exhibition"
+              className="text-sm sm:text-lg"
+              onClick={() => setMenuOpen(false)}
+            >
+              Exhibition
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/about"
+              className="text-sm sm:text-lg"
+              onClick={() => setMenuOpen(false)}
+            >
+              About
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/contact"
+              className="text-sm sm:text-lg"
+              onClick={() => setMenuOpen(false)}
+            >
+              Contact Us
+            </Link>
+          </li>
+        </ul>
+      </div>
+
+      {/* Overlay for mobile menu */}
+      {menuOpen && (
+        <div
+          className="fixed inset-0 bg-[#1a1a1a] opacity-40 z-40"
+          onClick={() => setMenuOpen(false)}
+        />
       )}
     </nav>
   );
