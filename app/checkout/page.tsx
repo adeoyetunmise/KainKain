@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 const CheckoutPage = () => {
-  const { cartItems, updateQuantity, removeFromCart, getTotalPrice } = useCartStore();
+  const { cartItems, getTotalPrice } = useCartStore();
   const [customerInfo, setCustomerInfo] = useState({
     name: "",
     email: "",
@@ -16,12 +16,6 @@ const CheckoutPage = () => {
     state: "",
     zipCode: "",
   });
-
-  const handleQuantityChange = (slug: string, newQuantity: number) => {
-    if (newQuantity > 0) {
-      updateQuantity(slug, newQuantity);
-    }
-  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -50,53 +44,37 @@ const CheckoutPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#ece8e5] py-8 px-4">
+    <div className="min-h-screen bg-[#ece8e5] pt-28 pb-8 px-4">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-3xl font-bold text-center mb-8">Checkout</h1>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Order Summary */}
-          <div className="bg-[#ece8e5] rounded-lg shadow-md p-6">
+          <div className="bg-[#ece8e5] rounded-lg p-6">
             <h2 className="text-2xl font-semibold mb-4">Order Summary</h2>
             
-            <div className="space-y-4">
+            <div className="">
               {cartItems.map((item) => (
-                <div key={item.slug} className="flex items-center gap-4 border-b pb-4">
-                  <Image
-                    src={item.img}
-                    alt={item.title}
-                    width={80}
-                    height={80}
-                    className="rounded-md"
-                  />
+                <div key={item.slug} className="flex items-center gap-4 pb-4">
+                  <div className="relative">
+                    <Image
+                      src={item.img}
+                      alt={item.title}
+                      width={80}
+                      height={80}
+                      className="rounded-md"
+                    />
+                    {/* Quantity badge on top-right corner */}
+                    <span className="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium">
+                      {item.quantity}
+                    </span>
+                  </div>
                   
                   <div className="flex-1">
                     <h3 className="font-semibold">{item.title}</h3>
                     <p className="text-gray-600">
                       ₦{new Intl.NumberFormat("en-NG").format(parseFloat(item.price))}
                     </p>
-                    
-                    <div className="flex items-center gap-2 mt-2">
-                      <button
-                        onClick={() => handleQuantityChange(item.slug, item.quantity - 1)}
-                        className="btn btn-sm bg-gray-200 text-black"
-                      >
-                        -
-                      </button>
-                      <span className="text-lg">{item.quantity}</span>
-                      <button
-                        onClick={() => handleQuantityChange(item.slug, item.quantity + 1)}
-                        className="btn btn-sm bg-gray-200 text-black"
-                      >
-                        +
-                      </button>
-                      <button
-                        onClick={() => removeFromCart(item.slug)}
-                        className="btn btn-sm bg-red-500 text-white ml-4"
-                      >
-                        Remove
-                      </button>
-                    </div>
                   </div>
                   
                   <div className="text-right">
@@ -111,7 +89,7 @@ const CheckoutPage = () => {
             <div className="mt-6 pt-4 border-t">
               <div className="flex justify-between items-center text-xl font-bold">
                 <span>Total:</span>
-                <span>₦{new Intl.NumberFormat("en-NG").format(getTotalPrice())}</span>
+                <span>NGN ₦{new Intl.NumberFormat("en-NG").format(getTotalPrice())}</span>
               </div>
             </div>
           </div>
