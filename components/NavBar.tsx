@@ -17,7 +17,27 @@ const NavBar = () => {
   const pathname = usePathname();
 
   // Determine if the current page should have dark text by default
-  const isDarkTextPage = ["/about", "/collections", "/products", "/cart", "/checkout"].some((path) =>
+  const isDarkTextPage = [
+    "/about",
+    "/collections",
+    "/products",
+    "/cart",
+    "/checkout",
+  ].some((path) => pathname.startsWith(path));
+
+  // Pages that should always have the "scrolled" navbar appearance
+  const alwaysScrolledPages = [
+    "/collections/hand-made",
+    "/collections/print-art",
+    "/collections",
+    "/products",
+    "/about",
+    "/Exhibition",
+    "/contact",
+  ];
+
+  // Check if current page should always have scrolled navbar
+  const forceScrolledAppearance = alwaysScrolledPages.some((path) =>
     pathname.startsWith(path)
   );
 
@@ -50,15 +70,19 @@ const NavBar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Determine navbar styling
+  const shouldApplyScrolledStyle =
+    hovering || scroll || forceScrolledAppearance;
+
   return (
     <nav
       className={clsx(
         "w-full px-3 sm:px-6 py-4 md:py-4 flex items-center justify-between z-50 transition-all duration-300 fixed top-0 left-0",
-        hovering || scroll
+        shouldApplyScrolledStyle
           ? "bg-smoke-white shadow-md text-black"
           : "bg-transparent",
         // Apply dark text by default on certain pages when not scrolled
-        hovering || scroll
+        shouldApplyScrolledStyle
           ? "text-black"
           : isDarkTextPage
           ? "text-black"
@@ -134,7 +158,7 @@ const NavBar = () => {
         <div className="flex items-center justify-end gap-3">
           <div className="flex items-center mt-4 justify-center gap-3 md:gap-6">
             <Search />
-            <Cart />
+            <CartIcon />
             <Language className="hidden md:flex" />
             <Link
               href="/contact"
@@ -192,9 +216,7 @@ const NavBar = () => {
               </li>
               <li>
                 <details>
-                  <summary className="text-sm sm:text-lg">
-                    Shop Prints
-                  </summary>
+                  <summary className="text-sm sm:text-lg">Shop Prints</summary>
                   <ul className="p-2">
                     <li>
                       <Link
@@ -204,6 +226,8 @@ const NavBar = () => {
                       >
                         All Products
                       </Link>
+                    </li>
+                    <li>
                       <Link
                         href="/collections/hand-made"
                         className="text-sm sm:text-base"
@@ -227,7 +251,7 @@ const NavBar = () => {
                         className="text-sm sm:text-base"
                         onClick={() => setMenuOpen(false)}
                       >
-                        collection
+                        Collection
                       </Link>
                     </li>
                   </ul>
@@ -268,80 +292,9 @@ const NavBar = () => {
             <div
               className="fixed inset-0 bg-[#1a1a1a] opacity-40 z-40"
               onClick={() => setMenuOpen(false)}
-            >
-              Home
-            </Link>
-          </li>
-          <li>
-            <details>
-              <summary className="text-sm sm:text-lg">Shop Prints</summary>
-              <ul className="p-2">
-                <li>
-                  <Link
-                    href="/collections/hand-made"
-                    className="text-sm sm:text-base"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    Hand Made
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/collections/print-art"
-                    className="text-sm sm:text-base"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    Print Arts
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/collections"
-                    className="text-sm sm:text-base"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    collection
-                  </Link>
-                </li>
-              </ul>
-            </details>
-          </li>
-          <li>
-            <Link
-              href="/collections/exhibition"
-              className="text-sm sm:text-lg"
-              onClick={() => setMenuOpen(false)}
-            >
-              Exhibition
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/about"
-              className="text-sm sm:text-lg"
-              onClick={() => setMenuOpen(false)}
-            >
-              About
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/contact"
-              className="text-sm sm:text-lg"
-              onClick={() => setMenuOpen(false)}
-            >
-              Contact Us
-            </Link>
-          </li>
-        </ul>
-      </div>
-
-      {/* Overlay for mobile menu */}
-      {menuOpen && (
-        <div
-          className="fixed inset-0 bg-[#1a1a1a] opacity-40 z-40"
-          onClick={() => setMenuOpen(false)}
-        />
+            />
+          )}
+        </>
       )}
     </nav>
   );

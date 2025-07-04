@@ -2,8 +2,8 @@
   "products": [
     {
       "id": 1,
-      "slug": "orange-stand",
-      "title": "72 Kankan 2024",
+      "slug": "kain-kain",
+      "title": " Kainkain 2024",
       "image": "/images/orange-stand2.jpg",
       "hoverImage": "/images/orange-stand.jpg",
       "price": 3500000,
@@ -20,7 +20,7 @@
     },
     {
       "id": 3,
-      "slug": "life-giver",
+      "slug": "life-giver-2024",
       "title": "Lifegiver, 2024",
       "image": "/images/Rectangle 13.png",
       "hoverImage": "/images/TJPG2444.jpg",
@@ -38,68 +38,79 @@
     },
     {
       "id": 5,
-      "slug": "guy-stand",
-      "title": "Guy Stand",
-      "image": "/images/guy-stand.jpg",
+      "slug": "glove-trove",
+      "title": "Glove Trove",
+      "image": "/TJPG2278.jpg",
       "hoverImage": "/images/guy-stand2.jpg",
-      "price": 65,
+      "price": 2500000,
       "category": "handmade"
     },
     {
       "id": 6,
-      "slug": "multi-color",
-      "title": "Multi Color",
+      "slug": "aladire",
+      "title": "Aladire",
       "image": "/images/multi-color.jpg",
       "hoverImage": "/images/multi-color2.jpg",
-      "price": 70,
+      "price": 5000000,
       "category": "handmade"
     },
-    
+
+    {
+      "id": 7,
+      "slug": "eye-of-the-storm",
+      "title": "Eye of The Storm",
+      "image": "/TJPG2341.jpg",
+      "hoverImage": "/images/paper-sponge2.jpg",
+      "price": 3000000,
+      "category": "handmade"
+    },
     {
       "id": 8,
-      "slug": "paper-sponge",
-      "title": "Paper Sponge",
-      "image": "/images/paper-sponge.jpg",
-      "hoverImage": "/images/paper-sponge2.jpg",
-      "price": 45,
+      "slug": "72-kainkain",
+      "title": "72 KainKain 2024",
+      "image": "/TJPG2370.jpg",
+      "hoverImage": "/images/white-sponge2.jpg",
+      "price": 3500000,
       "category": "handmade"
     },
     {
       "id": 9,
-      "slug": "white-sponge",
-      "title": "White Sponge",
-      "image": "/images/white-sponge1.jpg",
-      "hoverImage": "/images/white-sponge2.jpg",
-      "price": 50,
+      "slug": "life-giver",
+      "title": "Lifegiver",
+      "image": "/images/white-stand.jpg",
+      "hoverImage": "/images/white-stand2.jpg",
+      "price": 3500000,
       "category": "handmade"
     },
     {
       "id": 10,
-      "slug": "white-stand",
-      "title": "White Stand",
-      "image": "/images/white-stand.jpg",
-      "hoverImage": "/images/white-stand2.jpg",
-      "price": 60,
+      "slug": "aroni",
+      "title": "Aroni",
+      "image": "/images/yellow-green.jpg",
+      "hoverImage": "/images/yellow-green2.jpg",
+      "price": 2500000,
       "category": "handmade"
     },
     {
       "id": 11,
-      "slug": "yellow-green",
-      "title": "Yellow Green",
-      "image": "/images/yellow-green.jpg",
-      "hoverImage": "/images/yellow-green2.jpg",
-      "price": 65,
-      "category": "handmade"
-    },
-    {
-      "id": 12,
-      "slug": "yellow-stand",
-      "title": "Yellow Stand",
+      "slug": "kain-kain-kain",
+      "title": "kainKain",
       "image": "/images/yellow-stand.jpg",
       "hoverImage": "/images/yellow-stand2.jpg",
-      "price": 55,
+      "price": 5000000,
       "category": "handmade"
     },
+
+    {
+      "id": 12,
+      "slug": "sponge-tub",
+      "title": "Sponge Tub",
+      "image": "/TJPG2215.jpg",
+      "hoverImage": "/TJPG2228.jpg",
+      "price": 30000000,
+      "category": "handmade"
+    },
+
     {
       "id": 13,
       "slug": "egbon-adugbo",
@@ -116,7 +127,7 @@
       "price": 4000000,
       "category": "printart"
     },
-   {
+    {
       "id": 15,
       "slug": "echoes-of-freedom",
       "title": "Echoes Of Freedom",
@@ -140,7 +151,7 @@
       "price": 95,
       "category": "printart"
     },
-    
+
     {
       "id": 18,
       "slug": "oori",
@@ -189,7 +200,7 @@
       "price": 85,
       "category": "printart"
     },
-  
+
     {
       "id": 24,
       "slug": "birds-of-a-feather",
