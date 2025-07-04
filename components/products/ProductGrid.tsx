@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import ProductCard, { ProductCardProps } from "./ProductCard";
+import { ProductCardProps } from "./ProductCard";
 import { motion } from "framer-motion";
 
 interface ProductGridProps {
