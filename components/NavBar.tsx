@@ -16,14 +16,19 @@ const NavBar = () => {
   const detailsRef = useRef<HTMLDetailsElement>(null);
   const pathname = usePathname();
 
-  // Determine if the current page should have dark text by default
+  // Fix the pathname null check issue
+  const isTransparentPage = ["/", "/products", "/cart", "/checkout"].some(
+    (path) => pathname && pathname.startsWith(path)
+  );
+
+  // Add null check for pathname in isDarkTextPage
   const isDarkTextPage = [
     "/about",
     "/collections",
     "/products",
     "/cart",
     "/checkout",
-  ].some((path) => pathname.startsWith(path));
+  ].some((path) => pathname && pathname.startsWith(path));
 
   // Pages that should always have the "scrolled" navbar appearance
   const alwaysScrolledPages = [
@@ -36,12 +41,12 @@ const NavBar = () => {
     "/contact",
   ];
 
-  // Check if current page should always have scrolled navbar
-  const forceScrolledAppearance = alwaysScrolledPages.some((path) =>
-    pathname.startsWith(path)
+  // Add null check for pathname in forceScrolledAppearance
+  const forceScrolledAppearance = alwaysScrolledPages.some(
+    (path) => pathname && pathname.startsWith(path)
   );
 
-  // Check if we're on the checkout page
+  // Add null check for pathname in isCheckoutPage
   const isCheckoutPage = pathname === "/checkout";
 
   // Handle clicks outside the dropdown
