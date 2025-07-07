@@ -1,20 +1,10 @@
 import Footer from "@/components/Footer";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
-import { Big_Shoulders_Display } from "next/font/google";
 
 export const metadata = {
   // ...existing metadata...
 };
-
-// Updated font configuration with display option
-const bigShoulders = Big_Shoulders_Display({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-big-shoulders",
-  adjustFontFallback: false, // Try disabling font fallback optimization
-});
 
 export default function RootLayout({
   children,
@@ -28,9 +18,15 @@ export default function RootLayout({
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
         />
+        {/* Add Google Font link directly */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body
-        className={`${bigShoulders.className} antialiased bg-[#ece8e5]`}
+        className="antialiased bg-[#ece8e5]"
+        style={{ fontFamily: "'Big Shoulders Display', sans-serif" }}
         suppressContentEditableWarning={true}
       >
         <NavBar />

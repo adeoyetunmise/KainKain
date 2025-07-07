@@ -1,24 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  
-  // Add output configuration to help with file system issues
-  output: 'standalone',
-  
-  // Increase serverless function timeout
-  serverRuntimeConfig: {
-    // Will only be available on the server side
-    timeoutSeconds: 60
+  swcMinify: true,
+  // Configure module resolution for framer-motion
+  webpack: (config, { isServer }) => {
+    // Add resolver for problematic modules
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      // Force single instance of framer-motion
+      'framer-motion': require.resolve('framer-motion'),
+    };
+    return config;
   },
-  
-  // Disable specific features that might cause issues
-  experimental: {
-    // Disable features that might cause permission issues
-    serverComponentsExternalPackages: [],
-    optimizeCss: false
-  },
-  
-  // Keep other valid configurations
-}
+  // Opt out of font optimization if causing issues
+  optimizeFonts: false,
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
