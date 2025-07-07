@@ -27,8 +27,9 @@ try {
   // Check if using pnpm (based on the error message)
   execSync('pnpm install', { stdio: 'inherit' });
   
-  // Install specific framer-motion version
+  // Install specific versions of problematic dependencies
   execSync('pnpm add framer-motion@10.16.4', { stdio: 'inherit' });
+  execSync('pnpm add postcss@8.4.31 autoprefixer@10.4.16 tailwindcss@3.3.3 --save-dev', { stdio: 'inherit' });
   
   console.log('Dependencies reinstalled successfully.');
 } catch (err) {

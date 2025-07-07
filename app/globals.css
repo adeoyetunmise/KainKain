@@ -29,7 +29,7 @@ html {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Big Shoulders Display', Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 img {
