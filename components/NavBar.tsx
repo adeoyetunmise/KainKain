@@ -16,11 +16,6 @@ const NavBar = () => {
   const detailsRef = useRef<HTMLDetailsElement>(null);
   const pathname = usePathname();
 
-  // Fix the pathname null check issue
-  const isTransparentPage = ["/", "/products", "/cart", "/checkout"].some(
-    (path) => pathname && pathname.startsWith(path)
-  );
-
   // Add null check for pathname in isDarkTextPage
   const isDarkTextPage = [
     "/about",

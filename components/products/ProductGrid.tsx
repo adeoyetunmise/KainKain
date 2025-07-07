@@ -3,6 +3,7 @@
 import React from "react";
 import { ProductCardProps } from "./ProductCard";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface ProductGridProps {
   products: ProductCardProps[];
@@ -28,15 +29,23 @@ const ProductGrid = ({ products }: ProductGridProps) => {
       }}
     >
       <div className="relative w-full h-0 pb-[125%] overflow-hidden">
-        <img
+        <Image
           src={product.image}
           alt={product.title}
+          width={500}
+          height={300}
+          quality={90}
+          priority={index === 0}
           className="absolute top-0 left-0 h-full w-full object-cover object-center z-10"
         />
         {product.hoverImage && (
-          <img
+          <Image
             src={product.hoverImage}
             alt={`${product.title} hover`}
+            width={500}
+            height={300}
+            quality={90}
+            priority={index === 0}
             className="absolute top-0 left-0 h-full w-full object-cover object-center opacity-0 hover:opacity-100 transition-opacity duration-300 z-10"
           />
         )}
