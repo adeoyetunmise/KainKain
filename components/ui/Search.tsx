@@ -135,7 +135,7 @@ const SearchIcon = () => {
           {showSuggestions && filteredProducts.length === 0 && searchQuery.trim() !== "" && (
             <div className="absolute top-full left-0 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg z-50">
               <div className="p-4 text-center text-gray-500 text-sm">
-                No products found for "{searchQuery}"
+                No products found for &quot;{searchQuery}&quot;
               </div>
             </div>
           )}
