@@ -1,6 +1,5 @@
 "use client";
 
-import { ChevronDown, CircleX, Settings2 } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import ProductGrid from "../products/ProductGrid";
 import { ProductCardProps } from "../products/ProductCard";
@@ -8,7 +7,6 @@ import { motion, Variants } from "framer-motion";
 import productsData from "@/public/data/combinedProducts.json";
 import ButtonLink from "../ui/ButtonLink";
 
-type FilterKey = "availability" | "price" | "sort";
 type SortOption = "featured" | "price-low-high" | "price-high-low" | "newest";
 
 interface ProductCollectionListingProps {
@@ -32,25 +30,13 @@ const ProductCollectionListing = ({ category }: ProductCollectionListingProps) =
 
   const [products] = useState<ProductCardProps[]>(initialProducts);
   const [filteredProducts, setFilteredProducts] = useState<ProductCardProps[]>(products);
-  const [selectedSort, setSelectedSort] = useState<SortOption>("featured");
-  const [priceRange, setPriceRange] = useState({ from: "", to: "" });
-  const [availability, setAvailability] = useState({
+  const [selectedSort] = useState<SortOption>("featured");
+  const [priceRange] = useState({ from: "", to: "" });
+  const [availability] = useState({
     inStock: false,
     outOfStock: false,
   });
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
-  const [mobileExpandedSections, setMobileExpandedSections] = useState({
-    sort: false,
-    availability: false,
-    price: false,
-  });
-
-  const toggleMobileSection = (section: FilterKey) => {
-    setMobileExpandedSections((prev) => ({
-      ...prev,
-      [section]: !prev[section],
-    }));
-  };
 
   useEffect(() => {
     let result = [...products];
@@ -90,20 +76,6 @@ const ProductCollectionListing = ({ category }: ProductCollectionListingProps) =
   const priceRef = useRef<HTMLDivElement>(null);
   const sortRef = useRef<HTMLDivElement>(null);
   const mobileFilterRef = useRef<HTMLDivElement>(null);
-
-  const toggleFilter = (filterName: FilterKey) => {
-    setOpenFilters((prev) => {
-      const allClosed = Object.keys(prev).reduce((acc, key) => {
-        acc[key as FilterKey] = false;
-        return acc;
-      }, {} as Record<FilterKey, boolean>);
-
-      return {
-        ...allClosed,
-        [filterName]: !prev[filterName],
-      };
-    });
-  };
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -161,7 +133,7 @@ const ProductCollectionListing = ({ category }: ProductCollectionListingProps) =
       y: 0,
       transition: {
         duration: 0.5,
-        ease: [0.42, 0, 1, 1], // ✅ fixed from "easeOut"
+        ease: [0.42, 0, 1, 1],
       },
     },
   };
