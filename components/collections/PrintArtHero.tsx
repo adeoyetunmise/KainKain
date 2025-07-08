@@ -3,7 +3,7 @@ import ButtonLink from "../ui/ButtonLink";
 const PrintArtHero = () => {
   return (
     <div
-      className="hero min-h-[80vh] mt-4"
+      className="hero min-h-[80vh] -mt-4"
       style={{
         backgroundImage: "url('/print-art-hero.png')",
         backgroundSize: "cover",
@@ -16,7 +16,7 @@ const PrintArtHero = () => {
             PRINT ARTS SHOP
           </h2>
           <ButtonLink
-            className="mt-6 bg-smoke-white text-custom-black border-none rounded-none shadow-none w-[30px] text-sm"
+            className="lg:mt-6 bg-smoke-white text-custom-black border-none rounded-none shadow-none w-[30px] text-sm"
             href="/collections/print-art"
           >
             Explore

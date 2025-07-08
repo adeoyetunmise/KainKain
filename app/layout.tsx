@@ -1,17 +1,17 @@
 import Footer from "@/components/Footer";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
-import { Big_Shoulders_Display } from "next/font/google";
+import { Big_Shoulders_Display } from 'next/font/google';
+
+const bigShouldersDisplay = Big_Shoulders_Display({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+});
 
 export const metadata = {
   // ...existing metadata...
-}
-
-
-const bigShoulders = Big_Shoulders_Display({
-  weight: ["400", "700"], // You can add other weights like "300", "800", etc.
-  subsets: ["latin"],
-});
+};
 
 export default function RootLayout({
   children,
@@ -21,9 +21,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+        />
       </head>
-      <body className={`${bigShoulders.className} antialiased bg-[#ece8e5]`}>
+      <body
+        className={`antialiased bg-[#ece8e5] ${bigShouldersDisplay.className}`}
+        suppressContentEditableWarning={true}
+      >
         <NavBar />
         {children}
         <Footer />

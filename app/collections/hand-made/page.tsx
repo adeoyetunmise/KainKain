@@ -1,30 +1,46 @@
+"use client";
+
 import ProductCollectionListing from "@/components/collections/ProductCollectionListing";
+import { motion } from "framer-motion";
 
 const HandMade = () => {
   return (
-    <section className="w-full bg-smoke-white" >
-      <div className='pt-20 px-5 max-w-7xl mx-auto '>
-      <h1 className='text-2xl md:text-4xl text-center mt-20'>KainKain HandMade</h1>
-
-      <p className='text-center text-lg md:text-xl lg:text-2xl font-light py-10'>
-        Discover the unique charm of our handmade collection, where each piece is crafted with care
-        and creativity.
-      </p>
-
-      {/* <section className='flex flex-col items-center justify-center gap-4 mt-10'>
+    <section className="w-full bg-smoke-white">
+      <div className="max-w-full">
         <div
-          className='w-full h-[300px] mb-20 rounded-4xl shadow-lg'
+          className="relative flex flex-col items-center justify-center py-20 px-4 w-full h-[670px] md:h-[700px]"
           style={{
-            backgroundImage: "url('/TJPG6830.jpg')",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            maxWidth: '1100px'
+            backgroundImage: "url('/TJPG2277.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            margin: 0,
+            width: "100%",
           }}
-        />
-      </section> */}
+        >
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-4xl lg:text-6xl md:text-5xl text-center mt-0 text-smoke-white relative z-10 font-semibold"
+          >
+            KainKain HandMade
+          </motion.h1>
 
-      <ProductCollectionListing category="handmade" />
-</div>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            className="text-center text-lg md:text-xl lg:text-xl  py-5 text-smoke-white relative z-10 max-w-3xl font-bold"
+          >
+            Discover the unique charm of our handmade collection, where each
+            piece is crafted with care and creativity.
+          </motion.p>
+        </div>
+
+        <div className="px-5 max-w-7xl mx-auto">
+          <ProductCollectionListing category="handmade" />
+        </div>
+      </div>
     </section>
   );
 };

@@ -6,8 +6,8 @@ import { Menu, X } from "lucide-react";
 import clsx from "clsx";
 import Search from "./ui/Search";
 import Language from "./ui/Language";
-import Cart from "./ui/Cart";
 import { usePathname } from "next/navigation";
+import CartIcon from "./ui/CartIcon";
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,10 +16,33 @@ const NavBar = () => {
   const detailsRef = useRef<HTMLDetailsElement>(null);
   const pathname = usePathname();
 
-  // Determine if the current page should have dark text by default
-  const isDarkTextPage = ["/about", "/collections", "/products"].some((path) =>
-    pathname.startsWith(path)
+  // Add null check for pathname in isDarkTextPage
+  const isDarkTextPage = [
+    "/about",
+    "/collections",
+    "/products",
+    "/cart",
+    "/checkout",
+  ].some((path) => pathname && pathname.startsWith(path));
+
+  // Pages that should always have the "scrolled" navbar appearance
+  const alwaysScrolledPages = [
+    "/collections/hand-made",
+    "/collections/print-art",
+    "/collections",
+    "/products",
+    "/about",
+    "/Exhibition",
+    "/contact",
+  ];
+
+  // Add null check for pathname in forceScrolledAppearance
+  const forceScrolledAppearance = alwaysScrolledPages.some(
+    (path) => pathname && pathname.startsWith(path)
   );
+
+  // Add null check for pathname in isCheckoutPage
+  const isCheckoutPage = pathname === "/checkout";
 
   // Handle clicks outside the dropdown
   useEffect(() => {
@@ -47,15 +70,19 @@ const NavBar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Determine navbar styling
+  const shouldApplyScrolledStyle =
+    hovering || scroll || forceScrolledAppearance;
+
   return (
     <nav
       className={clsx(
         "w-full px-3 sm:px-6 py-4 md:py-4 flex items-center justify-between z-50 transition-all duration-300 fixed top-0 left-0",
-        hovering || scroll
+        shouldApplyScrolledStyle
           ? "bg-smoke-white shadow-md text-black"
           : "bg-transparent",
         // Apply dark text by default on certain pages when not scrolled
-        hovering || scroll
+        shouldApplyScrolledStyle
           ? "text-black"
           : isDarkTextPage
           ? "text-black"
@@ -65,7 +92,7 @@ const NavBar = () => {
       onMouseLeave={() => setHovering(false)}
     >
       <div className="container mx-auto px-4 md:px-6 lg:px-8 flex items-center justify-between w-full">
-        {/* Logo & NavLinks on the same line */}
+        {/* Logo */}
         <div className="flex items-center">
           <Link href="/" className="mr-6">
             <Image
@@ -78,53 +105,60 @@ const NavBar = () => {
             />
           </Link>
 
-          {/* Desktop NavLinks */}
-          <ul className="hidden md:flex mt-4  menu menu-horizontal">
-            <li>
-              <Link href="/" className="text-lg">
-                Home
-              </Link>
-            </li>
-            <li>
-              <details ref={detailsRef}>
-                <summary className="text-lg ">Shop Prints</summary>
-                <ul className="p-2 bg-[#ece8e5] shadow-md text-black">
-                  <li>
-                    <Link href="/collections/hand-made" className="text-sm">
-                      Hand Made
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/collections/print-art" className="text-sm">
-                      Print Arts
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/collections" className="text-sm">
-                      Collection
-                    </Link>
-                  </li>
-                </ul>
-              </details>
-            </li>
+          {/* Desktop NavLinks - Hide on checkout page */}
+          {!isCheckoutPage && (
+            <ul className="hidden md:flex mt-4  menu menu-horizontal">
+              <li>
+                <Link href="/" className="text-lg">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <details ref={detailsRef}>
+                  <summary className="text-lg ">Shop Prints</summary>
+                  <ul className="p-2 bg-[#ece8e5] shadow-md text-black">
+                    <li>
+                      <Link href="/products" className="text-sm">
+                        All Products
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/collections/hand-made" className="text-sm">
+                        Hand Made
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/collections/print-art" className="text-sm">
+                        Print Arts
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/collections" className="text-sm">
+                        Collection
+                      </Link>
+                    </li>
+                  </ul>
+                </details>
+              </li>
 
-            <li>
-              <Link href="/about" className="text-lg">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="/Exhibition" className="text-lg">
-                Exhibition
-              </Link>
-            </li>
-          </ul>
+              <li>
+                <Link href="/about" className="text-lg">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="/Exhibition" className="text-lg">
+                  Exhibition
+                </Link>
+              </li>
+            </ul>
+          )}
         </div>
 
         <div className="flex items-center justify-end gap-3">
           <div className="flex items-center mt-4 justify-center gap-3 md:gap-6">
             <Search />
-            <Cart />
+            <CartIcon />
             <Language className="hidden md:flex" />
             <Link
               href="/contact"
@@ -153,102 +187,114 @@ const NavBar = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation Drawer (Now slides in from the right) */}
-      <div
-        className={clsx(
-          "fixed top-0 right-0 h-full w-64 bg-smoke-white shadow-lg transform transition-transform ease-in-out duration-300 z-50 flex flex-col pt-20 px-6",
+      {/* Mobile Navigation Drawer - Hide on checkout page */}
+      {!isCheckoutPage && (
+        <>
+          <div
+            className={clsx(
+              "fixed top-0 right-0 h-full w-64 bg-smoke-white shadow-lg transform transition-transform ease-in-out duration-300 z-50 flex flex-col pt-20 px-6",
+              menuOpen ? "translate-x-0" : "translate-x-full"
+            )}
+          >
+            <button
+              className="absolute top-4 left-4 text-[#1a1a1a] cursor-pointer"
+              onClick={() => setMenuOpen(false)}
+            >
+              <X className="h-6 w-6" />
+            </button>
 
-          menuOpen ? "translate-x-0" : "translate-x-full"
-        )}
-      >
-        <button
-          className="absolute top-4 left-4 text-[#1a1a1a] cursor-pointer"
-          onClick={() => setMenuOpen(false)}
-        >
-          <X className="h-6 w-6" />
-        </button>
+            {/* Mobile menu using DaisyUI menu structure */}
+            <ul className="menu menu-vertical w-full">
+              <li>
+                <Link
+                  href="/"
+                  className="text-sm sm:text-lg"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <details>
+                  <summary className="text-sm sm:text-lg">Shop Prints</summary>
+                  <ul className="p-2">
+                    <li>
+                      <Link
+                        href="/products"
+                        className="text-sm sm:text-base"
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        All Products
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/collections/hand-made"
+                        className="text-sm sm:text-base"
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        Hand Made
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/collections/print-art"
+                        className="text-sm sm:text-base"
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        Print Arts
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/collections"
+                        className="text-sm sm:text-base"
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        Collection
+                      </Link>
+                    </li>
+                  </ul>
+                </details>
+              </li>
+              <li>
+                <Link
+                  href="/collections/exhibition"
+                  className="text-sm sm:text-lg"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Exhibition
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about"
+                  className="text-sm sm:text-lg"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-sm sm:text-lg"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Contact Us
+                </Link>
+              </li>
+            </ul>
+          </div>
 
-        {/* Mobile menu using DaisyUI menu structure */}
-        <ul className="menu menu-vertical w-full">
-          <li>
-            <Link
-              href="/"
-              className="text-sm sm:text-lg"
+          {/* Overlay for mobile menu */}
+          {menuOpen && (
+            <div
+              className="fixed inset-0 bg-[#1a1a1a] opacity-40 z-40"
               onClick={() => setMenuOpen(false)}
-            >
-              Home
-            </Link>
-          </li>
-          <li>
-            <details>
-              <summary className="text-sm sm:text-lg">Shop Prints</summary>
-              <ul className="p-2">
-                <li>
-                  <Link
-                    href="/collections/hand-made"
-                    className="text-sm sm:text-base"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    Hand Made
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/collections/print-art"
-                    className="text-sm sm:text-base"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    Print Arts
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/collections"
-                    className="text-sm sm:text-base"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    collection
-                  </Link>
-                </li>
-              </ul>
-            </details>
-          </li>
-          <li>
-            <Link
-              href="/collections/exhibition"
-              className="text-sm sm:text-lg"
-              onClick={() => setMenuOpen(false)}
-            >
-              Exhibition
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/about"
-              className="text-sm sm:text-lg"
-              onClick={() => setMenuOpen(false)}
-            >
-              About
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/contact"
-              className="text-sm sm:text-lg"
-              onClick={() => setMenuOpen(false)}
-            >
-              Contact Us
-            </Link>
-          </li>
-        </ul>
-      </div>
-
-      {/* Overlay for mobile menu */}
-      {menuOpen && (
-        <div
-          className="fixed inset-0 bg-[#1a1a1a] opacity-40 z-40"
-          onClick={() => setMenuOpen(false)}
-        />
+            />
+          )}
+        </>
       )}
     </nav>
   );

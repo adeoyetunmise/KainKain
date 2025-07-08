@@ -4,7 +4,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-custom-black w-full">
+    <footer className="bg-[#131111] w-full">
       <div className="container mx-auto w-full px-4 md:px-6 lg:px-8">
         <div className="footer sm:footer-horizontal justify-between text-smoke-white py-10">
           <aside>
