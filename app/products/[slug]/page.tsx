@@ -52,7 +52,7 @@ const ProductPage = () => {
 
   return (
     <section className="bg-smoke-white">
-      <div className="mx-10 md:mx-20 pt-20">
+      <div className="mx-10 md:mx-20 pt-40">
         <ProductDetails />
 
         {/* Related Products Section - shows random products from the same category */}
