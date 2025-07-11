@@ -4,9 +4,12 @@ import { useCartStore } from "@/store/cartStore";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { usePaymentService } from "@/hooks/usePaymentService";
 
 const CheckoutPage = () => {
   const { cartItems, getTotalPrice } = useCartStore();
+  const { initiatePayment, isProcessingPayment, paymentError } = usePaymentService();
+  
   const [customerInfo, setCustomerInfo] = useState({
     name: "",
     email: "",
@@ -25,11 +28,9 @@ const CheckoutPage = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle order submission here
-    console.log("Order submitted:", { customerInfo, cartItems });
-    alert("Order submitted successfully!");
+    await initiatePayment(customerInfo, cartItems);
   };
 
   if (cartItems.length === 0) {
@@ -48,6 +49,13 @@ const CheckoutPage = () => {
       <div className="max-w-6xl mx-auto">
         <h1 className="text-3xl font-bold text-center mb-8">Checkout</h1>
         
+        {/* Display payment error if any */}
+        {paymentError && (
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+            {paymentError}
+          </div>
+        )}
+        
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Order Summary */}
           <div className="bg-[#ece8e5] rounded-lg p-6">
@@ -64,7 +72,6 @@ const CheckoutPage = () => {
                       height={80}
                       className="rounded-md"
                     />
-                    {/* Quantity badge on top-right corner */}
                     <span className="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium">
                       {item.quantity}
                     </span>
@@ -89,7 +96,7 @@ const CheckoutPage = () => {
             <div className="mt-6 pt-4 border-t">
               <div className="flex justify-between items-center text-xl font-bold">
                 <span>Total:</span>
-                <span>NGN ₦{new Intl.NumberFormat("en-NG").format(getTotalPrice())}</span>
+                <span>₦{new Intl.NumberFormat("en-NG").format(getTotalPrice())}</span>
               </div>
             </div>
           </div>
@@ -208,9 +215,10 @@ const CheckoutPage = () => {
 
               <button
                 type="submit"
-                className="w-full btn bg-[#dcb094] text-white py-3 rounded-md hover:bg-[#c9a082] transition-colors"
+                disabled={isProcessingPayment}
+                className="w-full btn bg-[#dcb094] text-white py-3 rounded-md hover:bg-[#c9a082] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Place Order
+                {isProcessingPayment ? 'Processing Payment...' : 'Place Order & Pay'}
               </button>
             </form>
           </div>
