@@ -17,14 +17,17 @@ interface CustomerInfo {
 interface PaymentData {
   merchant_code: string;
   pay_item_id: string;
+  pay_item_name: string;
   txn_ref: string;
   site_redirect_url: string;
-  amount: number;
-  currency: number;
+  amount: string; // Changed to string
+  currency: string; // Changed to string
+  cust_name: string;
+  cust_email: string;
+  cust_id: string;
+  cust_mobile_no: string;
   mode: string;
-  customer_email: string;
-  customer_name: string;
-  customer_phone: string;
+  tokenise_card: string;
 }
 
 declare global {
@@ -122,17 +125,17 @@ export const usePaymentService = () => {
 
   const loadInterswitchScript = (): Promise<void> => {
     return new Promise((resolve, reject) => {
+      // Check if script is already loaded
       if (window.webpayCheckout) {
         resolve();
         return;
       }
 
       const script = document.createElement('script');
-      const checkoutUrl = process.env.NEXT_PUBLIC_INTERSWITCH_CHECKOUT_URL;
-      
-      if (!checkoutUrl) {
-        return reject(new Error('Interswitch checkout URL is not defined'));
-      }
+      // Use the correct inline checkout script URL
+      const checkoutUrl = process.env.INTERSWITCH_MODE === 'LIVE' 
+        ? 'https://newwebpay.interswitchng.com/inline-checkout.js'
+        : 'https://newwebpay.qa.interswitchng.com/inline-checkout.js';
       
       script.src = checkoutUrl;
       script.async = true;
