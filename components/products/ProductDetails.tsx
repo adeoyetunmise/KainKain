@@ -13,6 +13,8 @@ interface Product {
   title: string;
   image: string;
   hoverImage?: string;
+  images?: string[];
+  description?: string;
   price: number;
   category: string;
 }
@@ -63,9 +65,9 @@ const ProductDetails = () => {
     );
   }
 
-  // Create array of images (main image + hover image if available)
-  const images = [product.image];
-  if (product.hoverImage && product.hoverImage !== product.image) {
+  // Create array of images (main image + hover image + additional images if available)
+  const images = product.images || [product.image];
+  if (product.hoverImage && !product.images?.includes(product.hoverImage)) {
     images.push(product.hoverImage);
   }
 
@@ -139,10 +141,10 @@ const ProductDetails = () => {
 
         {/* Desktop Image Layout */}
         <div className="hidden md:block">
-          <div className="flex items-center justify-center">
-            <figure>
+          <div className="flex items-center justify-center mb-4">
+            <figure className="w-full">
               <Image
-                src={product.image || "/TJPG2415.jpg"}
+                src={images[currentImageIndex] || "/TJPG2415.jpg"}
                 alt={product.title}
                 width={400}
                 height={400}
@@ -151,15 +153,22 @@ const ProductDetails = () => {
             </figure>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <figure>
-              <Image
-                src={product.hoverImage || "/TJPG2415.jpg"}
-                alt={product.title}
-                width={400}
-                height={400}
-              />
-            </figure>
+          <div className="grid grid-cols-4 gap-4 p-4">
+            {images.map((image, index) => (
+              <figure 
+                key={index}
+                className={`cursor-pointer ${currentImageIndex === index ? 'border-2 border-black' : ''}`}
+                onClick={() => setCurrentImageIndex(index)}
+              >
+                <Image
+                  src={image}
+                  alt={`${product.title} view ${index + 1}`}
+                  width={200}
+                  height={200}
+                  className="w-full h-auto object-cover"
+                />
+              </figure>
+            ))}
           </div>
         </div>
       </div>
@@ -200,10 +209,7 @@ const ProductDetails = () => {
         </div>
 
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
-          nulla quidem sapiente, nam esse ipsam in eum quia neque dolorem
-          impedit? Officiis veritatis quas quidem asperiores in, iste
-          expedita laborum?
+          {product.description}
         </p>
       </div>
     </div>
