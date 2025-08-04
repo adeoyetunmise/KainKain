@@ -1,33 +1,45 @@
+"use client";
+
 import ProductCollectionListing from "@/components/collections/ProductCollectionListing";
-import React from "react";
+import { motion } from "framer-motion";
 
 const PrintArt = () => {
   return (
-    <section className="w-full bg-[#ece8e5]">
-      <div className="pt-20 px-5 max-w-7xl mx-auto">
-        <h1 className="text-2xl md:text-4xl text-center mt-20">
-          KainKain Print Art
-        </h1>
+    <section className="w-full bg-smoke-white">
+      <div className="max-w-full">
+        <div
+          className="relative flex flex-col items-center justify-center py-20 px-4 w-full h-[670px] md:h-[700px]"
+          style={{
+            backgroundImage: "url('/BirdsOfAFeather.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            margin: 0,
+            width: "100%",
+          }}
+        >
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-4xl lg:text-6xl md:text-5xl text-center mt-0 text-smoke-white relative z-10 font-semibold"
+          >
+            KainKain Print Art
+          </motion.h1>
 
-        <p className="text-center text-lg md:text-xl lg:text-2xl font-light py-10">
-          Explore our exclusive collection of print art, where creativity meets
-          craftsmanship.
-        </p>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            className="text-center text-lg md:text-xl lg:text-xl  py-5 text-smoke-white relative z-10 max-w-3xl font-bold"
+          >
+            Explore our exclusive collection of print art, where creativity
+            meets craftsmanship in every carefully curated piece.
+          </motion.p>
+        </div>
 
-        {/* <section className='flex flex-col items-center justify-center gap-4 mt-10'>
-            <div 
-              className='w-full h-[300px] mb-20 rounded-4xl shadow-lg' 
-              style={{
-                backgroundImage: "url('/TimePassesInSoundii.jpg')",
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                maxWidth: '1100px'
-                }}
-                />
-        </section> */}
-
-        {/* ProductCollectionListing component can be added here */}
-        <ProductCollectionListing category="printart" />
+        <div className="px-5 max-w-7xl mx-auto">
+          <ProductCollectionListing category="printart" />
+        </div>
       </div>
     </section>
   );
