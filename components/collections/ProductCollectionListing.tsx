@@ -184,18 +184,18 @@ const ProductCollectionListing = ({ category }: ProductCollectionListingProps) =
       ) : (
         <>
           {/* Add the Filter UI here */}
-          <section className='my-10'>
+          <section className='my-10 relative z-20'>
             {/* Desktop filters */}
-            <div className='hidden md:flex justify-between items-center mb-10'>
+            <div className='hidden md:flex justify-between items-center mb-10 relative z-30'>
               <div className='flex gap-4'>
                 <p>Filter:</p>
                 {/* Availability filter */}
-                <div className="relative" ref={availabilityRef}>
+                <div className="relative z-40" ref={availabilityRef}>
                   <p className='flex items-center gap-2'>
                     Availability <ChevronDown className='cursor-pointer' onClick={() => toggleFilter('availability')} />
                   </p>
                   {openFilters.availability && (
-                    <div className='absolute top-full left-0 mt-1 shadow-lg w-[300px] p-4 space-y-8 bg-white z-10'>
+                    <div className='absolute top-full left-0 mt-1 shadow-lg w-[300px] p-4 space-y-8 bg-white z-50 border border-gray-200 rounded-md'>
                       <div className='flex justify-between'>
                         <p>0 selected</p>
                         <p className='underline cursor-pointer' onClick={() => setAvailability({ inStock: false, outOfStock: false })}>Reset</p>
@@ -224,12 +224,12 @@ const ProductCollectionListing = ({ category }: ProductCollectionListingProps) =
                 </div>
 
                 {/* Price Filter */}
-                <div className="relative" ref={priceRef}>
+                <div className="relative z-40" ref={priceRef}>
                   <p className='flex items-center gap-2'>
                     Price <ChevronDown className='cursor-pointer' onClick={() => toggleFilter('price')} />
                   </p>
                   {openFilters.price && (
-                    <div className='absolute top-full left-0 mt-1 shadow-lg w-[300px] p-4 space-y-8 bg-white z-10'>
+                    <div className='absolute top-full left-0 mt-1 shadow-lg w-[300px] p-4 space-y-8 bg-white z-50 border border-gray-200 rounded-md'>
                       <div className='flex justify-between'>
                         <p>Price Range</p>
                         <p className='underline cursor-pointer' onClick={() => setPriceRange({ from: '', to: '' })}>Reset</p>
@@ -241,7 +241,7 @@ const ProductCollectionListing = ({ category }: ProductCollectionListingProps) =
                           <input 
                             type='text' 
                             placeholder='From' 
-                            className='input'
+                            className='input !bg-white !text-black border border-gray-300 focus:border-gray-500'
                             value={priceRange.from}
                             onChange={(e) => setPriceRange(prev => ({ ...prev, from: e.target.value }))}
                           />
@@ -251,7 +251,7 @@ const ProductCollectionListing = ({ category }: ProductCollectionListingProps) =
                           <input 
                             type='text' 
                             placeholder='To' 
-                            className='input'
+                            className='input !bg-white !text-black border border-gray-300 focus:border-gray-500'
                             value={priceRange.to}
                             onChange={(e) => setPriceRange(prev => ({ ...prev, to: e.target.value }))}
                           />
@@ -263,12 +263,12 @@ const ProductCollectionListing = ({ category }: ProductCollectionListingProps) =
               </div>
 
               {/* Sort By dropdown */}
-              <div className="relative" ref={sortRef}>
+              <div className="relative z-40" ref={sortRef}>
                 <p className='flex items-center gap-2'>
                   Sort By <ChevronDown className='cursor-pointer' onClick={() => toggleFilter('sort')} />
                 </p>
                 {openFilters.sort && (
-                  <div className='absolute top-full right-0 mt-1 shadow-lg w-[250px] p-4 space-y-4 bg-white z-10'>
+                  <div className='absolute top-full right-0 mt-1 shadow-lg w-[250px] p-4 space-y-4 bg-white z-50 border border-gray-200 rounded-md'>
                     <label className='cursor-pointer block'>
                       <input 
                         type='radio' 
@@ -440,7 +440,7 @@ const ProductCollectionListing = ({ category }: ProductCollectionListingProps) =
                         <input 
                           type='text' 
                           placeholder='From' 
-                          className='input input-sm w-full bg-white text-black border-neutral'
+                          className='input input-sm w-full !bg-white !text-black'
                           value={priceRange.from}
                           onChange={(e) => setPriceRange(prev => ({ ...prev, from: e.target.value }))}
                         />
@@ -450,7 +450,7 @@ const ProductCollectionListing = ({ category }: ProductCollectionListingProps) =
                         <input 
                           type='text' 
                           placeholder='To' 
-                          className='input input-sm w-full bg-white text-black border-neutral'
+                          className='input input-sm w-full !bg-white !text-black'
                           value={priceRange.to}
                           onChange={(e) => setPriceRange(prev => ({ ...prev, to: e.target.value }))}
                         />
@@ -464,7 +464,7 @@ const ProductCollectionListing = ({ category }: ProductCollectionListingProps) =
             </div>
           </section>
 
-          <motion.div className="mb-6" variants={itemVariants}>
+          <motion.div className="mb-6 relative z-10" variants={itemVariants}>
             <ProductGrid products={filteredProducts} />
           </motion.div>
         </>
