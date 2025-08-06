@@ -2,26 +2,40 @@
   "products": [
     {
       "id": 1,
-      "slug": "kain-kain",
-      "title": " Kainkain 2024",
-      "image": "/images/orange-stand2.jpg",
-      "hoverImage": "/images/orange-stand.jpg",
-      "price": 3500000,
+      "slug": "treasure-trove",
+      "title": "Treasure Trove",
+      "image": "/images/treasure-trove.jpg",
+      "hoverImage": "/images/treasure-trove4.jpg",
+      "images": [
+        "/images/treasure-trove.jpg",
+        "/images/treasure-trove2.jpg",
+        "/images/treasure-trove3.jpg",
+        "/images/treasure-trove4.jpg"
+      ],
+      "description": "Inspired by the flow of mineral resources, this piece illustrates the journey from scarcity to abundance. The gold flow pattern reflects the Niger Delta, Nigeria’s richest crude oil region. A fusion of aesthetics and meaning, Treasure Trove took two weeks to complete and was part of my 2024 solo exhibition.",
+      "price": 2500000,
       "category": "handmade"
     },
     {
       "id": 2,
-      "slug": "aroni",
-      "title": "Aroni",
-      "image": "/images/white-sponge1.jpg",
-      "hoverImage": "/images/white-sponge2.jpg",
+      "slug": "72-kankan",
+      "title": "72 KanKan",
+      "image": "/images/72-kainkain.jpg",
+      "hoverImage": "/images/72-kainkain2.jpg",
+      "images": [
+        "/images/72-kainkain.jpg",
+        "/images/72-kainkain2.jpg",
+        "/images/72-kainkain3.jpg",
+        "/images/72-kainkain4.jpg"
+      ],
+      "description": "This piece features 72 Kainkain sponges arranged in a structured pattern, increasing by one sponge per step from 4 to 12. The different sizes represent both young and old. The name 72 KANKAN comes from how Yoruba people in Lagos pronounce Kainkain as Kankan.",
       "price": 2500000,
       "category": "handmade"
     },
     {
       "id": 3,
-      "slug": "life-giver-2024",
-      "title": "Lifegiver, 2024",
+      "slug": "paper-sponge",
+      "title": "Paper Sponge",
       "image": "/images/Rectangle 13.png",
       "hoverImage": "/images/TJPG2444.jpg",
       "price": 3000000,
@@ -29,56 +43,82 @@
     },
     {
       "id": 4,
-      "slug": "bro-ken",
+      "slug": "broken",
       "title": "Broken",
-      "image": "/images/Rectangle 14.png",
-      "hoverImage": "/images/TJPG2413.jpg",
+      "image": "/images/broken1.png",
+      "hoverImage": "/images/broken2.jpg",
+      "images": [
+        "/images/broken1.png",
+        "/images/broken2.jpg",
+        "/images/broken3.jpg",
+        "/images/broken4.jpg"
+      ],
       "price": 2000000,
       "category": "handmade"
     },
     {
       "id": 5,
-      "slug": "glove-trove",
-      "title": "Glove Trove",
-      "image": "/TJPG2278.jpg",
-      "hoverImage": "/images/guy-stand2.jpg",
-      "price": 2500000,
+      "slug": "orange-stand",
+      "title": " Orange Stand",
+      "image": "/images/orange-stand2.jpg",
+      "hoverImage": "/images/orange-stand.jpg",
+      "price": 3500000,
       "category": "handmade"
     },
     {
       "id": 6,
       "slug": "aladire",
       "title": "Aladire",
-      "image": "/images/multi-color.jpg",
-      "hoverImage": "/images/multi-color2.jpg",
+      "image": "/images/aladire.jpg",
+      "hoverImage": "/images/aladire2.jpg",
+      "images": [
+        "/images/aladire.jpg",
+        "/images/aladire2.jpg",
+        "/images/aladire3.jpg",
+        "/images/aladire4.jpg"
+      ],
+      "description": "“Aladire” means a tie-dye creator. While working on my 2024 collection, I experimented with tie-dyeing Kainkain (sponge) for the first time. The result was vibrant and striking, so I arranged the dyed pieces on canvas, blending colors to create a visually stunning masterpiece. The process took about two weeks, reflecting my passion for bold aesthetics and innovation.",
       "price": 5000000,
       "category": "handmade"
     },
-
     {
       "id": 7,
       "slug": "eye-of-the-storm",
       "title": "Eye of The Storm",
-      "image": "/TJPG2341.jpg",
-      "hoverImage": "/images/paper-sponge2.jpg",
+      "image": "/images/eye-of-the-storm.jpg",
+      "hoverImage": "/images/eye-of-the-storm2.jpg",
+      "images": [
+        "/images/eye-of-the-storm.jpg",
+        "/images/eye-of-the-storm2.jpg",
+        "/images/eye-of-the-storm3.jpg",
+        "/images/eye-of-the-storm4.jpg"
+      ],
+      "description": "The only diptych in my 2024 solo exhibition, Eye of the Storm reflects my approach to life, staying grateful no matter the situation. I believe gratitude keeps the mind at peace. This piece took a month to complete.",
       "price": 3000000,
       "category": "handmade"
     },
     {
       "id": 8,
-      "slug": "72-kainkain",
-      "title": "72 KainKain 2024",
-      "image": "/TJPG2370.jpg",
-      "hoverImage": "/images/white-sponge2.jpg",
+      "slug": "dark-spot",
+      "title": "Dark Spot",
+      "image": "/images/dark-spot.jpg",
+      "hoverImage": "/images/dark-spot2.jpg",
       "price": 3500000,
       "category": "handmade"
     },
     {
       "id": 9,
-      "slug": "life-giver",
+      "slug": "lifegiver",
       "title": "Lifegiver",
-      "image": "/images/white-stand.jpg",
-      "hoverImage": "/images/white-stand2.jpg",
+      "image": "/images/lifegiver.jpg",
+      "hoverImage": "/images/lifegiver2.jpg",
+      "images": [
+          "/images/lifegiver.jpg",
+          "/images/lifegiver2.jpg",
+          "/images/lifegiver3.jpg",
+          "/images/lifegiver4.jpg"
+      ],
+      "description": "“Lifegiver” was the most talked-about piece and a crowd favorite at my 2024 solo exhibition. This Kainkain-on-canvas artwork symbolizes strength, renewal, and growth. The tree’s body features a woven section resembling a woman’s hair, highlighted in white to stand out. Water drips from the tree, reinforcing its life-giving essence. The piece took three weeks to complete.",
       "price": 3500000,
       "category": "handmade"
     },
@@ -86,17 +126,31 @@
       "id": 10,
       "slug": "aroni",
       "title": "Aroni",
-      "image": "/images/yellow-green.jpg",
-      "hoverImage": "/images/yellow-green2.jpg",
+      "image": "/images/aroni.jpg",
+      "hoverImage": "/images/aroni2.jpg",
+      "images": [
+        "/images/aroni.jpg",
+        "/images/aroni2.jpg",
+        "/images/aroni3.jpg",
+        "/images/aroni4.jpg"
+      ],
+      "description": "“Aroni,” meaning Spirit of the Forest in Yoruba, features a black acrylic-painted canvas, creating a deep, earthy undertone reminiscent of soil. A part of my 2024 solo exhibition, this piece was completed in one week.",
       "price": 2500000,
       "category": "handmade"
     },
     {
       "id": 11,
-      "slug": "kain-kain-kain",
+      "slug": "kainkain",
       "title": "kainKain",
-      "image": "/images/yellow-stand.jpg",
-      "hoverImage": "/images/yellow-stand2.jpg",
+      "image": "/images/kainkain.jpg",
+      "hoverImage": "/images/kainkain2.jpg",
+      "images": [
+        "/images/kainkain.jpg",
+        "/images/kainkain2.jpg",
+        "/images/kainkain3.jpg",
+        "/images/kainkain4.jpg"
+      ],
+      "description": "This piece showcases Kainkain in its purest form, as known by the Yoruba people of West Africa. A standout in my 2024 solo exhibition, it is also my personal favorite of the year.",
       "price": 5000000,
       "category": "handmade"
     },
@@ -105,9 +159,16 @@
       "id": 12,
       "slug": "sponge-tub",
       "title": "Sponge Tub",
-      "image": "/TJPG2215.jpg",
-      "hoverImage": "/TJPG2228.jpg",
+      "image": "/images/sponge-tub1.jpg",
+      "hoverImage": "/images/sponge-tub2.jpg",
       "price": 30000000,
+      "images": [
+        "/images/sponge-tub1.jpg",
+        "/images/sponge-tub2.jpg",
+        "/images/sponge-tub3.jpg",
+        "/images/sponge-tub4.jpg"
+      ],
+      "description": "“Sponge Tub” was one of the standout pieces in my 2024 solo exhibition. It was also my most challenging project—I had the vision but no clear execution plan. After brainstorming with my brothers, I started without knowing how it would end. Five intense months later, it came to life. Inspired by the first bathtubs introduced in Nigeria, It’s a bathtub that display several colors of sponge (kainkain). My biggest artwork so far.",
       "category": "handmade"
     },
 
