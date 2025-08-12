@@ -1,10 +1,10 @@
 "use client";
 import combinedProducts from "@/public/data/combinedProducts.json";
 import ButtonLink from "./ui/ButtonLink";
+import MotionWrapper from "./MotionWrapper";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { IoChevronBack, IoChevronForward } from "react-icons/io5";
 
 // Define the Product type to match ProductList
@@ -139,12 +139,23 @@ const HomeProductCard = () => {
   }, [isMobile]);
 
   return (
-    <div
+    <MotionWrapper
+      direction="up"
+      mobileDirection="up"
+      duration={0.8}
+      mobileDuration={1.0}
       className={`w-full ${
         isMobile ? "bg-custom-black" : ""
       } max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center py-6 md:py-20`}
     >
-      <div className="w-full self-start">
+      <MotionWrapper
+        direction="left"
+        mobileDirection="right"
+        delay={0.2}
+        duration={0.6}
+        mobileDuration={0.8}
+        className="w-full self-start"
+      >
         <h1
           className={`text-xl sm:text-2xl ${
             isMobile ? "text-[#dba05d]" : "text-custom-black"
@@ -152,11 +163,18 @@ const HomeProductCard = () => {
         >
           PRINT ARTS SHOP
         </h1>
-      </div>
+      </MotionWrapper>
 
       {isMobile ? (
         // Mobile horizontal scroll layout with larger images
-        <div className="relative w-full">
+        <MotionWrapper
+          direction="right"
+          mobileDirection="left"
+          delay={0.4}
+          duration={0.8}
+          mobileDuration={1.0}
+          className="relative w-full"
+        >
           <div
             ref={scrollContainerRef}
             className="flex overflow-x-auto snap-x snap-mandatory gap-3 scrollbar-hide pb-1 w-full"
@@ -191,24 +209,29 @@ const HomeProductCard = () => {
               <IoChevronForward size={18} />
             </button>
           </div>
-        </div>
+        </MotionWrapper>
       ) : (
-        // Desktop grid layout - updated gap to match ProductList
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true }}
+        // Desktop grid layout
+        <MotionWrapper
+          direction="up"
+          delay={0.4}
+          duration={0.8}
           className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full"
         >
           {printArtProducts.map((product, index) => (
             <CustomProductCard key={product.id || index} product={product} />
           ))}
-        </motion.div>
+        </MotionWrapper>
       )}
 
       {/* View All Button */}
-      <div className="flex justify-center mt-8 md:mt-10">
+      <MotionWrapper
+        direction="up"
+        delay={0.2}
+        duration={0.6}
+        mobileDuration={0.8}
+        className="flex justify-center mt-8 md:mt-10"
+      >
         <ButtonLink
           className={`${
             isMobile ? "bg-[#dba05d] text-black" : "bg-[#1a1a1a] text-[#faf9f6]"
@@ -217,8 +240,8 @@ const HomeProductCard = () => {
         >
           View All
         </ButtonLink>
-      </div>
-    </div>
+      </MotionWrapper>
+    </MotionWrapper>
   );
 };
 

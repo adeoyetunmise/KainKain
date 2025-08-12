@@ -1,31 +1,52 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import combinedProducts from '@/public/data/combinedProducts.json'; // Import combined JSON file
+import MotionWrapper from "../MotionWrapper";
+import combinedProducts from "@/public/data/combinedProducts.json";
 import ButtonLink from "../ui/ButtonLink";
 
 const ProductCards = () => {
   return (
-    <div className="flex flex-col items-center space-y-4 md:space-y-6 px-4 py-6 md:py-10 container mx-auto">
-      <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-2xl font-bold text-center">
-        PRINT ARTS SHOP
-      </h1>      {/* Card Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4  w-full max-w-7xl">
+    <MotionWrapper
+      direction="up"
+      mobileDirection="up"
+      duration={0.8}
+      mobileDuration={1.0}
+      className="flex flex-col items-center space-y-4 md:space-y-6 px-4 py-6 md:py-10 container mx-auto"
+    >
+      <MotionWrapper
+        direction="left"
+        mobileDirection="right"
+        delay={0.2}
+        duration={0.6}
+        mobileDuration={0.8}
+      >
+        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-2xl font-bold text-center">
+          PRINT ARTS SHOP
+        </h1>
+      </MotionWrapper>
+
+      {/* Card Grid */}
+      <MotionWrapper
+        direction="up"
+        delay={0.4}
+        duration={0.8}
+        mobileDuration={1.0}
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-7xl"
+      >
         {combinedProducts.products
-          .filter(product => product.category === "printart")
-          .slice(0, 4) // Take only the first item
+          .filter((product) => product.category === "printart")
+          .slice(0, 4)
           .map((product, index) => (
-            <motion.div
+            <div
               key={product.id || index}
               className="bbg-[#ece8e5] text-black w-full overflow-hidden mx-auto aspect-[4/5]"
-              initial={{ opacity: 0, y: 50 }} // Start hidden & slightly below
-              whileInView={{ opacity: 1, y: 0 }} // Animate in when visible
-              transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.2 }} // Staggered delay
-              viewport={{ once: true }} // Animate only once
             >
               {/* Clickable Image */}
-              <Link href={`/products/${product.slug}`} className="block relative w-full h-[70%]">
+              <Link
+                href={`/products/${product.slug}`}
+                className="block relative w-full h-[70%]"
+              >
                 <Image
                   src={product.image}
                   alt={product.title}
@@ -38,7 +59,9 @@ const ProductCards = () => {
 
               {/* Title, Price & Rating */}
               <div className="p-3 text-left h-[30%] flex flex-col justify-start">
-                <h2 className="text-sm lg:text-sm sm:text-lg font-normal">{product.title}</h2>
+                <h2 className="text-sm lg:text-sm sm:text-lg font-normal">
+                  {product.title}
+                </h2>
 
                 <p className="font-normal lg:text-sm text-xs sm:text-lg text-gray-600 mt-0.5">
                   From ₦ {product.price} NGN
@@ -53,15 +76,21 @@ const ProductCards = () => {
                 <input type="radio" name={`rating-${product.id}`} className="mask mask-star bg-gray-950" aria-label="5 star" />
               </div> */}
               </div>
-            </motion.div>
+            </div>
           ))}
-      </div>
+      </MotionWrapper>
 
       {/* View All Button */}
-      <div className="flex justify-center">
+      <MotionWrapper
+        direction="up"
+        delay={0.3}
+        duration={0.6}
+        mobileDuration={0.8}
+        className="flex justify-center"
+      >
         <ButtonLink href="/products/print-arts"> View More</ButtonLink>
-      </div>
-    </div>
+      </MotionWrapper>
+    </MotionWrapper>
   );
 };
 

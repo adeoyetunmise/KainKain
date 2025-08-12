@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -19,12 +20,16 @@ const Hero = () => {
   }, []);
 
   return (
-    <div
+    <motion.div
       className="hero min-h-[500px] md:min-h-[800px] bg-no-repeat bg-cover"
       style={{
         backgroundImage: "url('/New-hero.jpg')",
         backgroundPosition: isMobile ? "40% center" : "center center",
       }}
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
     >
       {/* <div className="hero-content text-center text-smoke-white">
         <div className="md:max-w-md lg:max-w-lg">
@@ -35,7 +40,7 @@ const Hero = () => {
           <p className="text-2xl">By Tosin Josh</p>
         </div>
       </div> */}
-    </div>
+    </motion.div>
   );
 };
 

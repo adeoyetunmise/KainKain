@@ -2,25 +2,27 @@
   "products": [
     {
       "id": 1,
-      "slug": "treasure-trove",
-      "title": "Treasure Trove",
-      "image": "/images/treasure-trove.jpg",
-      "hoverImage": "/images/treasure-trove4.jpg",
+      "slug": "kainkain",
+      "title": "kainKain",
+      "image": "/images/kainkain4.jpg",
+      "hoverImage": "/images/kainkain2.jpg",
       "images": [
-        "/images/treasure-trove.jpg",
-        "/images/treasure-trove2.jpg",
-        "/images/treasure-trove3.jpg",
-        "/images/treasure-trove4.jpg"
+        "/images/kainkain.jpg",
+        "/images/kainkain2.jpg",
+        "/images/kainkain3.jpg",
+        "/images/kainkain4.jpg"
       ],
-      "description": "Inspired by the flow of mineral resources, this piece illustrates the journey from scarcity to abundance. The gold flow pattern reflects the Niger Delta, Nigeria’s richest crude oil region. A fusion of aesthetics and meaning, Treasure Trove took two weeks to complete and was part of my 2024 solo exhibition.",
-      "price": 2500000,
+      "description": "This piece showcases Kainkain in its purest form, as known by the Yoruba people of West Africa. A standout in my 2024 solo exhibition, it is also my personal favorite of the year.",
+      "price": 5000000,
       "category": "handmade"
     },
+    
+
     {
       "id": 2,
       "slug": "72-kankan",
       "title": "72 KanKan",
-      "image": "/images/72-kainkain.jpg",
+      "image": "/images/72-kainkain3.jpg",
       "hoverImage": "/images/72-kainkain2.jpg",
       "images": [
         "/images/72-kainkain.jpg",
@@ -36,7 +38,7 @@
       "id": 3,
       "slug": "paper-sponge",
       "title": "Paper Sponge",
-      "image": "/images/Rectangle 13.png",
+      "image": "/TJPG2436.jpg",
       "hoverImage": "/images/TJPG2444.jpg",
       "price": 3000000,
       "category": "handmade"
@@ -45,7 +47,7 @@
       "id": 4,
       "slug": "broken",
       "title": "Broken",
-      "image": "/images/broken1.png",
+      "image": "/images/broken3.jpg",
       "hoverImage": "/images/broken2.jpg",
       "images": [
         "/images/broken1.png",
@@ -67,18 +69,18 @@
     },
     {
       "id": 6,
-      "slug": "aladire",
-      "title": "Aladire",
-      "image": "/images/aladire.jpg",
-      "hoverImage": "/images/aladire2.jpg",
+      "slug": "treasure-trove",
+      "title": "Treasure Trove",
+      "image": "/images/treasure-trove.jpg",
+      "hoverImage": "/images/treasure-trove4.jpg",
       "images": [
-        "/images/aladire.jpg",
-        "/images/aladire2.jpg",
-        "/images/aladire3.jpg",
-        "/images/aladire4.jpg"
+        "/images/treasure-trove.jpg",
+        "/images/treasure-trove2.jpg",
+        "/images/treasure-trove3.jpg",
+        "/images/treasure-trove4.jpg"
       ],
-      "description": "“Aladire” means a tie-dye creator. While working on my 2024 collection, I experimented with tie-dyeing Kainkain (sponge) for the first time. The result was vibrant and striking, so I arranged the dyed pieces on canvas, blending colors to create a visually stunning masterpiece. The process took about two weeks, reflecting my passion for bold aesthetics and innovation.",
-      "price": 5000000,
+      "description": "Inspired by the flow of mineral resources, this piece illustrates the journey from scarcity to abundance. The gold flow pattern reflects the Niger Delta, Nigeria’s richest crude oil region. A fusion of aesthetics and meaning, Treasure Trove took two weeks to complete and was part of my 2024 solo exhibition.",
+      "price": 2500000,
       "category": "handmade"
     },
     {
@@ -113,10 +115,10 @@
       "image": "/images/lifegiver.jpg",
       "hoverImage": "/images/lifegiver2.jpg",
       "images": [
-          "/images/lifegiver.jpg",
-          "/images/lifegiver2.jpg",
-          "/images/lifegiver3.jpg",
-          "/images/lifegiver4.jpg"
+        "/images/lifegiver.jpg",
+        "/images/lifegiver2.jpg",
+        "/images/lifegiver3.jpg",
+        "/images/lifegiver4.jpg"
       ],
       "description": "“Lifegiver” was the most talked-about piece and a crowd favorite at my 2024 solo exhibition. This Kainkain-on-canvas artwork symbolizes strength, renewal, and growth. The tree’s body features a woven section resembling a woman’s hair, highlighted in white to stand out. Water drips from the tree, reinforcing its life-giving essence. The piece took three weeks to complete.",
       "price": 3500000,
@@ -140,17 +142,17 @@
     },
     {
       "id": 11,
-      "slug": "kainkain",
-      "title": "kainKain",
-      "image": "/images/kainkain.jpg",
-      "hoverImage": "/images/kainkain2.jpg",
+      "slug": "aladire",
+      "title": "Aladire",
+      "image": "/images/aladire4.jpg",
+      "hoverImage": "/images/aladire4.jpg",
       "images": [
-        "/images/kainkain.jpg",
-        "/images/kainkain2.jpg",
-        "/images/kainkain3.jpg",
-        "/images/kainkain4.jpg"
+        "/images/aladire.jpg",
+        "/images/aladire2.jpg",
+        "/images/aladire3.jpg",
+        "/images/aladire4.jpg"
       ],
-      "description": "This piece showcases Kainkain in its purest form, as known by the Yoruba people of West Africa. A standout in my 2024 solo exhibition, it is also my personal favorite of the year.",
+      "description": "“Aladire” means a tie-dye creator. While working on my 2024 collection, I experimented with tie-dyeing Kainkain (sponge) for the first time. The result was vibrant and striking, so I arranged the dyed pieces on canvas, blending colors to create a visually stunning masterpiece. The process took about two weeks, reflecting my passion for bold aesthetics and innovation.",
       "price": 5000000,
       "category": "handmade"
     },

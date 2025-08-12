@@ -6,6 +6,7 @@ import { ProductCardProps } from "../products/ProductCard";
 import { motion, Variants } from "framer-motion";
 import productsData from "@/public/data/combinedProducts.json";
 import ButtonLink from "../ui/ButtonLink";
+import AnimatedSection from "../ui/AnimatedSection";
 
 type SortOption = "featured" | "price-low-high" | "price-high-low" | "newest";
 
@@ -13,14 +14,18 @@ interface ProductCollectionListingProps {
   category?: string;
 }
 
-const ProductCollectionListing = ({ category }: ProductCollectionListingProps) => {
+const ProductCollectionListing = ({
+  category,
+}: ProductCollectionListingProps) => {
   const [error, setError] = useState<string | null>(null);
 
   let initialProducts: ProductCardProps[] = [];
   try {
     initialProducts =
       category && productsData?.products
-        ? productsData.products.filter((product) => product.category === category)
+        ? productsData.products.filter(
+            (product) => product.category === category
+          )
         : productsData?.products || [];
   } catch (err) {
     console.error("Error loading products data:", err);
@@ -29,7 +34,8 @@ const ProductCollectionListing = ({ category }: ProductCollectionListingProps) =
   }
 
   const [products] = useState<ProductCardProps[]>(initialProducts);
-  const [filteredProducts, setFilteredProducts] = useState<ProductCardProps[]>(products);
+  const [filteredProducts, setFilteredProducts] =
+    useState<ProductCardProps[]>(products);
   const [selectedSort] = useState<SortOption>("featured");
   const [priceRange] = useState({ from: "", to: "" });
   const [availability] = useState({
@@ -43,7 +49,8 @@ const ProductCollectionListing = ({ category }: ProductCollectionListingProps) =
 
     if (priceRange.from !== "" || priceRange.to !== "") {
       const minPrice = priceRange.from !== "" ? parseFloat(priceRange.from) : 0;
-      const maxPrice = priceRange.to !== "" ? parseFloat(priceRange.to) : Infinity;
+      const maxPrice =
+        priceRange.to !== "" ? parseFloat(priceRange.to) : Infinity;
       result = result.filter(
         (product) => product.price >= minPrice && product.price <= maxPrice
       );
@@ -139,27 +146,29 @@ const ProductCollectionListing = ({ category }: ProductCollectionListingProps) =
   };
 
   return (
-    <motion.section
-      className="py-6 sm:py-8 md:py-10 px-2 sm:px-4 md:px-8 lg:px-8"
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-    >
-      {error ? (
-        <div className="text-center py-10">
-          <p className="text-red-500">{error}</p>
-          <ButtonLink href="/" className="mt-4">
-            Return to Home
-          </ButtonLink>
-        </div>
-      ) : (
-        <>
-          <motion.div className="mb-6" variants={itemVariants}>
-            <ProductGrid products={filteredProducts} />
-          </motion.div>
-        </>
-      )}
-    </motion.section>
+    <AnimatedSection>
+      <motion.section
+        className="py-6 sm:py-8 md:py-10 px-2 sm:px-4 md:px-8 lg:px-8"
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+      >
+        {error ? (
+          <div className="text-center py-10">
+            <p className="text-red-500">{error}</p>
+            <ButtonLink href="/" className="mt-4">
+              Return to Home
+            </ButtonLink>
+          </div>
+        ) : (
+          <>
+            <motion.div className="mb-6" variants={itemVariants}>
+              <ProductGrid products={filteredProducts} />
+            </motion.div>
+          </>
+        )}
+      </motion.section>
+    </AnimatedSection>
   );
 };
 

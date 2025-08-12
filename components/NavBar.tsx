@@ -91,23 +91,23 @@ const NavBar = () => {
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 flex items-center justify-between w-full">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
-          <Link href="/" className="mr-6">
+          <Link href="/" className="mr-4 sm:mr-6">
             <Image
               src="/KainKainn.png"
               alt="Logo"
               width={100}
               height={35}
               priority
-              className="w-[80px] sm:w-[100px] transition-all duration-300"
+              className="w-[70px] sm:w-[80px] md:w-[100px] transition-all duration-300"
             />
           </Link>
 
           {/* Desktop NavLinks - Hide on checkout page */}
           {!isCheckoutPage && (
-            <ul className="hidden md:flex mt-4  menu menu-horizontal">
+            <ul className="hidden md:flex menu menu-horizontal">
               <li>
                 <Link href="/" className="text-lg">
                   Home
@@ -155,35 +155,33 @@ const NavBar = () => {
           )}
         </div>
 
-        <div className="flex items-center justify-end gap-3">
-          <div className="flex items-center mt-4 justify-center gap-3 md:gap-6">
-            <Search />
-            <CartIcon />
-            <Language className="hidden md:flex" />
-            <Link
-              href="/contact"
-              className={clsx(
-                "hidden md:block px-6 py-1 -mt-3 rounded-full font-medium text-lg transition-all duration-300",
-                scroll || hovering
-                  ? "bg-custom-black text-smoke-white"
-                  : "text-custom-black bg-smoke-white"
-              )}
-            >
-              Contact Us
-            </Link>
-            {/* Mobile Menu Button */}
-            <button
-              className={clsx(
-                "md:hidden justify-end flex items-center transition-colors duration-300",
-                !hovering && !scroll && !isDarkTextPage
-                  ? "text-smoke-white"
-                  : "text-custom-black"
-              )}
-              onClick={() => setMenuOpen(true)}
-            >
-              <Menu className="cursor-pointer" />
-            </button>
-          </div>
+        <div className="flex items-center gap-2 sm:gap-3">
+          <Search />
+          <CartIcon />
+          <Language className="hidden md:flex" />
+          <Link
+            href="/contact"
+            className={clsx(
+              "hidden md:block px-4 py-1 rounded-full font-medium text-sm lg:text-lg transition-all duration-300",
+              scroll || hovering
+                ? "bg-custom-black text-smoke-white"
+                : "text-custom-black bg-smoke-white"
+            )}
+          >
+            Contact Us
+          </Link>
+          {/* Mobile Menu Button */}
+          <button
+            className={clsx(
+              "md:hidden flex items-center justify-center p-2 transition-colors duration-300",
+              !hovering && !scroll && !isDarkTextPage
+                ? "text-smoke-white"
+                : "text-custom-black"
+            )}
+            onClick={() => setMenuOpen(true)}
+          >
+            <Menu className="h-6 w-6" />
+          </button>
         </div>
       </div>
 

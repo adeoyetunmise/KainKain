@@ -1,6 +1,6 @@
 import HandMadeHero from "@/components/collections/HandMadeHero";
 import Hero from "@/components/Hero";
-// import PrintArtHero from '@/components/PrintArtHero';
+// import Hero from '@/components/Hero';
 import HomeProductCard from "@/components/HomeProductCard";
 import ProductList from "@/components/ProductList";
 import PrintArtHero from "@/components/collections/PrintArtHero";
@@ -11,7 +11,7 @@ export default function Home() {
     <section className="bg-smoke-white">
       <Hero />
       <ArtistStatement />
-      <HandMadeHero /> 
+      <HandMadeHero />
       <ProductList />
       <hr className="text-gray-300" />
       <PrintArtHero />

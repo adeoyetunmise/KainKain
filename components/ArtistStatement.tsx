@@ -1,12 +1,19 @@
 import React from "react";
 import Image from "next/image";
+import MotionWrapper from "./MotionWrapper";
 
 const ArtistStatement: React.FC = () => {
   return (
     <section className="bg-custom-black sm:bg-smoke-white pt-3 sm:pt-4 md:pt-6">
       <div className="flex flex-col lg:flex-row justify-between items-start gap-6 sm:gap-8 py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 container mx-auto">
         {/* Left Content */}
-        <div className="flex-1 space-y-6 lg:space-x-14 sm:space-y-8 md:space-y-10">
+        <MotionWrapper
+          direction="left"
+          mobileDirection="right"
+          duration={0.8}
+          mobileDuration={1.2}
+          className="flex-1 space-y-6 lg:space-x-14 sm:space-y-8 md:space-y-10"
+        >
           <h2 className=" text-[#dba05d] sm:text-custom-black text-xl sm:text-2xl font-bold tracking-wide uppercase">
             ARTIST STATEMENT
           </h2>
@@ -38,10 +45,15 @@ const ArtistStatement: React.FC = () => {
           <button className="bg-[#dba05d] text-black sm:bg-custom-black sm:text-smoke-white px-4 sm:px-6 py-2 lg:mt-10 mt-2 sm:mt-4 hover:bg-yellow-500 sm:hover:bg-custom-black/80 transition-colors text-sm sm:text-base">
             Read More
           </button>
-        </div>
+        </MotionWrapper>
 
         {/* Right Images - Hidden on mobile, visible on lg screens and up */}
-        <div className="hidden lg:block flex-1 relative w-full mt-8 lg:mt-0 max-w-full sm:max-w-[500px] lg:max-w-full mx-auto lg:mx-0">
+        <MotionWrapper
+          direction="right"
+          delay={0.3}
+          duration={0.8}
+          className="hidden lg:block flex-1 relative w-full mt-8 lg:mt-0 max-w-full sm:max-w-[500px] lg:max-w-full mx-auto lg:mx-0"
+        >
           {/* Container for the overlapping images - responsive height */}
           <div className="relative h-[300px] sm:h-[350px] md:h-[400px] lg:h-[480px] xl:h-[520px] w-full">
             {/* Rectangular Image - responsive positioning */}
@@ -66,7 +78,7 @@ const ArtistStatement: React.FC = () => {
               />
             </div>
           </div>
-        </div>
+        </MotionWrapper>
       </div>
     </section>
   );

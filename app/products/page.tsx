@@ -7,7 +7,7 @@ const ProductPage = () => {
     <section className="pt-20 px-4 md:px-10 bg-smoke-white">
       
       {/* Put a title for the all product page */}
-      <h1 className="text-center text-2xl md:text-4xl font-semibold mt-10"> All Product</h1>
+      <h1 className="text-center text-2xl md:text-4xl font-semibold mt-10"> All Products</h1>
 
       <ProductCollectionListing />
 

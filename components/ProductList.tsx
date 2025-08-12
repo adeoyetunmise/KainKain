@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import MotionWrapper from "./MotionWrapper";
 import combinedProducts from "@/public/data/combinedProducts.json";
 import ButtonLink from "./ui/ButtonLink";
 import { IoChevronBack, IoChevronForward } from "react-icons/io5";
@@ -86,21 +86,40 @@ export default function ProductList() {
   }, [isMobile]);
 
   return (
-    <section
+    <MotionWrapper
+      direction="up"
+      mobileDirection="up"
+      duration={0.8}
+      mobileDuration={1.0}
       className={`w-full ${isMobile ? "bg-custom-black" : "bg-smoke-white"}`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
-        <h1
-          className={`text-xl lg:text-2xl ${
-            isMobile ? "text-[#dba05d]" : "text-custom-black"
-          } mt-1 sm:text-2xl md:text-3xl font-bold mb-6`}
+        <MotionWrapper
+          direction="left"
+          mobileDirection="right"
+          delay={0.2}
+          duration={0.6}
+          mobileDuration={0.8}
         >
-          HAND MADE ARTS SHOP
-        </h1>
+          <h1
+            className={`text-xl lg:text-2xl ${
+              isMobile ? "text-[#dba05d]" : "text-custom-black"
+            } mt-1 sm:text-2xl md:text-3xl font-bold mb-6`}
+          >
+            HAND MADE ARTS SHOP
+          </h1>
+        </MotionWrapper>
 
         {isMobile ? (
           // Mobile horizontal scroll layout with larger images
-          <div className="relative">
+          <MotionWrapper
+            direction="right"
+            mobileDirection="left"
+            delay={0.4}
+            duration={0.8}
+            mobileDuration={1.0}
+            className="relative"
+          >
             <div
               ref={scrollContainerRef}
               className="flex overflow-x-auto snap-x snap-mandatory gap-3 scrollbar-hide pb-1"
@@ -135,32 +154,37 @@ export default function ProductList() {
                 <IoChevronForward size={18} />
               </button>
             </div>
-          </div>
+          </MotionWrapper>
         ) : (
           // Desktop grid layout
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
+          <MotionWrapper
+            direction="up"
+            delay={0.4}
+            duration={0.8}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full"
           >
             {handmadeProducts.map((product: Product, index) => (
               <ProductCard key={index} product={product} />
             ))}
-          </motion.div>
+          </MotionWrapper>
         )}
 
-        <div className="flex justify-center mt-8">
+        <MotionWrapper
+          direction="up"
+          delay={0.3}
+          duration={0.6}
+          mobileDuration={0.8}
+          className="flex justify-center mt-8"
+        >
           <ButtonLink
             className="bg-[#dba05d] text-black sm:bg-custom-black sm:text-smoke-white flex items-center justify-center whitespace-nowrap w-3 text-sm rounded-none"
             href="/collections/hand-made"
           >
             View All
           </ButtonLink>
-        </div>
+        </MotionWrapper>
       </div>
-    </section>
+    </MotionWrapper>
   );
 }
 
