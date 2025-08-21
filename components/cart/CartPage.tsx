@@ -20,7 +20,7 @@ const CartPage = () => {
       return (
         <div className="min-h-screen flex flex-col items-center justify-center bg-smoke-white">
           <h1 className="text-3xl font-bold mb-4">Your cart is empty</h1>
-          <ButtonLink href="/products" className=" text-white">
+          <ButtonLink href="/products" className="bg-black text-white">
             Continue Shopping
           </ButtonLink>
         </div>
@@ -180,7 +180,7 @@ const CartPage = () => {
               <div className="mt-6 flex justify-end">
                 <ButtonLink 
                   href="/checkout" 
-                  className="py-4 w-full md:w-2xs text-white"
+                  className="py-4 w-full md:w-2xs bg-black text-white"
                 >
                   Checkout
                 </ButtonLink>

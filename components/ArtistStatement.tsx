@@ -51,7 +51,7 @@ const ArtistStatement: React.FC = () => {
         <MotionWrapper
           direction="right"
           delay={0.3}
-          duration={0.8}
+          duration={1.0}
           className="hidden lg:block flex-1 relative w-full mt-8 lg:mt-0 max-w-full sm:max-w-[500px] lg:max-w-full mx-auto lg:mx-0"
         >
           {/* Container for the overlapping images - responsive height */}

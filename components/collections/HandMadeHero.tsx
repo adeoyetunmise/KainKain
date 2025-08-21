@@ -30,8 +30,8 @@ const HandMadeHero = () => {
     <MotionWrapper
       direction="up"
       mobileDirection="up"
-      duration={0.5}
-      mobileDuration={0.6}
+      duration={0.6}
+      mobileDuration={0.7}
     >
       <div
         className="hero min-h-[80vh] -mt-4"
