@@ -43,7 +43,7 @@ const ArtistStatement: React.FC = () => {
           </p>
 
           <button className="bg-[#dba05d] text-black sm:bg-custom-black sm:text-smoke-white px-4 sm:px-6 py-2 lg:mt-10 mt-2 sm:mt-4 hover:bg-yellow-500 sm:hover:bg-custom-black/80 transition-colors text-sm sm:text-base">
-            Read More
+            <a href="/about">Read More</a>
           </button>
         </MotionWrapper>
 

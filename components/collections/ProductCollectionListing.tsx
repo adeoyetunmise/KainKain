@@ -403,7 +403,7 @@ const ProductCollectionListing = ({
               {/* Mobile filter sidebar */}
               <div
                 ref={mobileFilterRef}
-                className={`fixed top-0 left-0 h-full w-[280px] bg-white z-50 transform transition-transform duration-500 ease-in-out p-4 overflow-y-auto ${
+                className={`fixed top-0 left-0 h-full w-[280px] bg-white z-50 transform transition-transform duration-500 ease-in-out p-4 pt-20 overflow-y-auto ${
                   mobileFilterOpen ? "translate-x-0" : "-translate-x-full"
                 }`}
               >
