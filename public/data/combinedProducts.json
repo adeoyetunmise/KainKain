@@ -177,17 +177,19 @@
     {
       "id": 13,
       "slug": "egbon-adugbo",
-      "title": "Egbon Adugbo",
-      "image": "/EgbonAdugbo.jpg",
+      "title": "ÈGỘN ÀDÚGBÒ (KÉLÉGBÉ MEGBÉ SERIES)",
+      "image": "/images/EgbonAdugbo.jpg",
       "price": 1000000,
+      "description": "Ègbón Adúgbò are the big brothers of the streets respected figures who look out for the younger ones. They offer guidance, protection, and support, ensuring the street remains a safe and nurturing environment for the next generation.",
       "category": "printart"
     },
     {
       "id": 14,
       "slug": "urban-skyline",
       "title": "Urban Skyline 2024",
-      "image": "/UrbanSkyline.jpg",
+      "image": "/images/UrbanSkyline.jpg",
       "price": 4000000,
+      "description": "At first glance, this image reveals only the bus, the figure, and the road. But for me, it holds much more—the streets, the towering buildings, and the sky that frames Lagos in its raw beauty.\n\nUrban Skyline is drawn from my personal memories and experiences. In my early days as a photographer, I often visited Lagos Island to shoot. On my way back home, I would ride in the iconic yellow buses, gazing out at the city with no distractions—long before social media became dominant. Those moments of stillness and observation inspired this piece, capturing not just the visible, but the unseen layers of a city alive with stories.",
       "category": "printart"
     },
     {
@@ -218,58 +220,60 @@
     {
       "id": 18,
       "slug": "oori",
-      "title": "Oori",
-      "image": "/Oori.jpg",
-      "price": 85,
+      "title": "OORÍ",
+      "image": "/images/Oori.jpg",
+      "price": 500000,
+      "description": "Orí is a Yoruba metaphysical concept. Orí, literally meaning 'head' refers to one's spiritual intuition and destiny. It is the reflective spark of human consciousness embedded into the human essence, and therefore is often personified as an Orisha in its own right.",
       "category": "printart"
     },
     {
       "id": 19,
       "slug": "kelegbe-megbe",
-      "title": "Kelegbe Megbe",
+      "title": "KÉLÉGBÉ MEGBÉ",
       "image": "/KelegbeMegbe.jpg",
-      "price": 80,
+      "price": 1000000,
+      "description": "Kelegbe megbe means know your mate, this set of people are always challenging the person in charge like Egbon Adugbo, you hardly see them but anytime you come across them, they are always after the person that gives you confidence to do whatever you are in that area to do, they are mostly not after your money or anything, they just love power play and you need to give them their respect, they just want you to know, we are here.",
       "category": "printart"
     },
     {
       "id": 20,
       "slug": "restless",
       "title": "Restless",
-      "image": "/Restless.jpg",
-      "price": 75,
+      "image": "/images/Restless.jpg",
+      "price": 1000000,
+      "description": "This piece reflects what many men go through but rarely talk about, unspoken emotions, hidden behind smiles and busyness. The multiple heads in the image represent all those unspoken emotions we carry but never visit.\n\nRestless represents the weight of these silent battles. It’s a reminder that expressing how we feel is not weakness, it’s strength, and it helps us heal. Self awareness is key, it’s okay not to be okay only if you are aware that you are not okay.",
       "category": "printart"
     },
     {
       "id": 21,
       "slug": "spirit",
       "title": "Spirit",
-      "image": "/Spirit.jpg",
-      "price": 95,
+      "image": "/images/Spirit.jpg",
+      "price": 1000000,
+      "description": "Spirit was created using a slow shutter speed technique, allowing light to be painted across the frame—staying true to photography’s essence as “painting with light.” The only light source was the torch from my phone, used in complete darkness to shape the image. This artwork is presented exactly as captured, straight out of the camera, without manipulation.",
       "category": "printart"
     },
     {
       "id": 22,
       "slug": "time-passes-in-sound",
       "title": "Time Passes In Sound",
-      "image": "/TimePassesInSound.jpg",
-      "price": 85,
+      "image": "/images/TimePassesInSound.jpg",
+      "hoverImage": "/images/TimePassesInSoundii.jpg",
+      "images": [
+        "/images/TimePassesInSound.jpg",
+        "/images/TimePassesInSoundii.jpg"
+      ],
+      "price": 500000,
+      "description": "This work is part of my ongoing exploration of the medium Kainkain, where I combine elements of history and culture.\n\nFor this piece, I infused music into the narrative by incorporating old vinyl records—symbols of timeless sound and history.\n\nTime Passes in Sound reflects on how music carries stories across generations, reminding us of where it all began and how far we have come. It is both a homage to sound as a vessel of time and a continuation of my dialogue between tradition and contemporary expression.",
       "category": "printart"
     },
     {
       "id": 23,
-      "slug": "time-passes-in-sound-ii",
-      "title": "Time Passes In Sound II",
-      "image": "/TimePassesInSoundii.jpg",
-      "price": 85,
-      "category": "printart"
-    },
-
-    {
-      "id": 24,
       "slug": "birds-of-a-feather",
       "title": "Birds Of A Feather",
-      "image": "/BirdsOfAFeatheri.jpg",
-      "price": 85,
+      "image": "/images/BirdsOfAFeatheri.jpg",
+      "price": 999000,
+      "description":"This work marks my first collaboration with another artist, who meticulously applied feathers to the model over a span of five hours. The feathers embody freedom, connection, and identity—while in the background, my signature medium, kainkain sponge, subtly weaves into the composition.\n\nThe piece was created largely in-camera using multiple exposures, a photographic technique where two or more images are layered together to form a single frame. This allowed the feathers and sponge textures to merge seamlessly with the model's skin, creating a dreamlike transformation. About 90% of the final image was achieved during the shoot itself, with only minimal editing applied afterward.",
       "category": "printart"
     }
   ]

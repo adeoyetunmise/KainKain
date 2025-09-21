@@ -208,9 +208,13 @@ const ProductDetails = () => {
           </button>
         </div>
 
-        <p>
-          {product.description}
-        </p>
+        {product.description && (
+          <div className="text-gray-700 text-sm leading-relaxed">
+            <p className="whitespace-pre-line">
+              {product.description}
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
