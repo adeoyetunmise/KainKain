@@ -213,7 +213,8 @@
       "slug": "akoko",
       "title": "Akoko",
       "image": "/Akoko.jpg",
-      "price": 95,
+      "price": 4000000,
+      "description" : "This series is actually the very first try, my creations comes from my beliefs, how I see life in general, Akoko meaning First, the broom was present because I have always believed it can give long life, if you use the broom daily, it’s a form of exercise and it help for general body movement. For the sponge itself, using natural materials on our body is far more healthy than the factory processed material we use nowadays. Later along the line, I remembered back in the day, 2001, 2004 to recent years, my grandma sold sponge. So all of this together with my photography skills, brought this to life.",
       "category": "printart"
     },
 
@@ -274,6 +275,15 @@
       "image": "/images/BirdsOfAFeatheri.jpg",
       "price": 999000,
       "description":"This work marks my first collaboration with another artist, who meticulously applied feathers to the model over a span of five hours. The feathers embody freedom, connection, and identity—while in the background, my signature medium, kainkain sponge, subtly weaves into the composition.\n\nThe piece was created largely in-camera using multiple exposures, a photographic technique where two or more images are layered together to form a single frame. This allowed the feathers and sponge textures to merge seamlessly with the model's skin, creating a dreamlike transformation. About 90% of the final image was achieved during the shoot itself, with only minimal editing applied afterward.",
+      "category": "printart"
+    },
+    {
+      "id": 24,
+      "slug": "OkunrinMeta",
+      "title": "Okunrin Meta",
+      "image": "/images/OkunrinMeta.jpg",
+      "price": 1000000,
+      "description":"This means three men, when one person is referred to as 3 men in my language, it means someone with much more power, confidence and aura.",
       "category": "printart"
     }
   ]
