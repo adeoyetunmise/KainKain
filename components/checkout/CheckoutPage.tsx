@@ -69,19 +69,111 @@ const CheckoutPage = () => {
     },
     publicKey,
     text: "Place Order & Pay",
-    onSuccess: (reference: any) => {
+    onSuccess: async (reference: any) => {
       // Handle successful payment
       console.log("Payment successful:", reference);
-      alert("Payment successful! Your order has been placed.");
       
-      // Clear cart after successful payment
-      clearCart();
-      
-      // You can redirect to a success page or handle the order completion here
-      // router.push("/order-success");
+      try {
+        // Save transaction to database
+        const response = await fetch('/api/transactions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            reference: reference.reference,
+            amount: getTotalPrice(),
+            email: customerInfo.email,
+            status: 'success',
+            customerInfo: {
+              name: customerInfo.name,
+              phone: customerInfo.phone,
+              address: customerInfo.address,
+              city: customerInfo.city,
+              state: customerInfo.state,
+            },
+            cartItems: cartItems.map(item => ({
+              slug: item.slug,
+              title: item.title,
+              img: item.img,
+              price: item.price,
+              quantity: item.quantity,
+            })),
+          }),
+        });
+
+        const result = await response.json();
+        
+        if (result.success) {
+          console.log("Transaction saved successfully:", result.transaction);
+          alert("Payment successful! Your order has been placed and recorded.");
+          
+          // Clear cart after successful payment
+          clearCart();
+          
+          // You can redirect to a success page or handle the order completion here
+          // router.push("/order-success");
+        } else {
+          console.error("Failed to save transaction:", result.message);
+          // Still show success to user since payment went through
+          alert("Payment successful! Your order has been placed.");
+          clearCart();
+        }
+      } catch (error) {
+        console.error("Error saving transaction:", error);
+        // Still show success to user since payment went through
+        alert("Payment successful! Your order has been placed.");
+        clearCart();
+      }
     },
-    onClose: () => {
-      alert("Payment cancelled. Your items are still in your cart.");
+    onClose: async () => {
+      // This handles when user manually closes the modal or payment fails
+      console.log("Payment modal closed or payment failed");
+      
+      try {
+        // Generate a unique reference for failed/cancelled transaction
+        const failedReference = `FAILED_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+        
+        // Save failed/cancelled transaction to database
+        const response = await fetch('/api/transactions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            reference: failedReference,
+            amount: getTotalPrice(),
+            email: customerInfo.email,
+            status: 'failed', // Using 'failed' instead of 'declined'
+            customerInfo: {
+              name: customerInfo.name,
+              phone: customerInfo.phone,
+              address: customerInfo.address,
+              city: customerInfo.city,
+              state: customerInfo.state,
+            },
+            cartItems: cartItems.map(item => ({
+              slug: item.slug,
+              title: item.title,
+              img: item.img,
+              price: item.price,
+              quantity: item.quantity,
+            })),
+          }),
+        });
+
+        const result = await response.json();
+        
+        if (result.success) {
+          console.log("Failed transaction saved successfully:", result.transaction);
+        } else {
+          console.error("Failed to save failed transaction:", result.message);
+        }
+      } catch (error) {
+        console.error("Error saving failed transaction:", error);
+      }
+      
+      alert("Payment was not completed. Your items are still in your cart.");
     },
   };
 
@@ -99,7 +191,7 @@ const CheckoutPage = () => {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center">
         <h1 className="text-3xl font-bold mb-4">Your cart is empty</h1>
-        <Link href="/products" className="btn bg-[#dcb094] text-white">
+        <Link href="/products" className="btn bg-black text-white">
           Continue Shopping
         </Link>
       </div>
@@ -163,7 +255,7 @@ const CheckoutPage = () => {
             
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="name" className="block text-sm font-medium text-black mb-1">
                   Full Name
                 </label>
                 <input
@@ -259,13 +351,13 @@ const CheckoutPage = () => {
                 {customerInfo.name && customerInfo.email && customerInfo.phone && customerInfo.address && customerInfo.city && customerInfo.state ? (
                   <PaystackButton 
                     {...paystackProps} 
-                    className="w-full btn bg-[#dcb094] text-white py-3 rounded-md hover:bg-[#c9a082] transition-colors"
+                    className="w-full btn bg-black text-white py-3 rounded-md transition-colors"
                   />
                 ) : (
                   <button
                     type="button"
                     disabled
-                    className="w-full btn bg-gray-400 text-white py-3 rounded-md cursor-not-allowed"
+                    className="w-full btn bg-black text-black py-3 rounded-md cursor-not-allowed"
                   >
                     Fill all fields to proceed
                   </button>

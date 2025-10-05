@@ -158,7 +158,7 @@ const NavBar = () => {
         <div className="flex items-center gap-2 sm:gap-3">
           <Search />
           <CartIcon />
-          <Language className="hidden md:flex" />
+          {/* <Language className="hidden md:flex" /> */}
           <Link
             href="/contact"
             className={clsx(
