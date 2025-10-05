@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import clsx from "clsx";
 import Search from "./ui/Search";
-import Language from "./ui/Language";
 import { usePathname } from "next/navigation";
 import CartIcon from "./ui/CartIcon";
 
