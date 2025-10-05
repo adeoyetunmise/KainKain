@@ -8,6 +8,7 @@ interface CartState {
     removeFromCart: (slug: string) => void;
     getTotalPrice: () => number;
     addToCart: (product: { slug: string; title: string; price: string; img: string }) => void;
+    clearCart: () => void;
   }
 
 export const useCartStore = create<CartState>()(
@@ -42,7 +43,11 @@ export const useCartStore = create<CartState>()(
         return state.cartItems.reduce((total, item) => 
             total + (parseFloat(item.price) * item.quantity), 0
         );
-    }
+    },
+
+    clearCart: () => set(() => ({
+        cartItems: []
+    }))
     }),
     {
       name: 'cart-storage', // unique name for the storage key
