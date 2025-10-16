@@ -1,74 +1,76 @@
 "use client";
 
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
-import { CheckCircle} from 'lucide-react';
-import ButtonLink from '@/components/ui/ButtonLink';
+import { useEffect, useState } from "react";
+import { CheckCircle } from "lucide-react";
+import ButtonLink from "@/components/ui/ButtonLink";
 
 const OrderSuccessPage = () => {
-    const [, setOrderDetails] = useState({
-        orderNumber: '',
-        estimatedDelivery: '',
-        customerInfo: {
-            name: '',
-            email: '',
-            phone: '',
-            address: '',
-        }
+  const [, setOrderDetails] = useState({
+    orderNumber: "",
+    estimatedDelivery: "",
+    customerInfo: {
+      name: "",
+      email: "",
+      phone: "",
+      address: "",
+    },
+  });
+
+  useEffect(() => {
+    // Generate a random order number for display
+    const generateOrderNumber = () => {
+      return `ORD-${Date.now()}-${Math.random()
+        .toString(36)
+        .substr(2, 5)
+        .toUpperCase()}`;
+    };
+
+    // Calculate estimated delivery (5-7 business days)
+    const getEstimatedDelivery = () => {
+      const today = new Date();
+      const deliveryDate = new Date(today);
+      deliveryDate.setDate(today.getDate() + 7); // Add 7 days
+      return deliveryDate.toLocaleDateString("en-US", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+    };
+
+    setOrderDetails({
+      orderNumber: generateOrderNumber(),
+      estimatedDelivery: getEstimatedDelivery(),
+      customerInfo: {
+        name: "Customer", // You can get this from local storage or context
+        email: "",
+        phone: "",
+        address: "",
+      },
     });
 
-    useEffect(() => {
-        // Generate a random order number for display
-        const generateOrderNumber = () => {
-            return `ORD-${Date.now()}-${Math.random().toString(36).substr(2, 5).toUpperCase()}`;
-        };
+    // Optional: Clear cart from localStorage if you're using it
+    // localStorage.removeItem('cart');
+  }, []);
 
-        // Calculate estimated delivery (5-7 business days)
-        const getEstimatedDelivery = () => {
-            const today = new Date();
-            const deliveryDate = new Date(today);
-            deliveryDate.setDate(today.getDate() + 7); // Add 7 days
-            return deliveryDate.toLocaleDateString('en-US', {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            });
-        };
+  return (
+    <div className="min-h-screen bg-smoke-white pt-28 pb-8 px-4">
+      <div className="max-w-4xl mx-auto">
+        {/* Success Header */}
+        <div className="text-center mb-8">
+          <div className="flex justify-center mb-4">
+            <CheckCircle className="w-16 h-16 text-green-500" />
+          </div>
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
+            Order Successful!
+          </h1>
+          <p className="text-lg text-gray-600">
+            Thank you for your purchase. Your order has been confirmed.
+          </p>
+        </div>
 
-        setOrderDetails({
-            orderNumber: generateOrderNumber(),
-            estimatedDelivery: getEstimatedDelivery(),
-            customerInfo: {
-                name: 'Customer', // You can get this from local storage or context
-                email: '',
-                phone: '',
-                address: '',
-            }
-        });
-
-        // Optional: Clear cart from localStorage if you're using it
-        // localStorage.removeItem('cart');
-    }, []);
-
-    return (
-        <div className="min-h-screen bg-[#ece8e5] pt-28 pb-8 px-4">
-            <div className="max-w-4xl mx-auto">
-                {/* Success Header */}
-                <div className="text-center mb-8">
-                    <div className="flex justify-center mb-4">
-                        <CheckCircle className="w-16 h-16 text-green-500" />
-                    </div>
-                    <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
-                        Order Successful!
-                    </h1>
-                    <p className="text-lg text-gray-600">
-                        Thank you for your purchase. Your order has been confirmed.
-                    </p>
-                </div>
-
-                {/* Order Details Card */}
-                {/* <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+        {/* Order Details Card */}
+        {/* <div className="bg-white rounded-lg shadow-md p-6 mb-6">
                     <div className="border-b pb-4 mb-4">
                         <h2 className="text-xl font-semibold text-gray-800">Order Details</h2>
                     </div>
@@ -91,7 +93,7 @@ const OrderSuccessPage = () => {
                 </div>
 
                 {/* Order Status Timeline */}
-                {/* <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+        {/* <div className="bg-white rounded-lg shadow-md p-6 mb-6">
                     <h2 className="text-xl font-semibold text-gray-800 mb-4">Order Status</h2>
                     
                     <div className="flex items-center justify-between">
@@ -135,8 +137,8 @@ const OrderSuccessPage = () => {
                     </div>
                 </div> */}
 
-                {/* What's Next Section */}
-                {/* <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+        {/* What's Next Section */}
+        {/* <div className="bg-white rounded-lg shadow-md p-6 mb-6">
                     <h2 className="text-xl font-semibold text-gray-800 mb-4">What's Next?</h2>
                     
                     <div className="space-y-3">
@@ -172,8 +174,8 @@ const OrderSuccessPage = () => {
                     </div>
                 </div> */}
 
-                {/* Customer Support */}
-                {/* <div className="bg-[#dcb094]/10 rounded-lg p-6 mb-6">
+        {/* Customer Support */}
+        {/* <div className="bg-[#dcb094]/10 rounded-lg p-6 mb-6">
                     <h2 className="text-xl font-semibold text-gray-800 mb-4">Need Help?</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -202,35 +204,30 @@ const OrderSuccessPage = () => {
                     </div>
                 </div> */}
 
-                {/* Action Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <ButtonLink href="/products" className="bg-black">
-                        Continue Shopping
-                    </ButtonLink>
-                    
-                    <ButtonLink href="/" variant="ghost" className="border border-gray-300 bg-white text-gray-700 hover:bg-gray-50">
-                        Back to Home
-                    </ButtonLink>
-                </div>
+        {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <ButtonLink href="/products" className="bg-black">
+            Continue Shopping
+          </ButtonLink>
 
-                {/* Thank You Message */}
-                <div className="text-center mt-8">
-                    <div className="flex justify-center mb-4">
-                        <Image
-                            src="/KainKainn.png"
-                            alt="KainKain Logo"
-                            width={120}
-                            height={40}
-                            className="opacity-80"
-                        />
-                    </div>
-                    <p className="text-gray-600 italic">
-                        Thank you for supporting local art and choosing KainKain Collection.
-                    </p>
-                </div>
-            </div>
+          <ButtonLink
+            href="/"
+            variant="ghost"
+            className="border border-gray-300 bg-white text-gray-700 hover:bg-gray-50"
+          >
+            Back to Home
+          </ButtonLink>
         </div>
-    );
+
+        {/* Thank You Message */}
+        <div className="text-center mt-8">
+          <p className="text-gray-600 italic">
+            Thank you for supporting local art and choosing KainKain Collection.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default OrderSuccessPage;

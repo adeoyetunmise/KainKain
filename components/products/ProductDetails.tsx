@@ -1,6 +1,6 @@
 "use client";
 
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import combinedProducts from "@/public/data/combinedProducts.json";
 import { useCartStore } from "@/store/cartStore";
@@ -21,8 +21,9 @@ interface Product {
 
 const ProductDetails = () => {
   const params = useParams();
+  const router = useRouter();
   const addToCart = useCartStore((state) => state.addToCart);
-  
+
   const [product, setProduct] = useState<Product | null>(null);
   const [quantity, setQuantity] = useState(1);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -54,6 +55,7 @@ const ProductDetails = () => {
           img: product.image,
         });
       }
+      router.push("/cart");
     }
   };
 
@@ -85,12 +87,15 @@ const ProductDetails = () => {
         {/* Mobile Image Gallery */}
         <div className="md:hidden">
           <div className="relative overflow-hidden">
-            <div 
+            <div
               className="flex transition-transform duration-300 ease-in-out"
               style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
             >
               {images.map((image, index) => (
-                <div key={index} className="w-full flex-shrink-0 flex items-center justify-center">
+                <div
+                  key={index}
+                  className="w-full flex-shrink-0 flex items-center justify-center"
+                >
                   <figure className="relative w-full max-w-md">
                     <Image
                       src={image || "/TJPG2415.jpg"}
@@ -103,7 +108,7 @@ const ProductDetails = () => {
                 </div>
               ))}
             </div>
-            
+
             {/* Navigation arrows - only show if more than 1 image */}
             {images.length > 1 && (
               <>
@@ -122,7 +127,7 @@ const ProductDetails = () => {
               </>
             )}
           </div>
-          
+
           {/* Image indicators - only show if more than 1 image */}
           {images.length > 1 && (
             <div className="flex justify-center gap-2 mt-4">
@@ -131,7 +136,7 @@ const ProductDetails = () => {
                   key={index}
                   onClick={() => setCurrentImageIndex(index)}
                   className={`w-3 h-3 rounded-full transition-colors ${
-                    currentImageIndex === index ? 'bg-black' : 'bg-gray-300'
+                    currentImageIndex === index ? "bg-black" : "bg-gray-300"
                   }`}
                 />
               ))}
@@ -155,9 +160,11 @@ const ProductDetails = () => {
 
           <div className="grid grid-cols-4 gap-4 p-4">
             {images.map((image, index) => (
-              <figure 
+              <figure
                 key={index}
-                className={`cursor-pointer ${currentImageIndex === index ? 'border-2 border-black' : ''}`}
+                className={`cursor-pointer ${
+                  currentImageIndex === index ? "border-2 border-black" : ""
+                }`}
                 onClick={() => setCurrentImageIndex(index)}
               >
                 <Image
@@ -172,11 +179,9 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
-      
+
       <div className="flex flex-col gap-8 md:sticky md:mt-14 h-full">
-        <h1 className="text-2xl font-bold text-gray-700">
-          {product.title}
-        </h1>
+        <h1 className="text-2xl font-bold text-gray-700">{product.title}</h1>
 
         <p className="text-lg font-bold">
           ₦{new Intl.NumberFormat("en-NG").format(product.price)}
@@ -210,9 +215,7 @@ const ProductDetails = () => {
 
         {product.description && (
           <div className="text-gray-700 text-sm leading-relaxed">
-            <p className="whitespace-pre-line">
-              {product.description}
-            </p>
+            <p className="whitespace-pre-line">{product.description}</p>
           </div>
         )}
       </div>

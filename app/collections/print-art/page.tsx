@@ -10,7 +10,7 @@ const PrintArt = () => {
         <div
           className="relative flex flex-col items-center justify-center py-20 px-4 w-full h-[670px] md:h-[700px]"
           style={{
-            backgroundImage: "url('/BirdsOfAFeatheri.jpg')",
+            backgroundImage: "url('/images/BirdsOfAFeatheri.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             margin: 0,

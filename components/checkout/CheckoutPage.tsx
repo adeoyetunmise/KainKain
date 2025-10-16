@@ -25,7 +25,7 @@ const CheckoutPage = () => {
   const [toast, setToast] = useState({
     isVisible: false,
     message: "",
-    type: 'info' as 'success' | 'error' | 'info' | 'warning'
+    type: "info" as "success" | "error" | "info" | "warning",
   });
 
   // Ensure this only runs on the client
@@ -34,22 +34,24 @@ const CheckoutPage = () => {
   }, []);
 
   // Function to show toast
-  const showToast = (message: string, type: 'success' | 'error' | 'info' | 'warning') => {
+  const showToast = (
+    message: string,
+    type: "success" | "error" | "info" | "warning"
+  ) => {
     setToast({
       isVisible: true,
       message,
-      type
+      type,
     });
   };
 
   // Function to hide toast
   const hideToast = () => {
-    setToast(prev => ({ ...prev, isVisible: false }));
+    setToast((prev) => ({ ...prev, isVisible: false }));
   };
 
   // Paystack configuration
-  const publicKey =
-    process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || "";
+  const publicKey = process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || "";
   const amount = getTotalPrice() * 100; // Paystack expects amount in kobo (multiply by 100)
 
   const handleInputChange = (
@@ -147,16 +149,22 @@ const CheckoutPage = () => {
 
         if (result.success) {
           console.log("Transaction saved successfully:", result.transaction);
-          showToast("Payment successful! Your order has been placed and recorded.", "success");
+          showToast(
+            "Payment successful! Your order has been placed and recorded.",
+            "success"
+          );
           clearCart();
-          
+
           // Add a small delay before redirect to show the toast
           setTimeout(() => {
             router.push("/order-success");
           }, 2000);
         } else {
           console.error("Failed to save transaction:", result.message);
-          showToast("Payment successful! Your order has been placed.", "success");
+          showToast(
+            "Payment successful! Your order has been placed.",
+            "success"
+          );
           clearCart();
         }
       } catch (error) {
@@ -203,7 +211,10 @@ const CheckoutPage = () => {
         const result = await response.json();
 
         if (result.success) {
-          console.log("Failed transaction saved successfully:", result.transaction);
+          console.log(
+            "Failed transaction saved successfully:",
+            result.transaction
+          );
         } else {
           console.error("Failed to save failed transaction:", result.message);
         }
@@ -211,7 +222,10 @@ const CheckoutPage = () => {
         console.error("Error saving failed transaction:", error);
       }
 
-      showToast("Payment was not completed. Your items are still in your cart.", "error");
+      showToast(
+        "Payment was not completed. Your items are still in your cart.",
+        "error"
+      );
     },
   };
 
@@ -225,7 +239,10 @@ const CheckoutPage = () => {
       !customerInfo.city ||
       !customerInfo.state
     ) {
-      showToast("Please fill in all required fields before proceeding to payment.", "warning");
+      showToast(
+        "Please fill in all required fields before proceeding to payment.",
+        "warning"
+      );
       return;
     }
   };
@@ -295,13 +312,19 @@ const CheckoutPage = () => {
                     <div className="flex-1">
                       <h3 className="font-semibold">{item.title}</h3>
                       <p className="text-gray-600">
-                        ₦{new Intl.NumberFormat("en-NG").format(parseFloat(item.price))}
+                        ₦
+                        {new Intl.NumberFormat("en-NG").format(
+                          parseFloat(item.price)
+                        )}
                       </p>
                     </div>
 
                     <div className="text-right">
                       <p className="font-semibold">
-                        ₦{new Intl.NumberFormat("en-NG").format(parseFloat(item.price) * item.quantity)}
+                        ₦
+                        {new Intl.NumberFormat("en-NG").format(
+                          parseFloat(item.price) * item.quantity
+                        )}
                       </p>
                     </div>
                   </div>
@@ -311,18 +334,24 @@ const CheckoutPage = () => {
               <div className="mt-6 pt-4 border-t">
                 <div className="flex justify-between items-center text-xl font-bold">
                   <span>Total:</span>
-                  <span>₦{new Intl.NumberFormat("en-NG").format(getTotalPrice())}</span>
+                  <span>
+                    ₦{new Intl.NumberFormat("en-NG").format(getTotalPrice())}
+                  </span>
                 </div>
               </div>
             </div>
 
             {/* Customer Information Form */}
             <div className="bg-[#ece8e5] rounded-lg shadow-md p-6">
-              <h2 className="text-2xl font-semibold mb-4">Shipping Information</h2>
-
+              <h2 className="text-2xl font-semibold mb-4">
+                Shipping Information
+              </h2>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-black mb-1">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-black mb-1"
+                  >
                     Full Name
                   </label>
                   <input
@@ -337,7 +366,10 @@ const CheckoutPage = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-black mb-1"
+                  >
                     Email
                   </label>
                   <input
@@ -352,7 +384,10 @@ const CheckoutPage = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-medium text-black mb-1"
+                  >
                     Phone
                   </label>
                   <input
@@ -365,40 +400,12 @@ const CheckoutPage = () => {
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#dcb094]"
                   />
                 </div>
-
-                <div>
-                  <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-1">
-                    Address
-                  </label>
-                  <textarea
-                    id="address"
-                    name="address"
-                    required
-                    rows={3}
-                    value={customerInfo.address}
-                    onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#dcb094]"
-                  />
-                </div>
-
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-1">
-                      City
-                    </label>
-                    <input
-                      type="text"
-                      id="city"
-                      name="city"
-                      required
-                      value={customerInfo.city}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#dcb094]"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="state" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label
+                      htmlFor="state"
+                      className="block text-sm font-medium text-black mb-1"
+                    >
                       State
                     </label>
                     <input
@@ -411,6 +418,41 @@ const CheckoutPage = () => {
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#dcb094]"
                     />
                   </div>
+                  <div>
+                    <label
+                      htmlFor="city"
+                      className="block text-sm font-medium text-black mb-1"
+                    >
+                      City
+                    </label>
+                    <input
+                      type="text"
+                      id="city"
+                      name="city"
+                      required
+                      value={customerInfo.city}
+                      onChange={handleInputChange}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#dcb094]"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="address"
+                    className="block text-sm font-medium text-black mb-1"
+                  >
+                    Address
+                  </label>
+                  <textarea
+                    id="address"
+                    name="address"
+                    required
+                    rows={3}
+                    value={customerInfo.address}
+                    onChange={handleInputChange}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#dcb094]"
+                  />
                 </div>
 
                 <div className="pt-4">
@@ -428,7 +470,7 @@ const CheckoutPage = () => {
                     <button
                       type="button"
                       disabled
-                      className="w-full btn bg-gray-400 text-gray-700 py-3 rounded-md cursor-not-allowed"
+                      className="w-full btn bg-gray-400 text-black py-3 rounded-md cursor-not-allowed"
                     >
                       Fill all fields to proceed
                     </button>

@@ -22,6 +22,7 @@ const NavBar = () => {
     "/products",
     "/cart",
     "/checkout",
+    "/order-success",
   ].some((path) => pathname && pathname.startsWith(path));
 
   // Pages that should always have the "scrolled" navbar appearance
@@ -33,15 +34,15 @@ const NavBar = () => {
     "/about",
     "/Exhibition",
     "/contact",
+    "/cart",
+    "/checkoutPage",
+    "/order-success",
   ];
 
   // Add null check for pathname in forceScrolledAppearance
   const forceScrolledAppearance = alwaysScrolledPages.some(
     (path) => pathname && pathname.startsWith(path)
   );
-
-  // Add null check for pathname in isCheckoutPage
-  const isCheckoutPage = pathname === "/checkout";
 
   // Handle clicks outside the dropdown
   useEffect(() => {
@@ -90,7 +91,7 @@ const NavBar = () => {
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+      <div className="container mx-auto w-full px-4 md:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
           <Link href="/" className="mr-4 sm:mr-6">
@@ -104,62 +105,86 @@ const NavBar = () => {
             />
           </Link>
 
-          {/* Desktop NavLinks - Hide on checkout page */}
-          {!isCheckoutPage && (
-            <ul className="hidden md:flex menu menu-horizontal">
-              <li>
-                <Link href="/" className="text-lg">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <details ref={detailsRef}>
-                  <summary className="text-lg ">Shop Prints</summary>
-                  <ul className="p-2 bg-[#ece8e5] shadow-md text-black">
-                    <li>
-                      <Link href="/products" className="text-sm">
-                        All Products
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/collections/hand-made" className="text-sm">
-                        Hand Made
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/collections/print-art" className="text-sm">
-                        Print Arts
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/collections" className="text-sm">
-                        Collection
-                      </Link>
-                    </li>
-                  </ul>
-                </details>
-              </li>
+          {/* Desktop NavLinks - Always show navlinks */}
+          <ul className="hidden md:flex menu menu-horizontal mt-4">
+            <li>
+              <Link href="/" className="text-lg">
+                Home
+              </Link>
+            </li>
+            <li>
+              <details ref={detailsRef}>
+                <summary className="text-lg ">Shop Prints</summary>
+                <ul className="p-2 bg-[#ece8e5] shadow-md text-black">
+                  <li>
+                    <Link
+                      href="/products"
+                      className="text-sm"
+                      onClick={() => {
+                        if (detailsRef.current) detailsRef.current.open = false;
+                      }}
+                    >
+                      All Products
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/collections/hand-made"
+                      className="text-sm"
+                      onClick={() => {
+                        if (detailsRef.current) detailsRef.current.open = false;
+                      }}
+                    >
+                      Hand Made
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/collections/print-art"
+                      className="text-sm"
+                      onClick={() => {
+                        if (detailsRef.current) detailsRef.current.open = false;
+                      }}
+                    >
+                      Print Arts
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/collections"
+                      className="text-sm"
+                      onClick={() => {
+                        if (detailsRef.current) detailsRef.current.open = false;
+                      }}
+                    >
+                      Collection
+                    </Link>
+                  </li>
+                </ul>
+              </details>
+            </li>
 
-              <li>
-                <Link href="/about" className="text-lg">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/Exhibition" className="text-lg">
-                  Exhibition
-                </Link>
-              </li>
-            </ul>
-          )}
+            <li>
+              <Link href="/about" className="text-lg">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link href="/Exhibition" className="text-lg">
+                Exhibition
+              </Link>
+            </li>
+          </ul>
         </div>
 
         <div className="flex items-center gap-2 sm:gap-3">
           <Search />
           <CartIcon />
           {/* <Language className="hidden md:flex" /> */}
-          <Link
-            href="/contact"
+          <a
+            href="https://wa.me/2348036614674" // Replace with your WhatsApp number
+            target="_blank"
+            rel="noopener noreferrer"
             className={clsx(
               "hidden md:block px-4 py-1 rounded-full font-medium text-sm lg:text-lg transition-all duration-300",
               scroll || hovering
@@ -168,7 +193,7 @@ const NavBar = () => {
             )}
           >
             Contact Us
-          </Link>
+          </a>
           {/* Mobile Menu Button */}
           <button
             className={clsx(
@@ -184,115 +209,117 @@ const NavBar = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation Drawer - Hide on checkout page */}
-      {!isCheckoutPage && (
-        <>
-          <div
-            className={clsx(
-              "fixed top-0 right-0 h-full w-64 bg-smoke-white shadow-lg transform transition-transform ease-in-out duration-300 z-50 flex flex-col pt-20 px-6",
-              menuOpen ? "translate-x-0" : "translate-x-full"
-            )}
-          >
-            <button
-              className="absolute top-4 left-4 text-[#1a1a1a] cursor-pointer"
-              onClick={() => setMenuOpen(false)}
-            >
-              <X className="h-6 w-6" />
-            </button>
-
-            {/* Mobile menu using DaisyUI menu structure */}
-            <ul className="menu menu-vertical w-full">
-              <li>
-                <Link
-                  href="/"
-                  className="text-sm sm:text-lg"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <details>
-                  <summary className="text-sm sm:text-lg">Shop Prints</summary>
-                  <ul className="p-2">
-                    <li>
-                      <Link
-                        href="/products"
-                        className="text-sm sm:text-base"
-                        onClick={() => setMenuOpen(false)}
-                      >
-                        All Products
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/collections/hand-made"
-                        className="text-sm sm:text-base"
-                        onClick={() => setMenuOpen(false)}
-                      >
-                        Hand Made
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/collections/print-art"
-                        className="text-sm sm:text-base"
-                        onClick={() => setMenuOpen(false)}
-                      >
-                        Print Arts
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/collections"
-                        className="text-sm sm:text-base"
-                        onClick={() => setMenuOpen(false)}
-                      >
-                        Collection
-                      </Link>
-                    </li>
-                  </ul>
-                </details>
-              </li>
-              <li>
-                <Link
-                  href="/collections/exhibition"
-                  className="text-sm sm:text-lg"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Exhibition
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="text-sm sm:text-lg"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-sm sm:text-lg"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Contact Us
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Overlay for mobile menu */}
-          {menuOpen && (
-            <div
-              className="fixed inset-0 bg-[#1a1a1a] opacity-40 z-40"
-              onClick={() => setMenuOpen(false)}
-            />
+      {/* Mobile Navigation Drawer - Always show navlinks */}
+      <>
+        <div
+          className={clsx(
+            "fixed top-0 right-0 h-full w-64 bg-smoke-white shadow-lg transform transition-transform ease-in-out duration-300 z-50 flex flex-col pt-20 px-6",
+            menuOpen ? "translate-x-0" : "translate-x-full"
           )}
-        </>
-      )}
+        >
+          <button
+            className="absolute top-4 left-4 text-[#1a1a1a] cursor-pointer"
+            onClick={() => setMenuOpen(false)}
+          >
+            <X className="h-6 w-6" />
+          </button>
+
+          {/* Mobile menu using DaisyUI menu structure */}
+          <ul className="menu menu-vertical w-full">
+            <li>
+              <Link
+                href="/"
+                className="text-sm sm:text-lg"
+                onClick={() => setMenuOpen(false)}
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <details>
+                <summary className="text-sm sm:text-lg">Shop Prints</summary>
+                <ul className="p-2">
+                  <li>
+                    <Link
+                      href="/products"
+                      className="text-sm sm:text-base"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      All Products
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/collections/hand-made"
+                      className="text-sm sm:text-base"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      Hand Made
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/collections/print-art"
+                      className="text-sm sm:text-base"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      Print Arts
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/collections"
+                      className="text-sm sm:text-base"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      Collection
+                    </Link>
+                  </li>
+                </ul>
+              </details>
+            </li>
+            <li></li>
+            <li>
+              <Link
+                href="/about"
+                className="text-sm sm:text-lg"
+                onClick={() => setMenuOpen(false)}
+              >
+                About
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                href="/collections/exhibition"
+                className="text-sm sm:text-lg"
+                onClick={() => setMenuOpen(false)}
+              >
+                Exhibition
+              </Link>
+            </li>
+            <li>
+              <a
+                href="https://wa.me/2348036614674"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm sm:text-lg"
+                onClick={() => setMenuOpen(false)}
+              >
+                Contact Us
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        {/* Overlay for mobile menu */}
+        {menuOpen && (
+          <div
+            className="fixed inset-0 bg-[#1a1a1a] opacity-40 z-40"
+            onClick={() => setMenuOpen(false)}
+          />
+        )}
+      </>
     </nav>
   );
 };
