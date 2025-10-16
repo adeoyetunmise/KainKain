@@ -37,6 +37,7 @@ const NavBar = () => {
     "/cart",
     "/checkoutPage",
     "/order-success",
+    
   ];
 
   // Add null check for pathname in forceScrolledAppearance
