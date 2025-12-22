@@ -1,195 +1,289 @@
 {
   "products": [
     {
-      "slug": "black-sponge",
-      "title": "Black Sponge",
-      "image": "/images/black-sponge.jpg",
-      "hoverImage": "/images/black-sponge2.jpg",
-      "price": 45,
+      "id": 1,
+      "slug": "kainkain",
+      "title": "kainKain",
+      "image": "/images/kainkain4.jpg",
+      "hoverImage": "/images/kainkain2.jpg",
+      "images": [
+        "/images/kainkain.jpg",
+        "/images/kainkain2.jpg",
+        "/images/kainkain3.jpg",
+        "/images/kainkain4.jpg"
+      ],
+      "description": "This piece showcases Kainkain in its purest form, as known by the Yoruba people of West Africa. A standout in my 2024 solo exhibition, it is also my personal favorite of the year.",
+      "price": 5000000,
+      "category": "handmade"
+    },
+    
+
+    {
+      "id": 2,
+      "slug": "72-kankan",
+      "title": "72 KanKan",
+      "image": "/images/72-kainkain3.jpg",
+      "hoverImage": "/images/72-kainkain2.jpg",
+      "images": [
+        "/images/72-kainkain.jpg",
+        "/images/72-kainkain2.jpg",
+        "/images/72-kainkain3.jpg",
+        "/images/72-kainkain4.jpg"
+      ],
+      "description": "This piece features 72 Kainkain sponges arranged in a structured pattern, increasing by one sponge per step from 4 to 12. The different sizes represent both young and old. The name 72 KANKAN comes from how Yoruba people in Lagos pronounce Kainkain as Kankan.",
+      "price": 2500000,
       "category": "handmade"
     },
     {
-      "slug": "color-sponge",
-      "title": "Color Sponge",
-      "image": "/images/color-sponge.jpg",
-      "hoverImage": "/images/color-sponge2.jpg",
-      "price": 50,
+      "id": 3,
+      "slug": "paper-sponge",
+      "title": "Paper Sponge",
+      "image": "/TJPG2436.jpg",
+      "hoverImage": "/images/TJPG2444.jpg",
+      "price": 3000000,
       "category": "handmade"
     },
     {
+      "id": 4,
+      "slug": "broken",
+      "title": "Broken",
+      "image": "/images/broken3.jpg",
+      "hoverImage": "/images/broken2.jpg",
+      "images": [
+        "/images/broken1.png",
+        "/images/broken2.jpg",
+        "/images/broken3.jpg",
+        "/images/broken4.jpg"
+      ],
+      "price": 2000000,
+      "category": "handmade"
+    },
+    {
+      "id": 5,
+      "slug": "orange-stand",
+      "title": " Orange Stand",
+      "image": "/images/orange-stand2.jpg",
+      "hoverImage": "/images/orange-stand.jpg",
+      "price": 3500000,
+      "category": "handmade"
+    },
+    {
+      "id": 6,
+      "slug": "treasure-trove",
+      "title": "Treasure Trove",
+      "image": "/images/treasure-trove.jpg",
+      "hoverImage": "/images/treasure-trove4.jpg",
+      "images": [
+        "/images/treasure-trove.jpg",
+        "/images/treasure-trove2.jpg",
+        "/images/treasure-trove3.jpg",
+        "/images/treasure-trove4.jpg"
+      ],
+      "description": "Inspired by the flow of mineral resources, this piece illustrates the journey from scarcity to abundance. The gold flow pattern reflects the Niger Delta, Nigeria’s richest crude oil region. A fusion of aesthetics and meaning, Treasure Trove took two weeks to complete and was part of my 2024 solo exhibition.",
+      "price": 2500000,
+      "category": "handmade"
+    },
+    {
+      "id": 7,
+      "slug": "eye-of-the-storm",
+      "title": "Eye of The Storm",
+      "image": "/images/eye-of-the-storm.jpg",
+      "hoverImage": "/images/eye-of-the-storm2.jpg",
+      "images": [
+        "/images/eye-of-the-storm.jpg",
+        "/images/eye-of-the-storm2.jpg",
+        "/images/eye-of-the-storm3.jpg",
+        "/images/eye-of-the-storm4.jpg"
+      ],
+      "description": "The only diptych in my 2024 solo exhibition, Eye of the Storm reflects my approach to life, staying grateful no matter the situation. I believe gratitude keeps the mind at peace. This piece took a month to complete.",
+      "price": 3000000,
+      "category": "handmade"
+    },
+    {
+      "id": 8,
       "slug": "dark-spot",
       "title": "Dark Spot",
       "image": "/images/dark-spot.jpg",
       "hoverImage": "/images/dark-spot2.jpg",
-      "price": 55,
+      "price": 3500000,
       "category": "handmade"
-    },
-    {
-      "slug": "dark-stand",
-      "title": "Dark Stand",
-      "image": "/images/dark-stand.jpg",
-      "hoverImage": "/images/dark-stand2.jpg",
-      "price": 60,
-      "category": "handmade"
-    },
-    {
-      "slug": "guy-stand",
-      "title": "Guy Stand",
-      "image": "/images/guy-stand.jpg",
-      "hoverImage": "/images/guy-stand2.jpg",
-      "price": 65,
-      "category": "handmade"
-    },
-    {
-      "slug": "multi-color",
-      "title": "Multi Color",
-      "image": "/images/multi-color.jpg",
-      "hoverImage": "/images/multi-color2.jpg",
-      "price": 70,
-      "category": "handmade"
-    },
-    {
-      "slug": "orange-stand",
-      "title": "Orange Stand",
-      "image": "/images/orange-stand.jpg",
-      "hoverImage": "/images/orange-stand2.jpg",
-      "price": 55,
-      "category": "handmade"
-    },
-    {
-      "slug": "paper-sponge",
-      "title": "Paper Sponge",
-      "image": "/images/paper-sponge.jpg",
-      "hoverImage": "/images/paper-sponge2.jpg",
-      "price": 45,
-      "category": "handmade"
-    },
-    {
-      "slug": "white-sponge",
-      "title": "White Sponge",
-      "image": "/images/white-sponge1.jpg",
-      "hoverImage": "/images/white-sponge2.jpg",
-      "price": 50,
-      "category": "handmade"
-    },
-    {
-      "slug": "white-stand",
-      "title": "White Stand",
-      "image": "/images/white-stand.jpg",
-      "hoverImage": "/images/white-stand2.jpg",
-      "price": 60,
-      "category": "handmade"
-    },
-    {
-      "slug": "yellow-green",
-      "title": "Yellow Green",
-      "image": "/images/yellow-green.jpg",
-      "hoverImage": "/images/yellow-green2.jpg",
-      "price": 65,
-      "category": "handmade"
-    },
-    {
-      "slug": "yellow-stand",
-      "title": "Yellow Stand",
-      "image": "/images/yellow-stand.jpg",
-      "hoverImage": "/images/yellow-stand2.jpg",
-      "price": 55,
-      "category": "handmade"
-    },
-    {
-      "id": 1,
-      "slug": "akoko",
-      "title": "Akoko",
-      "image": "/Akoko.jpg",
-      "price": 95,
-      "category": "printart"
-    },
-    {
-      "id": 2,
-      "slug": "birds-of-a-feather",
-      "title": "Birds Of A Feather",
-      "image": "/BirdsOfAFeatheri.jpg",
-      "price": 85,
-      "category": "printart"
-    },
-    {
-      "id": 3,
-      "slug": "echoes-of-freedom",
-      "title": "Echoes Of Freedom",
-      "image": "/EchoesOfFreedomi.jpg",
-      "price": 90,
-      "category": "printart"
-    },
-    {
-      "id": 4,
-      "slug": "egbon-adugbo",
-      "title": "Egbon Adugbo",
-      "image": "/EgbonAdugbo.jpg",
-      "price": 75,
-      "category": "printart"
-    },
-    {
-      "id": 5,
-      "slug": "kelegbe-megbe",
-      "title": "Kelegbe Megbe",
-      "image": "/KelegbeMegbe.jpg",
-      "price": 80,
-      "category": "printart"
-    },
-    {
-      "id": 6,
-      "slug": "oori",
-      "title": "Oori",
-      "image": "/Oori.jpg",
-      "price": 85,
-      "category": "printart"
-    },
-    {
-      "id": 7,
-      "slug": "prism",
-      "title": "Prism",
-      "image": "/Prism.jpg",
-      "price": 70,
-      "category": "printart"
-    },
-    {
-      "id": 8,
-      "slug": "restless",
-      "title": "Restless",
-      "image": "/Restless.jpg",
-      "price": 75,
-      "category": "printart"
     },
     {
       "id": 9,
-      "slug": "spirit",
-      "title": "Spirit",
-      "image": "/Spirit.jpg",
-      "price": 95,
-      "category": "printart"
+      "slug": "lifegiver",
+      "title": "Lifegiver",
+      "image": "/images/lifegiver.jpg",
+      "hoverImage": "/images/lifegiver2.jpg",
+      "images": [
+        "/images/lifegiver.jpg",
+        "/images/lifegiver2.jpg",
+        "/images/lifegiver3.jpg",
+        "/images/lifegiver4.jpg"
+      ],
+      "description": "“Lifegiver” was the most talked-about piece and a crowd favorite at my 2024 solo exhibition. This Kainkain-on-canvas artwork symbolizes strength, renewal, and growth. The tree’s body features a woven section resembling a woman’s hair, highlighted in white to stand out. Water drips from the tree, reinforcing its life-giving essence. The piece took three weeks to complete.",
+      "price": 3500000,
+      "category": "handmade"
     },
     {
       "id": 10,
-      "slug": "time-passes-in-sound",
-      "title": "Time Passes In Sound",
-      "image": "/TimePassesInSound.jpg",
-      "price": 85,
-      "category": "printart"
+      "slug": "aroni",
+      "title": "Aroni",
+      "image": "/images/aroni.jpg",
+      "hoverImage": "/images/aroni2.jpg",
+      "images": [
+        "/images/aroni.jpg",
+        "/images/aroni2.jpg",
+        "/images/aroni3.jpg",
+        "/images/aroni4.jpg"
+      ],
+      "description": "“Aroni,” meaning Spirit of the Forest in Yoruba, features a black acrylic-painted canvas, creating a deep, earthy undertone reminiscent of soil. A part of my 2024 solo exhibition, this piece was completed in one week.",
+      "price": 2500000,
+      "category": "handmade"
     },
     {
       "id": 11,
-      "slug": "time-passes-in-sound-ii",
-      "title": "Time Passes In Sound II",
-      "image": "/TimePassesInSoundii.jpg",
-      "price": 85,
+      "slug": "aladire",
+      "title": "Aladire",
+      "image": "/images/aladire4.jpg",
+      "hoverImage": "/images/aladire4.jpg",
+      "images": [
+        "/images/aladire.jpg",
+        "/images/aladire2.jpg",
+        "/images/aladire3.jpg",
+        "/images/aladire4.jpg"
+      ],
+      "description": "“Aladire” means a tie-dye creator. While working on my 2024 collection, I experimented with tie-dyeing Kainkain (sponge) for the first time. The result was vibrant and striking, so I arranged the dyed pieces on canvas, blending colors to create a visually stunning masterpiece. The process took about two weeks, reflecting my passion for bold aesthetics and innovation.",
+      "price": 5000000,
+      "category": "handmade"
+    },
+
+    {
+      "id": 12,
+      "slug": "sponge-tub",
+      "title": "Sponge Tub",
+      "image": "/images/sponge-tub1.jpg",
+      "hoverImage": "/images/sponge-tub2.jpg",
+      "price": 3000000,
+      "images": [
+        "/images/sponge-tub1.jpg",
+        "/images/sponge-tub2.jpg",
+        "/images/sponge-tub3.jpg",
+        "/images/sponge-tub4.jpg"
+      ],
+      "description": "“Sponge Tub” was one of the standout pieces in my 2024 solo exhibition. It was also my most challenging project—I had the vision but no clear execution plan. After brainstorming with my brothers, I started without knowing how it would end. Five intense months later, it came to life. Inspired by the first bathtubs introduced in Nigeria, It’s a bathtub that display several colors of sponge (kainkain). My biggest artwork so far.",
+      "category": "handmade"
+    },
+
+    {
+      "id": 13,
+      "slug": "egbon-adugbo",
+      "title": "ÈGỘN ÀDÚGBÒ (KÉLÉGBÉ MEGBÉ SERIES)",
+      "image": "/images/EgbonAdugbo.jpg",
+      "price": 1000000,
+      "description": "Ègbón Adúgbò are the big brothers of the streets respected figures who look out for the younger ones. They offer guidance, protection, and support, ensuring the street remains a safe and nurturing environment for the next generation.",
       "category": "printart"
     },
     {
-      "id": 12,
+      "id": 14,
       "slug": "urban-skyline",
-      "title": "Urban Skyline",
-      "image": "/UrbanSkyline.jpg",
-      "price": 90,
+      "title": "Urban Skyline 2024",
+      "image": "/images/UrbanSkyline.jpg",
+      "price": 4000000,
+      "description": "At first glance, this image reveals only the bus, the figure, and the road. But for me, it holds much more—the streets, the towering buildings, and the sky that frames Lagos in its raw beauty.\n\nUrban Skyline is drawn from my personal memories and experiences. In my early days as a photographer, I often visited Lagos Island to shoot. On my way back home, I would ride in the iconic yellow buses, gazing out at the city with no distractions—long before social media became dominant. Those moments of stillness and observation inspired this piece, capturing not just the visible, but the unseen layers of a city alive with stories.",
+      "category": "printart"
+    },
+    {
+      "id": 15,
+      "slug": "echoes-of-freedom",
+      "title": "Echoes Of Freedom",
+      "image": "/EchoesOfFreedomi.jpg",
+      "price": 3000000,
+      "category": "printart"
+    },
+    {
+      "id": 16,
+      "slug": "prism",
+      "title": "Prism",
+      "image": "/Prism.jpg",
+      "price": 1000000,
+      "category": "printart"
+    },
+    {
+      "id": 17,
+      "slug": "akoko",
+      "title": "Akoko",
+      "image": "/Akoko.jpg",
+      "price": 4000000,
+      "description" : "This series is actually the very first try, my creations comes from my beliefs, how I see life in general, Akoko meaning First, the broom was present because I have always believed it can give long life, if you use the broom daily, it’s a form of exercise and it help for general body movement. For the sponge itself, using natural materials on our body is far more healthy than the factory processed material we use nowadays. Later along the line, I remembered back in the day, 2001, 2004 to recent years, my grandma sold sponge. So all of this together with my photography skills, brought this to life.",
+      "category": "printart"
+    },
+
+    {
+      "id": 18,
+      "slug": "oori",
+      "title": "OORÍ",
+      "image": "/images/Oori.jpg",
+      "price": 500000,
+      "description": "Orí is a Yoruba metaphysical concept. Orí, literally meaning 'head' refers to one's spiritual intuition and destiny. It is the reflective spark of human consciousness embedded into the human essence, and therefore is often personified as an Orisha in its own right.",
+      "category": "printart"
+    },
+    {
+      "id": 19,
+      "slug": "kelegbe-megbe",
+      "title": "KÉLÉGBÉ MEGBÉ",
+      "image": "/KelegbeMegbe.jpg",
+      "price": 1000000,
+      "description": "Kelegbe megbe means know your mate, this set of people are always challenging the person in charge like Egbon Adugbo, you hardly see them but anytime you come across them, they are always after the person that gives you confidence to do whatever you are in that area to do, they are mostly not after your money or anything, they just love power play and you need to give them their respect, they just want you to know, we are here.",
+      "category": "printart"
+    },
+    {
+      "id": 20,
+      "slug": "restless",
+      "title": "Restless",
+      "image": "/images/Restless.jpg",
+      "price": 1000000,
+      "description": "This piece reflects what many men go through but rarely talk about, unspoken emotions, hidden behind smiles and busyness. The multiple heads in the image represent all those unspoken emotions we carry but never visit.\n\nRestless represents the weight of these silent battles. It’s a reminder that expressing how we feel is not weakness, it’s strength, and it helps us heal. Self awareness is key, it’s okay not to be okay only if you are aware that you are not okay.",
+      "category": "printart"
+    },
+    {
+      "id": 21,
+      "slug": "spirit",
+      "title": "Spirit",
+      "image": "/images/Spirit.jpg",
+      "price": 1000000,
+      "description": "Spirit was created using a slow shutter speed technique, allowing light to be painted across the frame—staying true to photography’s essence as “painting with light.” The only light source was the torch from my phone, used in complete darkness to shape the image. This artwork is presented exactly as captured, straight out of the camera, without manipulation.",
+      "category": "printart"
+    },
+    {
+      "id": 22,
+      "slug": "time-passes-in-sound",
+      "title": "Time Passes In Sound",
+      "image": "/images/TimePassesInSound.jpg",
+      "hoverImage": "/images/TimePassesInSoundii.jpg",
+      "images": [
+        "/images/TimePassesInSound.jpg",
+        "/images/TimePassesInSoundii.jpg"
+      ],
+      "price": 500000,
+      "description": "This work is part of my ongoing exploration of the medium Kainkain, where I combine elements of history and culture.\n\nFor this piece, I infused music into the narrative by incorporating old vinyl records—symbols of timeless sound and history.\n\nTime Passes in Sound reflects on how music carries stories across generations, reminding us of where it all began and how far we have come. It is both a homage to sound as a vessel of time and a continuation of my dialogue between tradition and contemporary expression.",
+      "category": "printart"
+    },
+    {
+      "id": 23,
+      "slug": "birds-of-a-feather",
+      "title": "Birds Of A Feather",
+      "image": "/images/BirdsOfAFeatheri.jpg",
+      "price": 999000,
+      "description":"This work marks my first collaboration with another artist, who meticulously applied feathers to the model over a span of five hours. The feathers embody freedom, connection, and identity—while in the background, my signature medium, kainkain sponge, subtly weaves into the composition.\n\nThe piece was created largely in-camera using multiple exposures, a photographic technique where two or more images are layered together to form a single frame. This allowed the feathers and sponge textures to merge seamlessly with the model's skin, creating a dreamlike transformation. About 90% of the final image was achieved during the shoot itself, with only minimal editing applied afterward.",
+      "category": "printart"
+    },
+    {
+      "id": 24,
+      "slug": "OkunrinMeta",
+      "title": "Okunrin Meta",
+      "image": "/images/OkunrinMeta.jpg",
+      "price": 1000000,
+      "description":"This means three men, when one person is referred to as 3 men in my language, it means someone with much more power, confidence and aura.",
       "category": "printart"
     }
   ]

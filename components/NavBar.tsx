@@ -1,204 +1,326 @@
-'use client';
-import React, { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
-// import { useCartStore } from "@/store/cartStore";
-import clsx from 'clsx';
-import Search from './ui/Search';
-import Language from './ui/Language';
-import Cart from './ui/Cart';
-
-// interface CartItem {
-//   slug: string;
-//   title: string;
-//   price: string;
-//   img: string;
-//   quantity: number;
-// }
+"use client";
+import React, { useState, useRef, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
+import clsx from "clsx";
+import Search from "./ui/Search";
+import { usePathname } from "next/navigation";
+import CartIcon from "./ui/CartIcon";
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hovering, setHovering] = useState(false);
-  // const cartItems = useCartStore((state: { cartItems: CartItem[] }) => state.cartItems);
+  const [scroll, setScroll] = useState(false);
+  const detailsRef = useRef<HTMLDetailsElement>(null);
+  const pathname = usePathname();
+
+  // Add null check for pathname in isDarkTextPage
+  const isDarkTextPage = [
+    "/about",
+    "/collections",
+    "/products",
+    "/cart",
+    "/checkout",
+    "/order-success",
+  ].some((path) => pathname && pathname.startsWith(path));
+
+  // Pages that should always have the "scrolled" navbar appearance
+  const alwaysScrolledPages = [
+    "/collections/hand-made",
+    "/collections/print-art",
+    "/collections",
+    "/products",
+    "/about",
+    "/Exhibition",
+    "/contact",
+    "/cart",
+    "/checkoutPage",
+    "/order-success",
+    
+  ];
+
+  // Add null check for pathname in forceScrolledAppearance
+  const forceScrolledAppearance = alwaysScrolledPages.some(
+    (path) => pathname && pathname.startsWith(path)
+  );
+
+  // Handle clicks outside the dropdown
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        detailsRef.current &&
+        !detailsRef.current.contains(event.target as Node)
+      ) {
+        detailsRef.current.open = false;
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // Handle scroll detection
+  useEffect(() => {
+    const handleScroll = () => {
+      setScroll(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Determine navbar styling
+  const shouldApplyScrolledStyle =
+    hovering || scroll || forceScrolledAppearance;
 
   return (
     <nav
       className={clsx(
-        'w-full px-5 sm:px-10 py-4 md:py-4 flex items-center justify-between z-50 transition-all duration-300 fixed top-0 left-0 bg-white',
-        hovering ? 'bg-white shadow-md' : 'bg-transparent'
+        "w-full px-3 sm:px-6 py-4 md:py-4 flex items-center justify-between z-50 transition-all duration-300 fixed top-0 left-0",
+        shouldApplyScrolledStyle
+          ? "bg-smoke-white shadow-md text-black"
+          : "bg-transparent",
+        // Apply dark text by default on certain pages when not scrolled
+        shouldApplyScrolledStyle
+          ? "text-black"
+          : isDarkTextPage
+          ? "text-black"
+          : "text-white"
       )}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
-      <div className='flex items-center justify-between w-full max-w-7xl mx-auto'>
-        {/* Logo - Left */}
-        <Link href='/'>
-          <Image
-            src='/KainKainn.png'
-            alt='Logo'
-            width={100}
-            height={35}
-            priority
-            className='w-[80px] sm:w-[100px] transition-all duration-300'
-          />
-        </Link>
+      <div className="container mx-auto w-full px-4 md:px-6 lg:px-8 flex items-center justify-between">
+        {/* Logo */}
+        <div className="flex items-center">
+          <Link href="/" className="mr-4 sm:mr-6">
+            <Image
+              src="/KainKainn.png"
+              alt="Logo"
+              width={100}
+              height={35}
+              priority
+              className="w-[70px] sm:w-[80px] md:w-[100px] transition-all duration-300"
+            />
+          </Link>
 
-        {/* NavLinks & Menu - Right */}
-        <div className='flex items-center gap-6'>
-          {/* Desktop NavLinks */}
-          <div className='hidden md:flex'>
-            <ul className='menu menu-horizontal px-1'>
-              <li>
-                <Link href='/' className='text-sm font-semibold'>
-                  Home
-                </Link>
-              </li>
-              <li>
-                <details>
-                  <summary className='text-sm font-semibold'>Shop Prints</summary>
-                  <ul className='p-2 bg-white shadow-md'>
-                    <li>
-                      <Link href='/collections/hand-made' className='text-sm'>
-                        Hand Made
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href='/collections/print-art' className='text-sm'>
-                        Print Arts
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href='/collections' className='text-sm'>
-                        Collection
-                      </Link>
-                    </li>
-                  </ul>
-                </details>
-              </li>
-              <li>
-                <Link href='/Exhibition' className='text-sm font-semibold'>
-                  Exhibition
-                </Link>
-              </li>
-              <li>
-                <Link href='/about' className='text-sm font-semibold'>
-                  About
-                </Link>
-              </li>
-            </ul>
-          </div>
+          {/* Desktop NavLinks - Always show navlinks */}
+          <ul className="hidden md:flex menu menu-horizontal mt-4">
+            <li>
+              <Link href="/" className="text-lg">
+                Home
+              </Link>
+            </li>
+            <li>
+              <details ref={detailsRef}>
+                <summary className="text-lg ">Shop Prints</summary>
+                <ul className="p-2 bg-[#ece8e5] shadow-md text-black">
+                  <li>
+                    <Link
+                      href="/products"
+                      className="text-sm"
+                      onClick={() => {
+                        if (detailsRef.current) detailsRef.current.open = false;
+                      }}
+                    >
+                      All Products
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/collections/hand-made"
+                      className="text-sm"
+                      onClick={() => {
+                        if (detailsRef.current) detailsRef.current.open = false;
+                      }}
+                    >
+                      Hand Made
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/collections/print-art"
+                      className="text-sm"
+                      onClick={() => {
+                        if (detailsRef.current) detailsRef.current.open = false;
+                      }}
+                    >
+                      Print Arts
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/collections"
+                      className="text-sm"
+                      onClick={() => {
+                        if (detailsRef.current) detailsRef.current.open = false;
+                      }}
+                    >
+                      Collection
+                    </Link>
+                  </li>
+                </ul>
+              </details>
+            </li>
+
+            <li>
+              <Link href="/about" className="text-lg">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link href="/Exhibition" className="text-lg">
+                Exhibition
+              </Link>
+            </li>
+          </ul>
         </div>
 
-        <div className='flex items-center justify-end gap-3'>
-          <div className='flex items-center justify-center md:gap-6'>
-            <Search />
-            <Language className='hidden md:flex' />
-            <Cart />
-          </div>
+        <div className="flex items-center gap-2 sm:gap-3">
+          <Search />
+          <CartIcon />
+          {/* <Language className="hidden md:flex" /> */}
+          <a
+            href="https://wa.me/2348036614674" // Replace with your WhatsApp number
+            target="_blank"
+            rel="noopener noreferrer"
+            className={clsx(
+              "hidden md:block px-4 py-1 rounded-full font-medium text-sm lg:text-lg transition-all duration-300",
+              scroll || hovering
+                ? "bg-custom-black text-smoke-white"
+                : "text-custom-black bg-smoke-white"
+            )}
+          >
+            Contact Us
+          </a>
           {/* Mobile Menu Button */}
           <button
-            className='md:hidden justify-end flex items-center text-black transition-colors duration-300'
+            className={clsx(
+              "md:hidden flex items-center justify-center p-2 transition-colors duration-300",
+              !hovering && !scroll && !isDarkTextPage
+                ? "text-smoke-white"
+                : "text-custom-black"
+            )}
             onClick={() => setMenuOpen(true)}
           >
-            <Menu className='' />
+            <Menu className="h-6 w-6" />
           </button>
         </div>
       </div>
 
-      {/* Mobile Navigation Drawer (Now slides in from the right) */}
-      <div
-        className={clsx(
-          'fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform transition-transform ease-in-out duration-300 z-50 flex flex-col pt-20 px-6',
-          menuOpen ? 'translate-x-0' : 'translate-x-full'
-        )}
-      >
-        <button
-          className='absolute top-4 left-4 text-black cursor-pointer'
-          onClick={() => setMenuOpen(false)}
-        >
-          <X className='h-6 w-6' />
-        </button>
-
-        {/* Mobile menu using DaisyUI menu structure */}
-        <ul className='menu menu-vertical w-full'>
-          <li>
-            <Link
-              href='/'
-              className='text-sm sm:text-lg font-semibold'
-              onClick={() => setMenuOpen(false)}
-            >
-              Home
-            </Link>
-          </li>
-          <li>
-            <details>
-              <summary className='text-sm sm:text-lg font-semibold'>Shop Prints</summary>
-              <ul className='p-2'>
-                <li>
-                  <Link
-                    href='/collections/hand-made'
-                    className='text-sm sm:text-base'
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    Hand Made
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href='/collections/print-art'
-                    className='text-sm sm:text-base'
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    Print Arts
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href='/collections'
-                    className='text-sm sm:text-base'
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    collection
-                  </Link>
-                </li>
-              </ul>
-            </details>
-          </li>
-          <li>
-            <Link
-              href='/collections/exhibition'
-              className='text-sm sm:text-lg font-semibold'
-              onClick={() => setMenuOpen(false)}
-            >
-              Exhibition
-            </Link>
-          </li>
-          <li>
-            <Link
-              href='/about'
-              className='text-sm sm:text-lg font-semibold'
-              onClick={() => setMenuOpen(false)}
-            >
-              About
-            </Link>
-          </li>
-        </ul>
-
-        {/* <div className="flex flex-col gap-4 mt-8">
-          <Search />
-          <Language />
-          <Cart />
-        </div> */}
-      </div>
-
-      {/* Overlay for mobile menu */}
-      {menuOpen && (
+      {/* Mobile Navigation Drawer - Always show navlinks */}
+      <>
         <div
-          className='fixed inset-0 bg-black opacity-40 z-40'
-          onClick={() => setMenuOpen(false)}
-        />
-      )}
+          className={clsx(
+            "fixed top-0 right-0 h-full w-64 bg-smoke-white shadow-lg transform transition-transform ease-in-out duration-300 z-50 flex flex-col pt-20 px-6",
+            menuOpen ? "translate-x-0" : "translate-x-full"
+          )}
+        >
+          <button
+            className="absolute top-4 left-4 text-[#1a1a1a] cursor-pointer"
+            onClick={() => setMenuOpen(false)}
+          >
+            <X className="h-6 w-6" />
+          </button>
+
+          {/* Mobile menu using DaisyUI menu structure */}
+          <ul className="menu menu-vertical w-full">
+            <li>
+              <Link
+                href="/"
+                className="text-sm sm:text-lg"
+                onClick={() => setMenuOpen(false)}
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <details>
+                <summary className="text-sm sm:text-lg">Shop Prints</summary>
+                <ul className="p-2">
+                  <li>
+                    <Link
+                      href="/products"
+                      className="text-sm sm:text-base"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      All Products
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/collections/hand-made"
+                      className="text-sm sm:text-base"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      Hand Made
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/collections/print-art"
+                      className="text-sm sm:text-base"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      Print Arts
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/collections"
+                      className="text-sm sm:text-base"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      Collection
+                    </Link>
+                  </li>
+                </ul>
+              </details>
+            </li>
+            <li></li>
+            <li>
+              <Link
+                href="/about"
+                className="text-sm sm:text-lg"
+                onClick={() => setMenuOpen(false)}
+              >
+                About
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                href="/collections/exhibition"
+                className="text-sm sm:text-lg"
+                onClick={() => setMenuOpen(false)}
+              >
+                Exhibition
+              </Link>
+            </li>
+            <li>
+              <a
+                href="https://wa.me/2348036614674"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm sm:text-lg"
+                onClick={() => setMenuOpen(false)}
+              >
+                Contact Us
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        {/* Overlay for mobile menu */}
+        {menuOpen && (
+          <div
+            className="fixed inset-0 bg-[#1a1a1a] opacity-40 z-40"
+            onClick={() => setMenuOpen(false)}
+          />
+        )}
+      </>
     </nav>
   );
 };

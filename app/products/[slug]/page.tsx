@@ -1,114 +1,69 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import Image from "next/image";
-import productData from "@/public/data/productData.json";
-import products from "@/app/data/products.json"; // Ensure correct import
-import { useCartStore } from "@/store/cartStore";
+import combinedProducts from "@/public/data/combinedProducts.json";
 import { useEffect, useState } from "react";
+import RelatedProducts from "@/components/products/RelatedProducts";
+import ProductDetails from "@/components/products/ProductDetails";
 
-const ProductDetails = () => {
+// Define the product structure based on combinedProducts.json
+interface Product {
+  id: number;
+  slug: string;
+  title: string;
+  image: string;
+  hoverImage?: string;
+  price: number;
+  category: string;
+}
+
+const ProductPage = () => {
   const params = useParams(); // Get slug from the dynamic route
-  const addToCart = useCartStore((state) => state.addToCart);
-
-  // Define the product structure
-  interface Product {
-    slug: string;
-    img: string;
-    title: string;
-    description?: string;
-    price: number;
-  }
-
   const [product, setProduct] = useState<Product | null>(null);
 
   useEffect(() => {
     if (params?.slug) {
-      // Merge both datasets and find the product by slug
-      const mergedProducts = [
-        ...productData,
-        ...products.map((p) => ({
-          slug: p.slug,
-          img: p.image,
-          title: p.title,
-          price: parseFloat(p.price),
-        })),
-      ];
-      const foundProduct = mergedProducts.find((p) => p.slug === params.slug);
+      // Find the product by slug from combinedProducts.json
+      const foundProduct = combinedProducts.products.find(
+        (p) => p.slug === params.slug
+      );
       setProduct(foundProduct || null);
     }
   }, [params]);
 
   if (!product) {
     return (
-      <h1 className="text-center text-2xl font-bold mt-10">
-        Product Not Found
-      </h1>
+      <div className="min-h-screen flex gap-10 items-center justify-center">
+        <div className="flex w-52 flex-col gap-4">
+          <div className="skeleton h-32 w-full"></div>
+          <div className="skeleton h-4 w-28"></div>
+          <div className="skeleton h-4 w-full"></div>
+          <div className="skeleton h-4 w-full"></div>
+        </div>
+        <div className="flex w-52 flex-col gap-4">
+          <div className="skeleton h-32 w-full"></div>
+          <div className="skeleton h-4 w-28"></div>
+          <div className="skeleton h-4 w-full"></div>
+          <div className="skeleton h-4 w-full"></div>
+        </div>
+      </div>
     );
   }
 
   return (
-    <section>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mx-10 md:mx-20 mt-10 place-items-center">
-        <div className="border-b lg:border-r lg:border-b-0 flex items-center justify-center">
-          <figure>
-            <Image
-              src={product.img || "/TJPG2415.jpg"} // Default image fallback
-              alt={product.title}
-              width={400}
-              height={400}
-              className="p-10"
-            />
-          </figure>
-        </div>
+    <section className="bg-smoke-white">
+      <div className="mx-10 md:mx-20 pt-40">
+        <ProductDetails />
 
-        <div className="flex flex-col gap-8">
-          <h1 className="text-2xl font-bold text-gray-700">{product.title}</h1>
-
-          {product.description && (
-            <p className="text-gray-600">{product.description}</p>
-          )}
-
-          <div className="flex gap-4">
-            <div className="rating text-black">
-              <div className="mask mask-star " aria-label="1 star"></div>
-              <div className="mask mask-star" aria-label="2 star"></div>
-              <div className="mask mask-star" aria-label="3 star"></div>
-              <div className="mask mask-star" aria-label="4 star"></div>
-              <div
-                className="mask mask-star"
-                aria-label="5 star"
-                aria-current="true"
-              ></div>
-            </div>
-            <span className="text-gray-700">4 (1435)</span>
-          </div>
-
-          <p className="text-lg font-bold">
-            ₦{new Intl.NumberFormat("en-NG").format(product.price)}
-          </p>
-
-          <div>
-            <button
-              className="btn btn-warning"
-              onClick={() =>
-                addToCart({ ...product, price: product.price.toString() })
-              }
-            >
-              Buy Now
-            </button>
-          </div>
-
-          <h3 className="text-lg text-gray-700">Limited stock</h3>
-          <p className="text-sm text-gray-700">
-            Order within <span className="font-bold">2 hrs 51 mins</span> and
-            choose <span className="font-bold">2-Day shipping</span> to receive
-            your product as soon as <span className="font-bold">Wednesday</span>
-          </p>
-        </div>
+        {/* Related Products Section - shows random products from the same category */}
+        <RelatedProducts
+          currentProductSlug={product?.slug} // Don't show the current product
+          maxItems={4} // Show 4 related products
+          category={product?.category} // Only show products from same category (handmade/printart)
+        />
       </div>
     </section>
   );
 };
 
-export default ProductDetails;
+export default ProductPage;

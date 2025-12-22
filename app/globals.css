@@ -4,6 +4,10 @@
 @theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Add your custom colors here */
+  --color-custom-black: #1a1a1a;
+  --color-smoke-white: #ece8e5;
 }
 
 :root {
