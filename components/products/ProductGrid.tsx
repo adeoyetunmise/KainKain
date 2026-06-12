@@ -55,12 +55,6 @@ const ProductGrid = ({ products }: ProductGridProps) => {
         <h3 className="text-black bg-transparent static text-sm sm:text-base">
           {product.title}
         </h3>
-        <p className="text-black bg-transparent static text-sm sm:text-base">
-          ₦
-          {typeof product.price === "number"
-            ? product.price.toLocaleString()
-            : product.price}
-        </p>
       </div>
 
       <a href={`/products/${product.slug}`} className="absolute inset-0 z-30">

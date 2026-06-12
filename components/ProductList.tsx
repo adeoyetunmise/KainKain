@@ -192,9 +192,6 @@ const ProductCard = ({ product }: { product: Product }) => {
   const [isHovered, setIsHovered] = useState(false);
   const isMobile = useMobileDetect();
 
-  // Format price with commas
-  const formattedPrice = product.price.toLocaleString();
-
   return (
     <Link
       href={`/products/${product.slug}`}
@@ -216,12 +213,6 @@ const ProductCard = ({ product }: { product: Product }) => {
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
           className="object-cover absolute top-0 left-0 transition-all duration-500 ease-in-out"
         />
-
-        {product.price < 150000 && (
-          <div className="absolute bottom-0 right-0  text-smoke-white text-xs py-1 px-2">
-            Sale
-          </div>
-        )}
       </div>
       <div className="mt-1">
         <h2
@@ -231,13 +222,6 @@ const ProductCard = ({ product }: { product: Product }) => {
         >
           {product.title}
         </h2>
-        <p
-          className={`text-sm ${
-            isMobile ? "text-smoke-white" : "text-custom-black"
-          } mt-0.5 text-left`}
-        >
-          &#8358; {formattedPrice}
-        </p>
       </div>
     </Link>
   );

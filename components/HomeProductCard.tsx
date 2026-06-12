@@ -39,15 +39,14 @@ const useMobileDetect = () => {
 // Create a custom ProductCard component similar to the one in ProductList
 const CustomProductCard = ({ product }: { product: Product }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const formattedPrice = product.price.toLocaleString();
   const isMobile = useMobileDetect();
 
   // Determine which image to display based on screen size
   const displayImage = isMobile
     ? product.mobileImage || product.image // Use mobile image if available, otherwise fallback
     : isHovered && product.hoverImage
-    ? product.hoverImage
-    : product.image;
+      ? product.hoverImage
+      : product.image;
 
   return (
     <Link
@@ -77,13 +76,6 @@ const CustomProductCard = ({ product }: { product: Product }) => {
         >
           {product.title}
         </h2>
-        <p
-          className={`text-sm lg:text-base ${
-            isMobile ? "text-smoke-white" : "text-custom-black"
-          } mt-1 text-left font-medium`}
-        >
-          &#8358; {formattedPrice}
-        </p>
       </div>
     </Link>
   );

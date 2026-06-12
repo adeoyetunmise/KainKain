@@ -26,7 +26,7 @@ const ProductCollectionListing = ({
     initialProducts =
       category && productsData?.products
         ? productsData.products.filter(
-            (product) => product.category === category
+            (product) => product.category === category,
           )
         : productsData?.products || [];
   } catch (err) {
@@ -67,7 +67,7 @@ const ProductCollectionListing = ({
       const maxPrice =
         priceRange.to !== "" ? parseFloat(priceRange.to) : Infinity;
       result = result.filter(
-        (product) => product.price >= minPrice && product.price <= maxPrice
+        (product) => product.price >= minPrice && product.price <= maxPrice,
       );
     }
 
@@ -101,10 +101,13 @@ const ProductCollectionListing = ({
 
   const toggleFilter = (filterName: FilterKey) => {
     setOpenFilters((prev) => {
-      const allClosed = Object.keys(prev).reduce((acc, key) => {
-        acc[key as FilterKey] = false;
-        return acc;
-      }, {} as Record<FilterKey, boolean>);
+      const allClosed = Object.keys(prev).reduce(
+        (acc, key) => {
+          acc[key as FilterKey] = false;
+          return acc;
+        },
+        {} as Record<FilterKey, boolean>,
+      );
 
       return {
         ...allClosed,
@@ -254,63 +257,6 @@ const ProductCollectionListing = ({
                       </div>
                     )}
                   </div>
-
-                  {/* Price Filter */}
-                  <div className="relative z-40" ref={priceRef}>
-                    <p className="flex items-center gap-2">
-                      Price{" "}
-                      <ChevronDown
-                        className="cursor-pointer"
-                        onClick={() => toggleFilter("price")}
-                      />
-                    </p>
-                    {openFilters.price && (
-                      <div className="absolute top-full left-0 mt-1 shadow-lg w-[300px] p-4 space-y-8 bg-white z-50 border border-gray-200 rounded-md">
-                        <div className="flex justify-between">
-                          <p>Price Range</p>
-                          <p
-                            className="underline cursor-pointer"
-                            onClick={() => setPriceRange({ from: "", to: "" })}
-                          >
-                            Reset
-                          </p>
-                        </div>
-
-                        <div className="flex gap-4">
-                          <div className="flex items-center gap-2">
-                            <p>&#8358;</p>
-                            <input
-                              type="text"
-                              placeholder="From"
-                              className="input !bg-white !text-black border border-gray-300 focus:border-gray-500"
-                              value={priceRange.from}
-                              onChange={(e) =>
-                                setPriceRange((prev) => ({
-                                  ...prev,
-                                  from: e.target.value,
-                                }))
-                              }
-                            />
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <p>&#8358;</p>
-                            <input
-                              type="text"
-                              placeholder="To"
-                              className="input !bg-white !text-black border border-gray-300 focus:border-gray-500"
-                              value={priceRange.to}
-                              onChange={(e) =>
-                                setPriceRange((prev) => ({
-                                  ...prev,
-                                  to: e.target.value,
-                                }))
-                              }
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                  </div>
                 </div>
 
                 {/* Sort By dropdown */}
@@ -333,26 +279,6 @@ const ProductCollectionListing = ({
                           onChange={() => setSelectedSort("featured")}
                         />
                         <span className="ml-2">Featured</span>
-                      </label>
-                      <label className="cursor-pointer block">
-                        <input
-                          type="radio"
-                          name="sort"
-                          className="radio radio-sm"
-                          checked={selectedSort === "price-low-high"}
-                          onChange={() => setSelectedSort("price-low-high")}
-                        />
-                        <span className="ml-2">Price: Low to High</span>
-                      </label>
-                      <label className="cursor-pointer block">
-                        <input
-                          type="radio"
-                          name="sort"
-                          className="radio radio-sm"
-                          checked={selectedSort === "price-high-low"}
-                          onChange={() => setSelectedSort("price-high-low")}
-                        />
-                        <span className="ml-2">Price: High to Low</span>
                       </label>
                       <label className="cursor-pointer block">
                         <input
@@ -445,26 +371,6 @@ const ProductCollectionListing = ({
                             type="radio"
                             name="mobile-sort"
                             className="radio radio-sm"
-                            checked={selectedSort === "price-low-high"}
-                            onChange={() => setSelectedSort("price-low-high")}
-                          />
-                          <span className="ml-2">Price: Low to High</span>
-                        </label>
-                        <label className="cursor-pointer block">
-                          <input
-                            type="radio"
-                            name="mobile-sort"
-                            className="radio radio-sm"
-                            checked={selectedSort === "price-high-low"}
-                            onChange={() => setSelectedSort("price-high-low")}
-                          />
-                          <span className="ml-2">Price: High to Low</span>
-                        </label>
-                        <label className="cursor-pointer block">
-                          <input
-                            type="radio"
-                            name="mobile-sort"
-                            className="radio radio-sm"
                             checked={selectedSort === "newest"}
                             onChange={() => setSelectedSort("newest")}
                           />
@@ -518,54 +424,6 @@ const ProductCollectionListing = ({
                           />
                           <span className="ml-2">Out of Stock</span>
                         </label>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className=" pb-4">
-                    <div
-                      className="flex justify-between items-center mb-3 cursor-pointer"
-                      onClick={() => toggleMobileSection("price")}
-                    >
-                      <h4 className="font-medium">Price Range</h4>
-                      <ChevronDown
-                        className={`transition-transform ${
-                          mobileExpandedSections.price ? "rotate-180" : ""
-                        }`}
-                      />
-                    </div>
-                    {mobileExpandedSections.price && (
-                      <div className="flex gap-4">
-                        <div className="flex items-center gap-2">
-                          <p>&#8358;</p>
-                          <input
-                            type="text"
-                            placeholder="From"
-                            className="input input-sm w-full !bg-white !text-black"
-                            value={priceRange.from}
-                            onChange={(e) =>
-                              setPriceRange((prev) => ({
-                                ...prev,
-                                from: e.target.value,
-                              }))
-                            }
-                          />
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <p>&#8358;</p>
-                          <input
-                            type="text"
-                            placeholder="To"
-                            className="input input-sm w-full !bg-white !text-black"
-                            value={priceRange.to}
-                            onChange={(e) =>
-                              setPriceRange((prev) => ({
-                                ...prev,
-                                to: e.target.value,
-                              }))
-                            }
-                          />
-                        </div>
                       </div>
                     )}
                   </div>

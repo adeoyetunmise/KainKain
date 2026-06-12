@@ -63,10 +63,6 @@ const ProductCards = () => {
                   {product.title}
                 </h2>
 
-                <p className="font-normal lg:text-sm text-xs sm:text-lg text-gray-600 mt-0.5">
-                  From ₦ {product.price} NGN
-                </p>
-
                 {/* Rating (Dark Stars)
               <div className="rating flex justify-center mt-1 scale-75">
                 <input type="radio" name={`rating-${product.id}`} className="mask mask-star bg-gray-950" aria-label="1 star" />

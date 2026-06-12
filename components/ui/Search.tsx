@@ -40,9 +40,9 @@ const SearchIcon = () => {
     }
 
     const filtered = combinedProducts.products.filter((product) =>
-      product.title.toLowerCase().includes(searchQuery.toLowerCase())
+      product.title.toLowerCase().includes(searchQuery.toLowerCase()),
     );
-    
+
     setFilteredProducts(filtered.slice(0, 5)); // Show max 5 suggestions
     setShowSuggestions(filtered.length > 0);
   }, [searchQuery]);
@@ -50,7 +50,10 @@ const SearchIcon = () => {
   // Handle click outside to close search
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+      if (
+        searchRef.current &&
+        !searchRef.current.contains(event.target as Node)
+      ) {
         setIconClicked(false);
         setShowSuggestions(false);
         setSearchQuery("");
@@ -85,7 +88,7 @@ const SearchIcon = () => {
             className="input bg-transparent border border-neutral w-64"
             autoFocus
           />
-          
+
           {/* Search Suggestions */}
           {showSuggestions && filteredProducts.length > 0 && (
             <div className="absolute top-full left-0 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg z-50 max-h-80 overflow-y-auto">
@@ -109,16 +112,14 @@ const SearchIcon = () => {
                     <h4 className="text-sm font-medium text-gray-900 truncate">
                       {product.title}
                     </h4>
-                    <p className="text-xs text-gray-500">
-                      ₦{new Intl.NumberFormat("en-NG").format(product.price)}
-                    </p>
+                    <p className="text-xs text-gray-500"></p>
                   </div>
                 </Link>
               ))}
-              
+
               {/* Show "View all results" if there are more products */}
               {combinedProducts.products.filter((product) =>
-                product.title.toLowerCase().includes(searchQuery.toLowerCase())
+                product.title.toLowerCase().includes(searchQuery.toLowerCase()),
               ).length > 5 && (
                 <Link
                   href={`/products?search=${encodeURIComponent(searchQuery)}`}
@@ -130,15 +131,17 @@ const SearchIcon = () => {
               )}
             </div>
           )}
-          
+
           {/* No results message */}
-          {showSuggestions && filteredProducts.length === 0 && searchQuery.trim() !== "" && (
-            <div className="absolute top-full left-0 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg z-50">
-              <div className="p-4 text-center text-gray-500 text-sm">
-                No products found for &quot;{searchQuery}&quot;
+          {showSuggestions &&
+            filteredProducts.length === 0 &&
+            searchQuery.trim() !== "" && (
+              <div className="absolute top-full left-0 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg z-50">
+                <div className="p-4 text-center text-gray-500 text-sm">
+                  No products found for &quot;{searchQuery}&quot;
+                </div>
               </div>
-            </div>
-          )}
+            )}
         </div>
       )}
       <Search onClick={handleClick} className="cursor-pointer" />

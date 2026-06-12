@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 export interface ProductCardProps {
   id: number;
@@ -25,7 +25,10 @@ const ProductCard = ({ id, slug, title, image, price }: ProductCardProps) => {
       viewport={{ once: true }} // Animate only once
     >
       {/* Clickable Image */}
-      <Link href={`/products/${slug}`} className="block relative w-full h-[70%]">
+      <Link
+        href={`/products/${slug}`}
+        className="block relative w-full h-[70%]"
+      >
         <Image
           src={image}
           alt={title}
@@ -39,10 +42,6 @@ const ProductCard = ({ id, slug, title, image, price }: ProductCardProps) => {
       {/* Title, Price & Rating */}
       <div className="p-3 text-left h-[30%] flex flex-col justify-start">
         <h2 className="text-sm lg:text-sm sm:text-lg font-semibold">{title}</h2>
-
-        <p className="font-normal lg:text-sm text-xs sm:text-lg text-gray-600 mt-0.5">
-          From ₦ {price} NGN
-        </p>
       </div>
     </motion.div>
   );

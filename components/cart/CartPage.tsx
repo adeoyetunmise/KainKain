@@ -16,31 +16,33 @@ const CartPage = () => {
     }
   };
 
-    if (cartItems.length === 0) {
-      return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-smoke-white">
-          <h1 className="text-3xl font-bold mb-4">Your cart is empty</h1>
-          <ButtonLink href="/products" className="bg-black text-white">
-            Continue Shopping
-          </ButtonLink>
-        </div>
-      );
-    }
+  if (cartItems.length === 0) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-smoke-white">
+        <h1 className="text-3xl font-bold mb-4">Your cart is empty</h1>
+        <ButtonLink href="/products" className="bg-black text-white">
+          Continue Shopping
+        </ButtonLink>
+      </div>
+    );
+  }
 
   return (
     <section className="bg-smoke-white w-full pt-10 pb-20">
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 pt-20"> {/* Match NavBar container structure */}
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 pt-20">
+        {" "}
+        {/* Match NavBar container structure */}
         <div className="flex items-center justify-between">
           <h2 className="text-3xl md:text-5xl">Your cart</h2>
-          <Link href="/products" className="underline text-2xl">Continue shopping</Link>
+          <Link href="/products" className="underline text-2xl">
+            Continue shopping
+          </Link>
         </div>
-
         {/* Mobile headers - only PRODUCT and TOTAL */}
         <div className="flex md:hidden items-center justify-between my-4">
           <h3>PRODUCT</h3>
           <h3>TOTAL</h3>
         </div>
-
         {/* Desktop headers - hidden on mobile */}
         <div className="hidden md:flex items-center justify-between my-4">
           <h3>PRODUCT</h3>
@@ -50,9 +52,7 @@ const CartPage = () => {
             <h3>TOTAL</h3>
           </div>
         </div>
-
         <hr />
-
         <div>
           <div className="pt-10">
             {cartItems.map((item) => (
@@ -62,29 +62,39 @@ const CartPage = () => {
                   <div className="flex items-start justify-between">
                     {/* Left side - Product info and quantity controls */}
                     <div className="flex items-start gap-4 flex-1">
-                      <Image src={item.img} alt={item.title} width={80} height={80} />
+                      <Image
+                        src={item.img}
+                        alt={item.title}
+                        width={80}
+                        height={80}
+                      />
 
                       <div className="flex-1">
                         <h3 className="font-semibold">{item.title}</h3>
-                        <p className="text-gray-600">
-                          ₦{new Intl.NumberFormat("en-NG").format(parseFloat(item.price))}
-                        </p>
 
                         {/* Quantity controls under title on mobile */}
                         <div className="flex items-center gap-3 mt-3">
                           <div className="inline-flex items-center border gap-2 p-1">
                             <button
                               onClick={() =>
-                                handleQuantityChange(item.slug, item.quantity - 1)
+                                handleQuantityChange(
+                                  item.slug,
+                                  item.quantity - 1,
+                                )
                               }
                               className="px-2 py-1 text-sm font-medium cursor-pointer"
                             >
                               -
                             </button>
-                            <span className="px-2 py-1 text-sm">{item.quantity}</span>
+                            <span className="px-2 py-1 text-sm">
+                              {item.quantity}
+                            </span>
                             <button
                               onClick={() =>
-                                handleQuantityChange(item.slug, item.quantity + 1)
+                                handleQuantityChange(
+                                  item.slug,
+                                  item.quantity + 1,
+                                )
                               }
                               className="px-2 py-1 text-sm font-medium cursor-pointer"
                             >
@@ -101,27 +111,20 @@ const CartPage = () => {
                         </div>
                       </div>
                     </div>
-
-                    {/* Right side - Total price aligned with TOTAL header */}
-                    <div className="text-right">
-                      <p className="font-semibold">
-                        ₦{new Intl.NumberFormat("en-NG").format(
-                          parseFloat(item.price) * item.quantity
-                        )}
-                      </p>
-                    </div>
                   </div>
                 </div>
 
                 {/* Desktop Layout */}
                 <div className="hidden md:flex items-center gap-4">
-                  <Image src={item.img} alt={item.title} width={80} height={80} />
+                  <Image
+                    src={item.img}
+                    alt={item.title}
+                    width={80}
+                    height={80}
+                  />
 
                   <div className="flex-1">
                     <h3 className="font-semibold">{item.title}</h3>
-                    <p className="text-gray-600">
-                      ₦{new Intl.NumberFormat("en-NG").format(parseFloat(item.price))}
-                    </p>
                   </div>
 
                   {/* quantity and price */}
@@ -136,7 +139,9 @@ const CartPage = () => {
                         >
                           -
                         </button>
-                        <span className="px-3 py-1 text-lg">{item.quantity}</span>
+                        <span className="px-3 py-1 text-lg">
+                          {item.quantity}
+                        </span>
                         <button
                           onClick={() =>
                             handleQuantityChange(item.slug, item.quantity + 1)
@@ -153,33 +158,17 @@ const CartPage = () => {
                         <Trash2 />
                       </button>
                     </div>
-
-                    <div className="text-right">
-                      <p className="font-semibold">
-                        ₦{new Intl.NumberFormat("en-NG").format(
-                          parseFloat(item.price) * item.quantity
-                        )}
-                      </p>
-                    </div>
                   </div>
                 </div>
               </div>
             ))}
 
             <div className="mt-6 pt-4 border-t">
-              <div className="flex justify-center md:justify-end items-center text-xl font-semibold gap-10">
-                <span>Estimated Total</span>
-                <span>
-                  ₦{new Intl.NumberFormat("en-NG").format(getTotalPrice())}
-                </span>
-              </div>
-                <p className="md:text-end text-center">Taxes and discounts calculated at checkout</p>
-              
               {/* Add Checkout Button in Cart */}
 
               <div className="mt-6 flex justify-end">
-                <ButtonLink 
-                  href="/checkout" 
+                <ButtonLink
+                  href="/checkout"
                   className="py-4 w-full md:w-2xs bg-black text-white"
                 >
                   Checkout

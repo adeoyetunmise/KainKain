@@ -1,10 +1,15 @@
 "use client";
-
+import Script from "next/script";
+declare global {
+  interface Window {
+    PaystackPop: any;
+  }
+}
 import { useCartStore } from "@/store/cartStore";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { PaystackButton } from "react-paystack";
+// import { PaystackButton } from "react-paystack";
 import Toast from "../ui/Toast";
 import { useRouter } from "next/navigation";
 
@@ -36,7 +41,7 @@ const CheckoutPage = () => {
   // Function to show toast
   const showToast = (
     message: string,
-    type: "success" | "error" | "info" | "warning"
+    type: "success" | "error" | "info" | "warning",
   ) => {
     setToast({
       isVisible: true,
@@ -55,7 +60,7 @@ const CheckoutPage = () => {
   const amount = getTotalPrice() * 100; // Paystack expects amount in kobo (multiply by 100)
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setCustomerInfo((prev) => ({
@@ -75,43 +80,55 @@ const CheckoutPage = () => {
   }
 
   // Paystack component props
+  const initializePayment = () => {
+    const handler = window.PaystackPop.setup({
+      key: publicKey,
+      email: customerInfo.email,
+      amount,
+
+      metadata: {
+        custom_fields: [
+          {
+            display_name: "Full Name",
+            variable_name: "name",
+            value: customerInfo.name,
+          },
+          {
+            display_name: "Phone",
+            variable_name: "phone",
+            value: customerInfo.phone,
+          },
+          {
+            display_name: "Address",
+            variable_name: "address",
+            value: customerInfo.address,
+          },
+          {
+            display_name: "City",
+            variable_name: "city",
+            value: customerInfo.city,
+          },
+          {
+            display_name: "State",
+            variable_name: "state",
+            value: customerInfo.state,
+          },
+        ],
+      },
+
+      callback: (response: PaystackReference) => {
+        paystackProps.onSuccess(response);
+      },
+
+      onClose: () => {
+        paystackProps.onClose();
+      },
+    });
+
+    handler.openIframe();
+  };
+
   const paystackProps = {
-    email: customerInfo.email,
-    amount,
-    metadata: {
-      custom_fields: [
-        {
-          display_name: "Full Name",
-          variable_name: "name",
-          value: customerInfo.name,
-        },
-        {
-          display_name: "Phone",
-          variable_name: "phone",
-          value: customerInfo.phone,
-        },
-        {
-          display_name: "Address",
-          variable_name: "address",
-          value: customerInfo.address,
-        },
-        {
-          display_name: "City",
-          variable_name: "city",
-          value: customerInfo.city,
-        },
-        {
-          display_name: "State",
-          variable_name: "state",
-          value: customerInfo.state,
-        },
-        {
-          display_name: "Cart Items",
-          variable_name: "cartItems",
-          value: JSON.stringify(cartItems),
-        },
-      ],
-    },
     publicKey,
     text: "Place Order & Pay",
     onSuccess: async (reference: PaystackReference) => {
@@ -151,7 +168,7 @@ const CheckoutPage = () => {
           console.log("Transaction saved successfully:", result.transaction);
           showToast(
             "Payment successful! Your order has been placed and recorded.",
-            "success"
+            "success",
           );
           clearCart();
 
@@ -163,7 +180,7 @@ const CheckoutPage = () => {
           console.error("Failed to save transaction:", result.message);
           showToast(
             "Payment successful! Your order has been placed.",
-            "success"
+            "success",
           );
           clearCart();
         }
@@ -213,7 +230,7 @@ const CheckoutPage = () => {
         if (result.success) {
           console.log(
             "Failed transaction saved successfully:",
-            result.transaction
+            result.transaction,
           );
         } else {
           console.error("Failed to save failed transaction:", result.message);
@@ -224,7 +241,7 @@ const CheckoutPage = () => {
 
       showToast(
         "Payment was not completed. Your items are still in your cart.",
-        "error"
+        "error",
       );
     },
   };
@@ -241,7 +258,7 @@ const CheckoutPage = () => {
     ) {
       showToast(
         "Please fill in all required fields before proceeding to payment.",
-        "warning"
+        "warning",
       );
       return;
     }
@@ -276,6 +293,10 @@ const CheckoutPage = () => {
 
   return (
     <>
+      <Script
+        src="https://js.paystack.co/v1/inline.js"
+        strategy="afterInteractive"
+      />
       <Toast
         message={toast.message}
         type={toast.type}
@@ -311,33 +332,9 @@ const CheckoutPage = () => {
 
                     <div className="flex-1">
                       <h3 className="font-semibold">{item.title}</h3>
-                      <p className="text-gray-600">
-                        ₦
-                        {new Intl.NumberFormat("en-NG").format(
-                          parseFloat(item.price)
-                        )}
-                      </p>
-                    </div>
-
-                    <div className="text-right">
-                      <p className="font-semibold">
-                        ₦
-                        {new Intl.NumberFormat("en-NG").format(
-                          parseFloat(item.price) * item.quantity
-                        )}
-                      </p>
                     </div>
                   </div>
                 ))}
-              </div>
-
-              <div className="mt-6 pt-4 border-t">
-                <div className="flex justify-between items-center text-xl font-bold">
-                  <span>Total:</span>
-                  <span>
-                    ₦{new Intl.NumberFormat("en-NG").format(getTotalPrice())}
-                  </span>
-                </div>
               </div>
             </div>
 
@@ -462,10 +459,13 @@ const CheckoutPage = () => {
                   customerInfo.address &&
                   customerInfo.city &&
                   customerInfo.state ? (
-                    <PaystackButton
-                      {...paystackProps}
+                    <button
+                      type="button"
+                      onClick={initializePayment}
                       className="w-full btn bg-black text-white py-3 rounded-md transition-colors"
-                    />
+                    >
+                      Place Order & Pay
+                    </button>
                   ) : (
                     <button
                       type="button"
